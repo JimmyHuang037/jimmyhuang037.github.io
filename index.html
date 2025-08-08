@@ -95,7 +95,11 @@
       
         <p><strong>唯一键unique</strong><br>也是一个表的唯一标识符，但是唯一键可以有多个。<br>eg.学生表的学号和名字都可以作为唯一键。</p>
 <h1 id="超级无敌学生老师管理系统"><a href="#超级无敌学生老师管理系统" class="headerlink" title="超级无敌学生老师管理系统"></a>超级无敌学生老师管理系统</h1><p><strong>问题一</strong><br>同一学号、学科、类型都相同，出错了<br>解决：自连接&amp;多表删除<br>delete s1 from scores s1<br>join scores s2<br>on s1.student_id&#x3D;s2.student_id<br>And s1………..&#x3D;s2………..<br>And s1.id &lt; s2.id</p>
-<p><strong>问题2.1</strong><br>找一个老师的所有学生<br>select<br>count()<br>from表一<br>join表二on 表一.外键&#x3D;表二.主键<br>join表三on 表一.外键&#x3D;表三.主键<br>where表一</p>
+<p><strong>问题2.1找一个老师的所有学生</strong><br>select<br><em>count()</em><br>from表一<br>join表二on 表一.主键&#x3D;表二.外键<br>join表三on 表一.主键&#x3D;表三.外键<br>where表一.主键&#x3D;”老师姓名”<br>group by 表一.主键</p>
+<p><strong>问题2.2算出一个老师所有学生的平均分</strong><br>select<br><em>avg()</em><br>from表一<br>join表二on 表一.主键&#x3D;表二.外键<br>join表三on 表一.主键&#x3D;表三.外键<br>where表一.主键&#x3D;”老师姓名”<br>group by 表一.主键</p>
+<p><strong>问题2.3找一个老师所有学生的最高分</strong><br>select<br>from表一<br>join表二on 表一.主键&#x3D;表二.外键<br>join表三on 表一.主键&#x3D;表三.外键<br>where表一.主键&#x3D;”老师姓名”<br>group by 表一.主键<br><em>order by 表三.成绩 desc</em><br><em>limit 1</em></p>
+<h2 id="知识点罗列"><a href="#知识点罗列" class="headerlink" title="知识点罗列"></a>知识点罗列</h2><p>自连接，多表删除，聚合函数（count，avg，max，min，sum），group by，order by，limit，join（一个表and是多重条件，不同表之间多个join）</p>
+<h3 id="待学习"><a href="#待学习" class="headerlink" title="待学习"></a>待学习</h3><p>左连接，右连接，内连接，全连接<br>查询各个班年级<strong>前100</strong>学生数量，并排序<br><strong>flask框架</strong>搞搞清楚，<br>怎么<strong>连接数据库</strong>关键词！！！<br>喂<strong>xml，pdf，json，html，excel，csv，txt</strong>怎么处理</p>
 
       
     </div>
@@ -104,6 +108,8 @@
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
+
     </footer>
   </div>
   
