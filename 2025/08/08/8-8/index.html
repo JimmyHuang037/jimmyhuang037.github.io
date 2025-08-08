@@ -14,8 +14,9 @@
 <meta property="og:description" content="昨日理解关系表的概念之一主键是一个表的的唯一标识符外键一个表的主键在另一个表则称为外键eg.students.id &amp; scores.id均为两个表的主键；scores.student_id指向students.student_id为外键索引加快查找速度辨析：没有索引，逐页翻字典；有索引，已创建索引目录，查找时直接定位目标，再摊开数据eg.PRIMARY KEY (id) –再创建scor">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-08T06:00:22.000Z">
-<meta property="article:modified_time" content="2025-08-08T06:34:56.520Z">
+<meta property="article:modified_time" content="2025-08-08T06:37:39.249Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="db">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -96,7 +97,7 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>昨日理解关系表的概念之一<br><strong>主键</strong><br>是一个表的的唯一标识符<br><strong>外键</strong><br>一个表的主键在另一个表则称为外键<br>eg.students.id &amp; scores.id均为两个表的主键；<br>scores.student_id指向students.student_id为外键<br><strong>索引</strong><br>加快查找速度<br>辨析：没有索引，逐页翻字典；有索引，已创建索引目录，查找时直接定位目标，再摊开数据<br>eg.PRIMARY KEY (id) –再创建scores表的语句<br>采用select * from scores where student_id &#x3D;”S1001”创建索引目录，即S1001&#x3D;【1,11】，S1001&#x3D;【2】，S1003&#x3D;【3】，直接定位到第三行，id&#x3D;3查找完毕</p>
-
+<span id="more"></span>
       
     </div>
     <footer class="article-footer">
@@ -104,6 +105,8 @@
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
+
     </footer>
   </div>
   
@@ -130,9 +133,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/db/" style="font-size: 10px;">db</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
