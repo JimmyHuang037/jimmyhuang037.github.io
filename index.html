@@ -71,6 +71,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-8-8-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/08/8-8-2/" class="article-date">
+  <time class="dt-published" datetime="2025-08-08T15:58:48.000Z" itemprop="datePublished">2025-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/08/08/8-8-2/">8/8/2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>唯一键unique</strong><br>也是一个表的唯一标识符，但是唯一键可以有多个。<br>eg.学生表的学号和名字都可以作为唯一键。</p>
+<h1 id="超级无敌学生老师管理系统"><a href="#超级无敌学生老师管理系统" class="headerlink" title="超级无敌学生老师管理系统"></a>超级无敌学生老师管理系统</h1><p><strong>问题一</strong><br>同一学号、学科、类型都相同，出错了<br>解决：自连接&amp;多表删除<br>delete s1 from scores s1<br>join scores s2<br>on s1.student_id&#x3D;s2.student_id<br>And s1………..&#x3D;s2………..<br>And s1.id &lt; s2.id</p>
+<p><strong>问题2.1</strong><br>找一个老师的所有学生<br>select<br>count()<br>from表一<br>join表二on 表一.外键&#x3D;表二.主键<br>join表三on 表一.外键&#x3D;表三.主键<br>where表一</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/08/8-8-2/" data-id="cme31jbpt00006y2ihoh0bc8s" data-title="8/8/2" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-8-8" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/08/08/8-8/" class="article-date">
@@ -210,6 +251,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/08/08/8-8-2/">8/8/2</a>
+          </li>
         
           <li>
             <a href="/2025/08/08/8-8/">8/8</a>
