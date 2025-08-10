@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>8/10 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="警钟长鸣——复制空表格，仍然反复检查为何数据无法导入表扬进入年级前100最多的班级1 生成数据可研究：excel一条命令，生成1000行连续自然数，然后随机英文名     这次chatgpt让我逃课 2 导入数据库vscode集成度很高，点按钮自动导入可研究：①为什么class有null产生 记住：①db插件，铅笔状图标可直接修改设计表②pandas库可转换excel为csv 3  写SQL语句3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8&#x2F;10">
+<meta property="og:url" content="http://example.com/2025/08/11/8-10/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="警钟长鸣——复制空表格，仍然反复检查为何数据无法导入表扬进入年级前100最多的班级1 生成数据可研究：excel一条命令，生成1000行连续自然数，然后随机英文名     这次chatgpt让我逃课 2 导入数据库vscode集成度很高，点按钮自动导入可研究：①为什么class有null产生 记住：①db插件，铅笔状图标可直接修改设计表②pandas库可转换excel为csv 3  写SQL语句3">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-08-10T16:59:16.000Z">
+<meta property="article:modified_time" content="2025-08-10T17:32:20.685Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="db">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -69,9 +74,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-8-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-8-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/08/11/8-10/" class="article-date">
   <time class="dt-published" datetime="2025-08-10T16:59:16.000Z" itemprop="datePublished">2025-08-11</time>
@@ -84,8 +87,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/08/11/8-10/">8/10</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      8/10
     </h1>
   
 
@@ -114,103 +117,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-8-8-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/08/08/8-8-2/" class="article-date">
-  <time class="dt-published" datetime="2025-08-08T15:58:48.000Z" itemprop="datePublished">2025-08-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/08/08/8-8-2/">8/8/2</a>
-    </h1>
+    <a href="/2025/08/08/8-8-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">8/8/2</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>唯一键unique</strong><br>也是一个表的唯一标识符，但是唯一键可以有多个。<br>eg.学生表的学号和名字都可以作为唯一键。</p>
-<h1 id="超级无敌学生老师管理系统"><a href="#超级无敌学生老师管理系统" class="headerlink" title="超级无敌学生老师管理系统"></a>超级无敌学生老师管理系统</h1><p><strong>问题一</strong><br>同一学号、学科、类型都相同，出错了<br>解决：自连接&amp;多表删除<br>delete s1 from scores s1<br>join scores s2<br>on s1.student_id&#x3D;s2.student_id<br>And s1………..&#x3D;s2………..<br>And s1.id &lt; s2.id</p>
-<p><strong>问题2.1找一个老师的所有学生</strong><br>select<br><em>count()</em><br>from表一<br>join表二on 表一.主键&#x3D;表二.外键<br>join表三on 表一.主键&#x3D;表三.外键<br>where表一.主键&#x3D;”老师姓名”<br>group by 表一.主键</p>
-<p><strong>问题2.2算出一个老师所有学生的平均分</strong><br>select<br><em>avg()</em><br>from表一<br>join表二on 表一.主键&#x3D;表二.外键<br>join表三on 表一.主键&#x3D;表三.外键<br>where表一.主键&#x3D;”老师姓名”<br>group by 表一.主键</p>
-<p><strong>问题2.3找一个老师所有学生的最高分</strong><br>select<br>from表一<br>join表二on 表一.主键&#x3D;表二.外键<br>join表三on 表一.主键&#x3D;表三.外键<br>where表一.主键&#x3D;”老师姓名”<br>group by 表一.主键<br><em>order by 表三.成绩 desc</em><br><em>limit 1</em></p>
-<h2 id="知识点罗列"><a href="#知识点罗列" class="headerlink" title="知识点罗列"></a>知识点罗列</h2><p>自连接，多表删除，聚合函数（count，avg，max，min，sum），group by，order by，limit，join（一个表and是多重条件，不同表之间多个join）</p>
-<h3 id="待学习"><a href="#待学习" class="headerlink" title="待学习"></a>待学习</h3><p>左连接，右连接，内连接，全连接<br>查询各个班年级<strong>前100</strong>学生数量，并排序<br><strong>flask框架</strong>搞搞清楚，<br>怎么<strong>连接数据库</strong>关键词！！！<br>喂<strong>xml，pdf，json，html，excel，csv，txt</strong>怎么处理</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/08/8-8-2/" data-id="cme31jbpt00006y2ihoh0bc8s" data-title="8/8/2" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-8-8" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/08/08/8-8/" class="article-date">
-  <time class="dt-published" datetime="2025-08-08T06:00:22.000Z" itemprop="datePublished">2025-08-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/08/08/8-8/">8/8</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>昨日理解关系表的概念之一<br><strong>主键</strong><br>是一个表的的唯一标识符<br><strong>外键</strong><br>一个表的主键在另一个表则称为外键<br>eg.students.id &amp; scores.id均为两个表的主键；<br>scores.student_id指向students.student_id为外键<br><strong>索引</strong><br>加快查找速度<br>辨析：没有索引，逐页翻字典；有索引，已创建索引目录，查找时直接定位目标，再摊开数据<br>eg.PRIMARY KEY (id) –再创建scores表的语句<br>采用select * from scores where student_id &#x3D;”S1001”创建索引目录，即S1001&#x3D;【1,11】，S1001&#x3D;【2】，S1003&#x3D;【3】，直接定位到第三行，id&#x3D;3查找完毕</p>
-        
-          <p class="article-more-link">
-            <a href="/2025/08/08/8-8/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/08/8-8/" data-id="cme2gcbyn0000rx2i5lipervm" data-title="8/8" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
