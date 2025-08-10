@@ -14,7 +14,7 @@
 <meta property="og:description" content="警钟长鸣——复制空表格，仍然反复检查为何数据无法导入表扬进入年级前100最多的班级1 生成数据可研究：excel一条命令，生成1000行连续自然数，然后随机英文名     这次chatgpt让我逃课 2 导入数据库vscode集成度很高，点按钮自动导入可研究：①为什么class有null产生 记住：①db插件，铅笔状图标可直接修改设计表②pandas库可转换excel为csv 3  写SQL语句3">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-10T16:59:16.000Z">
-<meta property="article:modified_time" content="2025-08-10T17:32:20.685Z">
+<meta property="article:modified_time" content="2025-08-10T17:37:53.069Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="db">
 <meta name="twitter:card" content="summary">
@@ -96,13 +96,13 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="警钟长鸣——"><a href="#警钟长鸣——" class="headerlink" title="警钟长鸣——"></a>警钟长鸣——</h1><h1 id="复制空表格，仍然反复检查为何数据无法导入"><a href="#复制空表格，仍然反复检查为何数据无法导入" class="headerlink" title="复制空表格，仍然反复检查为何数据无法导入"></a>复制空表格，仍然反复检查为何数据无法导入</h1><h1 id="表扬进入年级前100最多的班级"><a href="#表扬进入年级前100最多的班级" class="headerlink" title="表扬进入年级前100最多的班级"></a>表扬进入年级前100最多的班级</h1><h2 id="1-生成数据"><a href="#1-生成数据" class="headerlink" title="1 生成数据"></a>1 生成数据</h2><p>可研究：<strong>excel一条命令，生成1000行连续自然数，然后随机英文名</strong><br>     这次chatgpt让我逃课</p>
+        <h1 id="警钟长鸣——"><a href="#警钟长鸣——" class="headerlink" title="警钟长鸣——"></a>警钟长鸣——</h1><h1 id="复制空表格，仍然反复检查为何数据无法导入"><a href="#复制空表格，仍然反复检查为何数据无法导入" class="headerlink" title="复制空表格，仍然反复检查为何数据无法导入"></a>复制空表格，仍然反复检查为何数据无法导入</h1><h1 id="表扬进入年级前100最多的班级"><a href="#表扬进入年级前100最多的班级" class="headerlink" title="表扬进入年级前100最多的班级"></a>表扬进入年级前100最多的班级</h1><h2 id="1-生成数据"><a href="#1-生成数据" class="headerlink" title="1 生成数据"></a>1 生成数据</h2><p><font color="red">可研究：excel一条命令，生成1000行连续自然数，然后随机英文名</font><br>     这次chatgpt让我逃课</p>
 <h2 id="2-导入数据库"><a href="#2-导入数据库" class="headerlink" title="2 导入数据库"></a>2 导入数据库</h2><p>vscode集成度很高，点按钮自动导入<br>可研究：<strong>①为什么class有null产生</strong></p>
 <p>记住：<br>①db插件，<strong>铅笔</strong>状图标可直接修改设计表<br>②pandas库可转换excel为csv</p>
 <h2 id="3-写SQL语句"><a href="#3-写SQL语句" class="headerlink" title="3  写SQL语句"></a>3  写SQL语句</h2><h3 id="3-1计算学生总分"><a href="#3-1计算学生总分" class="headerlink" title="3.1计算学生总分"></a>3.1计算学生总分</h3><p>with 总成绩 as(<br>    select<br>        学号，<br>        班级，<br>        姓名，<br>        sum(case when 科目&#x3D;’语文’ then 成绩 else 0 end) *3遍 as total<br>    from 学生表<br>    left join<br>)<br><strong>知识点</strong><br>CTE：with…as() 称为CTE共同表表达式，用于<strong>临时表</strong>，可嵌套<br>左连接：left join以学生表为准，成绩如果多就让他多</p>
 <h3 id="3-2-计算所有学生排名"><a href="#3-2-计算所有学生排名" class="headerlink" title="3.2 计算所有学生排名"></a>3.2 计算所有学生排名</h3><p>排名(<br>select<br>    总成绩.学号,<br>    总成绩.班级,<br>    总成绩.姓名,<br>    row_number()over(order by总分)<br>from <strong>总成绩</strong>（不要引用错表格）</p>
 <p>)<strong>,</strong><br><strong>知识点</strong><br>排序窗口函数：row_number()over(order by 字段) 用于<strong>排名</strong></p>
-<h3 id="3-3-计算班级排名"><a href="#3-3-计算班级排名" class="headerlink" title="3.3 计算班级排名"></a>3.3 计算班级排名</h3><p>select<br>    <strong>count(排名)</strong><br>from<br>join<br>order by</p>
+<h3 id="3-3-计算班级排名"><a href="#3-3-计算班级排名" class="headerlink" title="3.3 计算班级排名"></a>3.3 计算班级排名</h3><p>select<br>    <strong>count(排名)</strong><br>from<br>join<br>order by<br><font color="red">可优化：添加语文老师为班主任，只找到他一个人即代表该班的前100人数，而不是手工where A or B or C or D</font></p>
 <h4 id="小细节"><a href="#小细节" class="headerlink" title="小细节"></a>小细节</h4><p>select都要逗号，除了最后一个字段<br>select字段1,2,3,就是新建一张表格的列1,2,3<br><strong>update</strong> update set 字段&#x3D;新值 where xxx between 1 and 200<br>学会用IN (‘A’,’B’)，写多值条件；区分 AND 与 OR<br>group by必须包含所有<strong>非聚合列</strong></p>
 
       
