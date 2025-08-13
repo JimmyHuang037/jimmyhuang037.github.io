@@ -71,6 +71,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-8-12" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/13/8-12/" class="article-date">
+  <time class="dt-published" datetime="2025-08-13T02:09:36.000Z" itemprop="datePublished">2025-08-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/08/13/8-12/">8/12</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="一定要SOP！！！！！！！！否则你将被同一段相似代码折磨一辈子"><a href="#一定要SOP！！！！！！！！否则你将被同一段相似代码折磨一辈子" class="headerlink" title="一定要SOP！！！！！！！！否则你将被同一段相似代码折磨一辈子"></a>一定要SOP！！！！！！！！否则你将被同一段相似代码折磨一辈子</h1><h1 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h1><p>import mysql.connector<br>conn &#x3D; mysql.connector.connect(host&#x3D;’localhost’, user,db,password,port)&#x2F;&#x2F;<strong>引号不能漏！！！</strong><br>cursor &#x3D; conn.cursor()&#x2F;&#x2F;创建游标<br>cursor.execute(‘select * from students’)&#x2F;&#x2F;执行查询<br>result &#x3D; cursor.fetchall()&#x2F;&#x2F;获取查询结果<br>print(result)<br>conn.close()&#x2F;&#x2F;关闭连接<br>cursor.close()&#x2F;&#x2F;关闭游标</p>
+<h1 id="mfsapi总体框架"><a href="#mfsapi总体框架" class="headerlink" title="mfsapi总体框架"></a>mfsapi总体框架</h1><p>浏览器发起http请求-&gt; flask接收请求 create_app()-&gt; 分发给蓝图路由-&gt; 蓝图路由调用db连接的函数-&gt; 执行sql查询-&gt; flask返回结果，转换为json-》浏览器显示结果</p>
+<h1 id="从0开始"><a href="#从0开始" class="headerlink" title="从0开始"></a>从0开始</h1><h2 id="1搭建虚拟机环境"><a href="#1搭建虚拟机环境" class="headerlink" title="1搭建虚拟机环境"></a>1搭建虚拟机环境</h2><p>理清思路：</p>
+<h3 id="1-1本地windows-1-2dns解析为主机ip-1-3检查防火墙tcp端口22是否放行-1-4服务器ubuntu-openssh-server启动-ssh会话建立"><a href="#1-1本地windows-1-2dns解析为主机ip-1-3检查防火墙tcp端口22是否放行-1-4服务器ubuntu-openssh-server启动-ssh会话建立" class="headerlink" title="1.1本地windows -&gt;1.2dns解析为主机ip -&gt;1.3检查防火墙tcp端口22是否放行-&gt;1.4服务器ubuntu openssh-server启动-&gt;ssh会话建立"></a>1.1本地windows -&gt;1.2dns解析为主机ip -&gt;1.3检查防火墙tcp端口22是否放行-&gt;1.4服务器ubuntu openssh-server启动-&gt;ssh会话建立</h3><p>实操：<br>ping 主机.mshome.net（mshome.net是hyper-v虚拟机的域名）<br>再ssh 用户名@你的主机名.mshome.net or ssh 用户名@172.</p>
+<p>检查：防火墙sudo ufw allow ssh<br>sudo ufw status和ssh服务sudo apt update<br>sudo apt install openssh-server<br>sudo systemctl <strong>enable</strong> ssh<br>sudo systemctl start ssh</p>
+<h2 id="2免密登录，保存登录信息"><a href="#2免密登录，保存登录信息" class="headerlink" title="2免密登录，保存登录信息"></a>2免密登录，保存登录信息</h2><p>本地生成密钥对——登录虚拟机——创建ssh目录——本地复制公钥到虚拟机——测试免密登录<br>ssh-keygen -t rsa -b 4096 -C “你的邮箱”<br>ssh <a href="mailto:&#x6a;&#x69;&#109;&#109;&#x79;&#x40;&#x31;&#55;&#x32;&#x2e;&#x32;&#x34;&#46;&#x34;&#57;&#x2e;&#x31;&#x39;&#x39;">&#x6a;&#x69;&#109;&#109;&#x79;&#x40;&#x31;&#55;&#x32;&#x2e;&#x32;&#x34;&#46;&#x34;&#57;&#x2e;&#x31;&#x39;&#x39;</a><br>mkdir -p ~&#x2F;.ssh<br>chmod 700 ~&#x2F;.ssh<br>type C:\Users\JimmyHuang.ssh\id_ed25519.pub | ssh <a href="mailto:&#x6a;&#105;&#x6d;&#109;&#121;&#64;&#49;&#55;&#50;&#46;&#50;&#52;&#x2e;&#x34;&#x39;&#x2e;&#49;&#57;&#57;">&#x6a;&#105;&#x6d;&#109;&#121;&#64;&#49;&#55;&#50;&#46;&#50;&#52;&#x2e;&#x34;&#x39;&#x2e;&#49;&#57;&#57;</a> “cat &gt;&gt; ~&#x2F;.ssh&#x2F;authorized_keys &amp;&amp; chmod 600 ~&#x2F;.ssh&#x2F;authorized_keys”<br>ls -l ~&#x2F;.ssh<br>cat ~&#x2F;.ssh&#x2F;authorized_keys<br>ssh -i C:\Users\JimmyHuang.ssh\id_ed25519 <a href="mailto:&#106;&#105;&#109;&#109;&#121;&#64;&#49;&#55;&#50;&#x2e;&#x32;&#52;&#46;&#52;&#x39;&#46;&#x31;&#57;&#57;">&#106;&#105;&#109;&#109;&#121;&#64;&#49;&#55;&#50;&#x2e;&#x32;&#52;&#46;&#52;&#x39;&#46;&#x31;&#57;&#57;</a></p>
+<h3 id="VS-Code-新终端默认进入虚拟机环境"><a href="#VS-Code-新终端默认进入虚拟机环境" class="headerlink" title="VS Code 新终端默认进入虚拟机环境"></a>VS Code 新终端默认进入虚拟机环境</h3><p>确保已装 Remote - SSH 插件。<br>编辑本地 C:\Users\JimmyHuang.ssh\config，添加：<br>Host vm-jimmy<br>    HostName jimmy.mshome.net<br>    User jimmy<br>    IdentityFile C:&#x2F;Users&#x2F;JimmyHuang&#x2F;.ssh&#x2F;id_ed25519</p>
+<h2 id="3启动mysql服务"><a href="#3启动mysql服务" class="headerlink" title="3启动mysql服务"></a>3启动mysql服务</h2><p>安装——启动——配置——初始化&amp;授权——建db建表插数据<br>1sudo apt update<br>sudo apt install mysql-server<br>2sudo systemctl start mysql<br>sudo mysql -u root -p<br>3.1 检查配置文件<br>sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>bind-address &#x3D; <strong>0.0.0.0</strong><br>sudo systemctl restart mysql<br>3.2防火墙<br>sudo ufw allow 3306(这里打开vm的fwd，不用打开宿主机的fw，因为用的是localhost访问mysql服务)<br>sudo ufw reload<br>4CREATE DATABASE scout;<br><font color='red'>只授予localhost权限即只能从vm访问db！！！CREATE USER ‘jimmy‘@’localhost’ IDENTIFIED BY ‘你的密码’;GRANT ALL PRIVILEGES ON scout.* TO ‘jimmy‘@’localhost’;</font><br><font color='orange'>** 要允许任意ip访问！！！create user ‘jimmy‘@’%’ identified by ‘你的密码’;<br>grant all privileges on scout.* to ‘jimmy‘@’%’; **<br></font><br>FLUSH PRIVILEGES;<br>5mysql -u root -p scout<br>create table scout(<br>    id int auto_increment primary key,<br>    actor varchar(255)<br>)<br>insert into scout(actor) values (‘jimmy’)；<strong>引号！！！</strong></p>
+<h2 id="4python环境"><a href="#4python环境" class="headerlink" title="4python环境"></a>4python环境</h2><p>#!&#x2F;bin&#x2F;bash</p>
+<h3 id="文件名：setup-env-sh"><a href="#文件名：setup-env-sh" class="headerlink" title="文件名：setup_env.sh"></a>文件名：setup_env.sh</h3><h3 id="1-创建并进入项目目录"><a href="#1-创建并进入项目目录" class="headerlink" title="1. 创建并进入项目目录"></a>1. 创建并进入项目目录</h3><p>mkdir -p ~&#x2F;myproject<br>cd ~&#x2F;myproject</p>
+<h3 id="2-创建虚拟环境"><a href="#2-创建虚拟环境" class="headerlink" title="2. 创建虚拟环境"></a>2. 创建虚拟环境</h3><p>python3 -m venv venv</p>
+<h3 id="3-激活虚拟环境"><a href="#3-激活虚拟环境" class="headerlink" title="3. 激活虚拟环境"></a>3. 激活虚拟环境</h3><p>source venv&#x2F;bin&#x2F;activate</p>
+<h3 id="4-升级-pip"><a href="#4-升级-pip" class="headerlink" title="4. 升级 pip"></a>4. 升级 pip</h3><p>pip install –upgrade pip</p>
+<h3 id="5-安装常用包"><a href="#5-安装常用包" class="headerlink" title="5. 安装常用包"></a>5. 安装常用包</h3><p>pip install flask mysql-connector-python requests</p>
+<p>echo “✅ 虚拟环境已配置完成！”</p>
+<h3 id="6启动python"><a href="#6启动python" class="headerlink" title="6启动python"></a>6启动python</h3><p>sudo apt update<br>sudo apt install python-is-python3</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>反思：那么多看过三四遍的步骤还要查半天，先归因于sop不足<br>简单版1hostname -I2ping vm的ip3ssh 用户名@vm的ip<br>sql：安装，启动，配置，初始化&amp;授权，建db建表插数据<br>又卡死的输入db的ip：理解错了【配置】用的是localhost访问mysql服务，</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/13/8-12/" data-id="cme9f0qmh0000lw2ibxcmey6e" data-title="8/12" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db-python/" rel="tag">db, python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-8-11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/08/13/8-11/" class="article-date">
@@ -93,7 +150,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="目标-windows端连接虚拟机db"><a href="#目标-windows端连接虚拟机db" class="headerlink" title="目标 windows端连接虚拟机db"></a>目标 windows端连接虚拟机db</h1><p>记住：<br>1 启动MYsql服务器<br>sudo systemctl status mysql &amp;&amp; sudo systemctl start mysql<br>2 检查配置文件<br>sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>bind-address &#x3D; <strong>0.0.0.0</strong><br>sudo systemctl restart mysql<br>3检查用户权限<br>mysql -u root -p<br>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘your_user‘@’%’ IDENTIFIED BY ‘your_password’ WITH GRANT OPTION;<br>FLUSH PRIVILEGES;<br>4防火墙<br>sudo ufw allow 3306<br>sudo ufw reload<br>5 命令行测试<br>mysql -h your_ip -u your_user -p</p>
+        <h1 id="目标-windows端连接虚拟机db-sop见8-12"><a href="#目标-windows端连接虚拟机db-sop见8-12" class="headerlink" title="目标 windows端连接虚拟机db sop见8&#x2F;12"></a>目标 windows端连接虚拟机db sop见8&#x2F;12</h1><p>记住：<br>1 启动MYsql服务器<br>sudo systemctl status mysql &amp;&amp; sudo systemctl start mysql<br>2 检查配置文件<br>sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>bind-address &#x3D; <strong>0.0.0.0</strong><br>sudo systemctl restart mysql<br>3检查用户权限<br>mysql -u root -p<br>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘your_user‘@’%’ IDENTIFIED BY ‘your_password’ WITH GRANT OPTION;<br>FLUSH PRIVILEGES;<br>4防火墙<br>sudo ufw allow 3306<br>sudo ufw reload<br>5 命令行测试<br>mysql -h your_ip -u your_user -p</p>
 <h2 id="数据库名称不要忘记填写"><a href="#数据库名称不要忘记填写" class="headerlink" title="数据库名称不要忘记填写"></a>数据库名称不要忘记填写</h2><h2 id="csv-格式"><a href="#csv-格式" class="headerlink" title="csv 格式"></a>csv 格式</h2><p>id, actor, acrobatics<br>1,jimmy,skip<br>2,henry,clown</p>
 <h1 id="函数依赖＆第一、二、三范式"><a href="#函数依赖＆第一、二、三范式" class="headerlink" title="函数依赖＆第一、二、三范式"></a>函数依赖＆第一、二、三范式</h1><p>函数依赖：<br>    部分依赖：复合主键(A,B)，只要一个主键A就能决定另一个列C 就称C部分依赖A<br>    完全依赖：复合主键(A,B)，两个主键都必须存在才能决定另一个列C 就称C完全依赖AB<br>    传递依赖：A -&gt; B -&gt; C，A决定B，B决定C，则称C传递依赖AB<br>1NF:不能一个表头有多个数值<br>2NF：完全、传递依赖<br>3NF：完全依赖</p>
 <h1 id="python中cors跨域"><a href="#python中cors跨域" class="headerlink" title="python中cors跨域"></a>python中cors跨域</h1><p>cors跨域是什么：解决浏览器同源策略限制，当浏览器发起请求给服务器，服务器响应回来的数据浏览器不接受，因为浏览器认为这是一个跨域请求，所以浏览器会拒绝接受。</p>
@@ -269,7 +326,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db-python/" rel="tag">db, python</a></li></ul>
     </div>
   </div>
 
@@ -279,7 +336,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/db/" style="font-size: 10px;">db</a>
+      <a href="/tags/db/" style="font-size: 20px;">db</a> <a href="/tags/db-python/" style="font-size: 10px;">db, python</a>
     </div>
   </div>
 
@@ -299,6 +356,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/08/13/8-12/">8/12</a>
+          </li>
         
           <li>
             <a href="/2025/08/13/8-11/">8/11</a>

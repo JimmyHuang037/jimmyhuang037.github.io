@@ -6,15 +6,15 @@
   
   <title>8/11 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="目标 windows端连接虚拟机db记住：1 启动MYsql服务器sudo systemctl status mysql &amp;&amp; sudo systemctl start mysql2 检查配置文件sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnfbind-address &#x3D; 0.0.0.0sud">
+  <meta name="description" content="目标 windows端连接虚拟机db sop见8&#x2F;12记住：1 启动MYsql服务器sudo systemctl status mysql &amp;&amp; sudo systemctl start mysql2 检查配置文件sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnfbind-address &amp;#x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8&#x2F;11">
 <meta property="og:url" content="http://example.com/2025/08/13/8-11/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="目标 windows端连接虚拟机db记住：1 启动MYsql服务器sudo systemctl status mysql &amp;&amp; sudo systemctl start mysql2 检查配置文件sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnfbind-address &#x3D; 0.0.0.0sud">
+<meta property="og:description" content="目标 windows端连接虚拟机db sop见8&#x2F;12记住：1 启动MYsql服务器sudo systemctl status mysql &amp;&amp; sudo systemctl start mysql2 检查配置文件sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnfbind-address &amp;#x">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-13T01:29:21.000Z">
-<meta property="article:modified_time" content="2025-08-13T02:07:45.186Z">
+<meta property="article:modified_time" content="2025-08-13T03:13:54.036Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="db">
 <meta name="twitter:card" content="summary">
@@ -96,7 +96,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="目标-windows端连接虚拟机db"><a href="#目标-windows端连接虚拟机db" class="headerlink" title="目标 windows端连接虚拟机db"></a>目标 windows端连接虚拟机db</h1><p>记住：<br>1 启动MYsql服务器<br>sudo systemctl status mysql &amp;&amp; sudo systemctl start mysql<br>2 检查配置文件<br>sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>bind-address &#x3D; <strong>0.0.0.0</strong><br>sudo systemctl restart mysql<br>3检查用户权限<br>mysql -u root -p<br>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘your_user‘@’%’ IDENTIFIED BY ‘your_password’ WITH GRANT OPTION;<br>FLUSH PRIVILEGES;<br>4防火墙<br>sudo ufw allow 3306<br>sudo ufw reload<br>5 命令行测试<br>mysql -h your_ip -u your_user -p</p>
+        <h1 id="目标-windows端连接虚拟机db-sop见8-12"><a href="#目标-windows端连接虚拟机db-sop见8-12" class="headerlink" title="目标 windows端连接虚拟机db sop见8&#x2F;12"></a>目标 windows端连接虚拟机db sop见8&#x2F;12</h1><p>记住：<br>1 启动MYsql服务器<br>sudo systemctl status mysql &amp;&amp; sudo systemctl start mysql<br>2 检查配置文件<br>sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>bind-address &#x3D; <strong>0.0.0.0</strong><br>sudo systemctl restart mysql<br>3检查用户权限<br>mysql -u root -p<br>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘your_user‘@’%’ IDENTIFIED BY ‘your_password’ WITH GRANT OPTION;<br>FLUSH PRIVILEGES;<br>4防火墙<br>sudo ufw allow 3306<br>sudo ufw reload<br>5 命令行测试<br>mysql -h your_ip -u your_user -p</p>
 <h2 id="数据库名称不要忘记填写"><a href="#数据库名称不要忘记填写" class="headerlink" title="数据库名称不要忘记填写"></a>数据库名称不要忘记填写</h2><h2 id="csv-格式"><a href="#csv-格式" class="headerlink" title="csv 格式"></a>csv 格式</h2><p>id, actor, acrobatics<br>1,jimmy,skip<br>2,henry,clown</p>
 <h1 id="函数依赖＆第一、二、三范式"><a href="#函数依赖＆第一、二、三范式" class="headerlink" title="函数依赖＆第一、二、三范式"></a>函数依赖＆第一、二、三范式</h1><p>函数依赖：<br>    部分依赖：复合主键(A,B)，只要一个主键A就能决定另一个列C 就称C部分依赖A<br>    完全依赖：复合主键(A,B)，两个主键都必须存在才能决定另一个列C 就称C完全依赖AB<br>    传递依赖：A -&gt; B -&gt; C，A决定B，B决定C，则称C传递依赖AB<br>1NF:不能一个表头有多个数值<br>2NF：完全、传递依赖<br>3NF：完全依赖</p>
 <h1 id="python中cors跨域"><a href="#python中cors跨域" class="headerlink" title="python中cors跨域"></a>python中cors跨域</h1><p>cors跨域是什么：解决浏览器同源策略限制，当浏览器发起请求给服务器，服务器响应回来的数据浏览器不接受，因为浏览器认为这是一个跨域请求，所以浏览器会拒绝接受。</p>
@@ -116,6 +116,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2025/08/13/8-12/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          8/12
+        
+      </div>
+    </a>
   
   
     <a href="/2025/08/11/8-10/" id="article-nav-older" class="article-nav-link-wrap">
@@ -140,7 +149,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db-python/" rel="tag">db, python</a></li></ul>
     </div>
   </div>
 
@@ -150,7 +159,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/db/" style="font-size: 10px;">db</a>
+      <a href="/tags/db/" style="font-size: 20px;">db</a> <a href="/tags/db-python/" style="font-size: 10px;">db, python</a>
     </div>
   </div>
 
@@ -170,6 +179,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/08/13/8-12/">8/12</a>
+          </li>
         
           <li>
             <a href="/2025/08/13/8-11/">8/11</a>
