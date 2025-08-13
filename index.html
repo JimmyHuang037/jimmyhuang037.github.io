@@ -71,6 +71,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-8-11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/13/8-11/" class="article-date">
+  <time class="dt-published" datetime="2025-08-13T01:29:21.000Z" itemprop="datePublished">2025-08-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/08/13/8-11/">8/11</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="目标-windows端连接虚拟机db"><a href="#目标-windows端连接虚拟机db" class="headerlink" title="目标 windows端连接虚拟机db"></a>目标 windows端连接虚拟机db</h1><p>记住：<br>1 启动MYsql服务器<br>sudo systemctl status mysql &amp;&amp; sudo systemctl start mysql<br>2 检查配置文件<br>sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>bind-address &#x3D; <strong>0.0.0.0</strong><br>sudo systemctl restart mysql<br>3检查用户权限<br>mysql -u root -p<br>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘your_user‘@’%’ IDENTIFIED BY ‘your_password’ WITH GRANT OPTION;<br>FLUSH PRIVILEGES;<br>4防火墙<br>sudo ufw allow 3306<br>sudo ufw reload<br>5 命令行测试<br>mysql -h your_ip -u your_user -p</p>
+<h2 id="数据库名称不要忘记填写"><a href="#数据库名称不要忘记填写" class="headerlink" title="数据库名称不要忘记填写"></a>数据库名称不要忘记填写</h2><h2 id="csv-格式"><a href="#csv-格式" class="headerlink" title="csv 格式"></a>csv 格式</h2><p>id, actor, acrobatics<br>1,jimmy,skip<br>2,henry,clown</p>
+<h1 id="函数依赖＆第一、二、三范式"><a href="#函数依赖＆第一、二、三范式" class="headerlink" title="函数依赖＆第一、二、三范式"></a>函数依赖＆第一、二、三范式</h1><p>函数依赖：<br>    部分依赖：复合主键(A,B)，只要一个主键A就能决定另一个列C 就称C部分依赖A<br>    完全依赖：复合主键(A,B)，两个主键都必须存在才能决定另一个列C 就称C完全依赖AB<br>    传递依赖：A -&gt; B -&gt; C，A决定B，B决定C，则称C传递依赖AB<br>1NF:不能一个表头有多个数值<br>2NF：完全、传递依赖<br>3NF：完全依赖</p>
+<h1 id="python中cors跨域"><a href="#python中cors跨域" class="headerlink" title="python中cors跨域"></a>python中cors跨域</h1><p>cors跨域是什么：解决浏览器同源策略限制，当浏览器发起请求给服务器，服务器响应回来的数据浏览器不接受，因为浏览器认为这是一个跨域请求，所以浏览器会拒绝接受。</p>
+<p>针对非简单请求，浏览器会先发起一个预检请求<br>后端python如何配置：<br>import flask_cors from CORS<br>CORS(app)<br>就自动带上跨域的头信息Access-Control-Allow-Origin:*<br>辨析：py连db，用的是mysql-connector库，创建游标cursor，执行sql语句，返回结果，关闭连接。<br>curl的地位是重要发起请求工具<br>而前端:5000,回到后端：3000是跨域，由后端配置cors</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/13/8-11/" data-id="cme9bz4fv0000p72i4dpd7k5p" data-title="8/11" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-8-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/08/11/8-10/" class="article-date">
@@ -254,6 +299,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/08/13/8-11/">8/11</a>
+          </li>
         
           <li>
             <a href="/2025/08/11/8-10/">8/10</a>
