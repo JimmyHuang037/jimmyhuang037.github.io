@@ -6,15 +6,15 @@
   
   <title>8/14 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Python虚拟环境问题解决方案(SOP)基础py环境，系统依赖，强制重建虚拟环境，安装项目依赖。 问题现象首次执行python -m venv venv未成功创建虚拟环境 可能原因分析 Python环境未正确安装venv模块 系统缺少必要的依赖包 权限问题导致无法创建目录  标准解决流程 检查基础环境 12345# 确认Python版本python3 --version# 检查venv模块可用性">
+  <meta name="description" content="研究mfsapi的调试Error: Failed to find Flask application or factory in module ‘app’. Use ‘app:name’ to specify one.code .vscode&#x2F;launch.json  “env”: {                “FLASK_APP”: “run.py:create_app”,工厂模">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8&#x2F;14">
 <meta property="og:url" content="http://example.com/2025/08/14/8-14/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Python虚拟环境问题解决方案(SOP)基础py环境，系统依赖，强制重建虚拟环境，安装项目依赖。 问题现象首次执行python -m venv venv未成功创建虚拟环境 可能原因分析 Python环境未正确安装venv模块 系统缺少必要的依赖包 权限问题导致无法创建目录  标准解决流程 检查基础环境 12345# 确认Python版本python3 --version# 检查venv模块可用性">
+<meta property="og:description" content="研究mfsapi的调试Error: Failed to find Flask application or factory in module ‘app’. Use ‘app:name’ to specify one.code .vscode&#x2F;launch.json  “env”: {                “FLASK_APP”: “run.py:create_app”,工厂模">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-14T15:28:31.000Z">
-<meta property="article:modified_time" content="2025-08-14T15:43:17.602Z">
+<meta property="article:modified_time" content="2025-08-14T15:46:24.690Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -95,7 +95,10 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Python虚拟环境问题解决方案-SOP"><a href="#Python虚拟环境问题解决方案-SOP" class="headerlink" title="Python虚拟环境问题解决方案(SOP)"></a>Python虚拟环境问题解决方案(SOP)</h1><p><font color = 'red'>基础py环境，系统依赖，强制重建虚拟环境，安装项目依赖。</font></p>
+        <h1 id="研究mfsapi的调试"><a href="#研究mfsapi的调试" class="headerlink" title="研究mfsapi的调试"></a>研究mfsapi的调试</h1><p>Error: Failed to find Flask application or factory in module ‘app’. Use ‘app:name’ to specify one.<br><strong>code .vscode&#x2F;launch.json</strong><br>  “env”: {<br>                “FLASK_APP”: “<em>run.py</em>:create_app”,<br>工厂模式create_app下,延迟创建app&#x3D;flask(<strong>name</strong>)，传入不同的config类更具灵活性<br>待研究：</p>
+<h2 id="config类？"><a href="#config类？" class="headerlink" title="config类？##"></a>config类？##</h2><p>&amp;<br><strong>if <strong>name</strong> &#x3D;&#x3D; ‘<strong>main</strong>‘:</strong></p>
+<h2 id="没遇到-flask-run导入模块？"><a href="#没遇到-flask-run导入模块？" class="headerlink" title="没遇到  flask run导入模块？##"></a>没遇到  flask run导入模块？##</h2><p>app.run(debug&#x3D;True)</p>
+<h2 id="调试可以运行，但是怎么curl？明天搜索yt吧"><a href="#调试可以运行，但是怎么curl？明天搜索yt吧" class="headerlink" title="调试可以运行，但是怎么curl？明天搜索yt吧"></a>调试可以运行，但是怎么curl？明天搜索yt吧</h2><h1 id="Python虚拟环境问题解决方案-SOP"><a href="#Python虚拟环境问题解决方案-SOP" class="headerlink" title="Python虚拟环境问题解决方案(SOP)"></a>Python虚拟环境问题解决方案(SOP)</h1><p><font color = 'red'>基础py环境，系统依赖，强制重建虚拟环境，安装项目依赖。</font></p>
 <h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>首次执行<code>python -m venv venv</code>未成功创建虚拟环境</p>
 <h2 id="可能原因分析"><a href="#可能原因分析" class="headerlink" title="可能原因分析"></a>可能原因分析</h2><ol>
 <li>Python环境未正确安装venv模块</li>
@@ -128,8 +131,6 @@
 <li>创建虚拟环境时使用完整路径</li>
 <li>检查命令执行后的返回信息</li>
 </ol>
-<h1 id="研究mfsapi的调试"><a href="#研究mfsapi的调试" class="headerlink" title="研究mfsapi的调试"></a>研究mfsapi的调试</h1><p>Error: Failed to find Flask application or factory in module ‘app’. Use ‘app:name’ to specify one.<br><strong>code .vscode&#x2F;launch.json</strong><br>  “env”: {<br>                “FLASK_APP”: “<em>run.py</em>:create_app”,<br>工厂模式create_app下,延迟创建app&#x3D;flask(<strong>name</strong>)，传入不同的config类更具灵活性<br>待研究：config类？&amp;<br>**if <strong>name</strong> &#x3D;&#x3D; ‘<strong>main</strong>‘:**没遇到  flask run导入模块？<br>app.run(debug&#x3D;True)</p>
-<p>调试可以运行，但是怎么curl？明天搜索yt吧</p>
 
       
     </div>
