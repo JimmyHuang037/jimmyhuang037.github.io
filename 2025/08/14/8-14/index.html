@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>8/14 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Python虚拟环境问题解决方案(SOP)基础py环境，系统依赖，强制重建虚拟环境，安装项目依赖。 问题现象首次执行python -m venv venv未成功创建虚拟环境 可能原因分析 Python环境未正确安装venv模块 系统缺少必要的依赖包 权限问题导致无法创建目录  标准解决流程 检查基础环境 12345# 确认Python版本python3 --version# 检查venv模块可用性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8&#x2F;14">
+<meta property="og:url" content="http://example.com/2025/08/14/8-14/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Python虚拟环境问题解决方案(SOP)基础py环境，系统依赖，强制重建虚拟环境，安装项目依赖。 问题现象首次执行python -m venv venv未成功创建虚拟环境 可能原因分析 Python环境未正确安装venv模块 系统缺少必要的依赖包 权限问题导致无法创建目录  标准解决流程 检查基础环境 12345# 确认Python版本python3 --version# 检查venv模块可用性">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-08-14T15:28:31.000Z">
+<meta property="article:modified_time" content="2025-08-14T15:43:17.602Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-8-14" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/14/8-14/" class="article-date">
+  <time class="dt-published" datetime="2025-08-14T15:28:31.000Z" itemprop="datePublished">2025-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      8/14
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Python虚拟环境问题解决方案-SOP"><a href="#Python虚拟环境问题解决方案-SOP" class="headerlink" title="Python虚拟环境问题解决方案(SOP)"></a>Python虚拟环境问题解决方案(SOP)</h1><p><font color = 'red'>基础py环境，系统依赖，强制重建虚拟环境，安装项目依赖。</font></p>
+<h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>首次执行<code>python -m venv venv</code>未成功创建虚拟环境</p>
+<h2 id="可能原因分析"><a href="#可能原因分析" class="headerlink" title="可能原因分析"></a>可能原因分析</h2><ol>
+<li>Python环境未正确安装venv模块</li>
+<li>系统缺少必要的依赖包</li>
+<li>权限问题导致无法创建目录</li>
+</ol>
+<h2 id="标准解决流程"><a href="#标准解决流程" class="headerlink" title="标准解决流程"></a>标准解决流程</h2><ol>
+<li><p><strong>检查基础环境</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 确认Python版本</span></span><br><span class="line">python3 --version</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查venv模块可用性</span></span><br><span class="line">python3 -c <span class="string">&quot;import venv; print(&#x27;venv模块可用&#x27;)&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>安装必要系统依赖</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install python3-venv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>创建虚拟环境</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 强制重建虚拟环境</span></span><br><span class="line"><span class="built_in">rm</span> -rf venv</span><br><span class="line">python3 -m venv venv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>验证虚拟环境</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查激活脚本</span></span><br><span class="line"><span class="built_in">ls</span> venv/bin/activate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试激活</span></span><br><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>安装项目依赖</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install mysql-connector-python</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="首次失败原因总结"><a href="#首次失败原因总结" class="headerlink" title="首次失败原因总结"></a>首次失败原因总结</h2><ol>
+<li>系统可能缺少<code>python3-venv</code>包</li>
+<li>未正确安装Python虚拟环境依赖</li>
+<li>未使用管理员权限安装必要组件</li>
+</ol>
+<h2 id="预防措施"><a href="#预防措施" class="headerlink" title="预防措施"></a>预防措施</h2><ol>
+<li>在新系统上先执行：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install python3-venv python3-pip</span><br></pre></td></tr></table></figure></li>
+<li>创建虚拟环境时使用完整路径</li>
+<li>检查命令执行后的返回信息</li>
+</ol>
+<h1 id="研究mfsapi的调试"><a href="#研究mfsapi的调试" class="headerlink" title="研究mfsapi的调试"></a>研究mfsapi的调试</h1><p>Error: Failed to find Flask application or factory in module ‘app’. Use ‘app:name’ to specify one.<br><strong>code .vscode&#x2F;launch.json</strong><br>  “env”: {<br>                “FLASK_APP”: “<em>run.py</em>:create_app”,<br>工厂模式create_app下,延迟创建app&#x3D;flask(<strong>name</strong>)，传入不同的config类更具灵活性<br>待研究：config类？&amp;<br>**if <strong>name</strong> &#x3D;&#x3D; ‘<strong>main</strong>‘:**没遇到  flask run导入模块？<br>app.run(debug&#x3D;True)</p>
+<p>调试可以运行，但是怎么curl？明天搜索yt吧</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/14/8-14/" data-id="cmebkjqd100004g2ifmvr5cfj" data-title="8/14" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2025/08/13/8-12/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">8/12</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db-python/" rel="tag">db, python</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/db/" style="font-size: 20px;">db</a> <a href="/tags/db-python/" style="font-size: 10px;">db, python</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/08/14/8-14/">8/14</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/13/8-12/">8/12</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/13/8-11/">8/11</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/11/8-10/">8/10</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/08/8-8-2/">8/8/2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
