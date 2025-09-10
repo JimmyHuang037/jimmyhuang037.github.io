@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>8/11 | Hexo</title>
+  <title>9/10 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="目标 windows端连接虚拟机db sop见8&#x2F;12记住：1 启动MYsql服务器sudo systemctl status mysql &amp;&amp; sudo systemctl start mysql2 检查配置文件sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnfbind-address &amp;#x">
+  <meta name="description" content="晚六点开始灵马跑test，白盒通，调黑盒curl先教师创建学生对db  update可以api  curl   报错路径: 1检查老师是否教这个班  的这个学生，学生、老师、科目、考试存在性  2endpoint顺序：先删再创建  有问题（但是创建呀，和顺序无关，又不是删除） 3发现service层没有调用current app，，使得没有用test db，导致db操作失败 4curl仍旧不通">
 <meta property="og:type" content="article">
-<meta property="og:title" content="8&#x2F;11">
-<meta property="og:url" content="http://example.com/2025/08/13/8-11/index.html">
+<meta property="og:title" content="9&#x2F;10">
+<meta property="og:url" content="http://example.com/2025/09/10/9-10/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="目标 windows端连接虚拟机db sop见8&#x2F;12记住：1 启动MYsql服务器sudo systemctl status mysql &amp;&amp; sudo systemctl start mysql2 检查配置文件sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnfbind-address &amp;#x">
+<meta property="og:description" content="晚六点开始灵马跑test，白盒通，调黑盒curl先教师创建学生对db  update可以api  curl   报错路径: 1检查老师是否教这个班  的这个学生，学生、老师、科目、考试存在性  2endpoint顺序：先删再创建  有问题（但是创建呀，和顺序无关，又不是删除） 3发现service层没有调用current app，，使得没有用test db，导致db操作失败 4curl仍旧不通">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-08-13T01:29:21.000Z">
-<meta property="article:modified_time" content="2025-08-13T03:13:54.036Z">
+<meta property="article:published_time" content="2025-09-10T13:09:19.000Z">
+<meta property="article:modified_time" content="2025-09-10T13:15:31.297Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="db">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -74,10 +74,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-8-11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-9-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/08/13/8-11/" class="article-date">
-  <time class="dt-published" datetime="2025-08-13T01:29:21.000Z" itemprop="datePublished">2025-08-13</time>
+    <a href="/2025/09/10/9-10/" class="article-date">
+  <time class="dt-published" datetime="2025-09-10T13:09:19.000Z" itemprop="datePublished">2025-09-10</time>
 </a>
     
   </div>
@@ -88,7 +88,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      8/11
+      9/10
     </h1>
   
 
@@ -96,20 +96,24 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="目标-windows端连接虚拟机db-sop见8-12"><a href="#目标-windows端连接虚拟机db-sop见8-12" class="headerlink" title="目标 windows端连接虚拟机db sop见8&#x2F;12"></a>目标 windows端连接虚拟机db sop见8&#x2F;12</h1><p>记住：<br>1 启动MYsql服务器<br>sudo systemctl status mysql &amp;&amp; sudo systemctl start mysql<br>2 检查配置文件<br>sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>bind-address &#x3D; <strong>0.0.0.0</strong><br>sudo systemctl restart mysql<br>3检查用户权限<br>mysql -u root -p<br>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘your_user‘@’%’ IDENTIFIED BY ‘your_password’ WITH GRANT OPTION;<br>FLUSH PRIVILEGES;<br>4防火墙<br>sudo ufw allow 3306<br>sudo ufw reload<br>5 命令行测试<br>mysql -h your_ip -u your_user -p</p>
-<h2 id="数据库名称不要忘记填写"><a href="#数据库名称不要忘记填写" class="headerlink" title="数据库名称不要忘记填写"></a>数据库名称不要忘记填写</h2><h2 id="csv-格式"><a href="#csv-格式" class="headerlink" title="csv 格式"></a>csv 格式</h2><p>id, actor, acrobatics<br>1,jimmy,skip<br>2,henry,clown</p>
-<h1 id="函数依赖＆第一、二、三范式"><a href="#函数依赖＆第一、二、三范式" class="headerlink" title="函数依赖＆第一、二、三范式"></a>函数依赖＆第一、二、三范式</h1><p>函数依赖：<br>    部分依赖：复合主键(A,B)，只要一个主键A就能决定另一个列C 就称C部分依赖A<br>    完全依赖：复合主键(A,B)，两个主键都必须存在才能决定另一个列C 就称C完全依赖AB<br>    传递依赖：A -&gt; B -&gt; C，A决定B，B决定C，则称C传递依赖AB<br>1NF:不能一个表头有多个数值<br>2NF：完全、传递依赖<br>3NF：完全依赖</p>
-<h1 id="python中cors跨域"><a href="#python中cors跨域" class="headerlink" title="python中cors跨域"></a>python中cors跨域</h1><p>cors跨域是什么：解决浏览器同源策略限制，当浏览器发起请求给服务器，服务器响应回来的数据浏览器不接受，因为浏览器认为这是一个跨域请求，所以浏览器会拒绝接受。</p>
-<p>针对非简单请求，浏览器会先发起一个预检请求<br>后端python如何配置：<br>import flask_cors from CORS<br>CORS(app)<br>就自动带上跨域的头信息Access-Control-Allow-Origin:*<br>辨析：py连db，用的是mysql-connector库，创建游标cursor，执行sql语句，返回结果，关闭连接。<br>curl的地位是重要发起请求工具<br>而前端:5000,回到后端：3000是跨域，由后端配置cors</p>
+        <p>晚六点开始<br>灵马跑test，白盒通，调黑盒curl<br>先教师<br>创建学生对db  update可以<br>api  curl   报错<br>路径:</p>
+<pre><code>1检查老师是否教这个班  的这个学生，学生、老师、科目、考试存在性 
+2endpoint顺序：先删再创建  有问题（但是创建呀，和顺序无关，又不是删除）
+3发现service层没有调用current app，，使得没有用test db，导致db操作失败
+4curl仍旧不通
+</code></pre>
+<p>于是换个ai<br>    用fitten code更加笨，readme完还是英文回答，不懂自动修改代码</p>
+<p>回归trae<br>    忘记agent，慢<br>    找到@builder开始回到1.4教师创建学生
+    </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/13/8-11/" data-id="cme9bz4fv0000p72i4dpd7k5p" data-title="8/11" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/09/10/9-10/" data-id="cmfe05sjy0000122i5t96e5jk" data-title="9/10" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
 
     </footer>
   </div>
@@ -117,19 +121,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2025/08/13/8-12/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          8/12
-        
-      </div>
-    </a>
   
-  
-    <a href="/2025/08/11/8-10/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2025/08/23/8-23/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">8/10</div>
+      <div class="article-nav-title">8/23</div>
     </a>
   
 </nav>
