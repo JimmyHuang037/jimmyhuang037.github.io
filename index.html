@@ -71,6 +71,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-9-13" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/09/13/9-13/" class="article-date">
+  <time class="dt-published" datetime="2025-09-12T16:15:31.000Z" itemprop="datePublished">2025-09-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/09/13/9-13/">9/13</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>从8&#x2F;14就开始的问题终于搞定了<br>错因：<br>edge:dns_probe_finished_nxdomain即域名解析失败or拼写错误<br>问元宝，chatgpt很多繁琐的答案<br>贴bing，不对<br>浏览得：机械革命的网卡有问题，不信——评论：clash verge代理没关<br>vscode：灵码，trae能正常用</p>
+<p>正解【dns probe nxdomain】：<br>1设置 先关代理<br>2ping 网址 （查丢包，延迟）<br>3curl 网址 （查网页内容）<br>这两步骤 排查了本机到服务器的网络是否正常，即排除机器的问题和服务器的问题，所以就是dns相关<br>（与防火墙无关——本机能连通服务器，github ssh错误是根本没连上github.com）<br>4ipconfig &#x2F;flushdns<br>5【拍ai】报错信息和ping&amp;curl<br>——edge浏览器设置：安全的dns</p>
+<p>补充知识：<br>为什么edge要有自动https切换到更安全的链接？<br>因为：http所有个人信息不加密，https加密的。</p>
+<ul>
+<li>为什么dns问题需要ipconfig &#x2F;flushdns?<br>因为：<strong>dns缓存了域名和ip的对应关系</strong>，所以如果域名解析失败，需要刷新缓存。</li>
+</ul>
+<p>【网络安全基础】<br>acmp协议&#x3D;&#x3D;ping<br>arp协议  <font color="red">内网中ip转为mac物理地址  这里没理解</font></p>
+<ul>
+<li>tcp三次握手<br>请求——同意——确认<br><font color="red">不懂：syn，syn+ack<br>,ack含义，为什么同步序列号seq和确认序列号ack是核心？</font></li>
+<li>tcp四次挥手<br>关闭——确认——同意——确认<br>第二次和第三次不能合并：是为了发送没发完的信息<br><font color="red">不懂：fin，ack，fin,ack含义</font></li>
+</ul>
+<p>ip数据报干什么用</p>
+<p>在scout下安装了tcpdump<br>直接监听jimmy虚拟机到jimmy-amd-16的流量<br>主机点网页，就有刷刷刷的字符刷新<br>进一步，这些流量怎么分析？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/09/13/9-13/" data-id="cmfh2dfl800006f2i3x2f8qby" data-title="9/13" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Internet/" rel="tag">Internet</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-9-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/09/10/9-10/" class="article-date">
@@ -489,7 +542,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db-python/" rel="tag">db, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Internet/" rel="tag">Internet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db-python/" rel="tag">db, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
     </div>
   </div>
 
@@ -499,7 +552,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/db/" style="font-size: 20px;">db</a> <a href="/tags/db-python/" style="font-size: 10px;">db, python</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+      <a href="/tags/Internet/" style="font-size: 10px;">Internet</a> <a href="/tags/db/" style="font-size: 20px;">db</a> <a href="/tags/db-python/" style="font-size: 10px;">db, python</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
     </div>
   </div>
 
@@ -521,6 +574,10 @@
       <ul>
         
           <li>
+            <a href="/2025/09/13/9-13/">9/13</a>
+          </li>
+        
+          <li>
             <a href="/2025/09/10/9-10/">9/10</a>
           </li>
         
@@ -534,10 +591,6 @@
         
           <li>
             <a href="/2025/08/13/8-12/">8/12</a>
-          </li>
-        
-          <li>
-            <a href="/2025/08/13/8-11/">8/11</a>
           </li>
         
       </ul>
