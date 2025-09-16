@@ -71,6 +71,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-9-17" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/09/17/9-17/" class="article-date">
+  <time class="dt-published" datetime="2025-09-16T16:28:25.000Z" itemprop="datePublished">2025-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/09/17/9-17/">9/17</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第一遍"><a href="#第一遍" class="headerlink" title="第一遍"></a>第一遍</h1><p>在母目录scout 下启动调试是python ——报错<br><strong>小心 正式运行端口是5000</strong><br>正式运行思路：先 app.py 启动服务，再 curl localhost:5000&#x2F;api&#x2F;health 访问<br>调试思路：左上角调试orF5，再访问 localhost:5000&#x2F;api&#x2F;health 即可</p>
+<h1 id="第二遍"><a href="#第二遍" class="headerlink" title="第二遍"></a>第二遍</h1><p>进入api文件夹，python flask调试是正确的状态<br>设置断点在def health_check（），运行api文件夹下的app.py，curl localhost:5000&#x2F;api&#x2F;health 访问仍然失败</p>
+<h1 id="第三遍"><a href="#第三遍" class="headerlink" title="第三遍"></a>第三遍</h1><p>在return jsonify处，打下断点，F5，访问localhost:5000&#x2F;api&#x2F;health 成功</p>
+<p>总结：<font color="red">api目录调试，def 函数内容打断点，F5，访问localhost:5000&#x2F;api&#x2F;health 成功</font></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/09/17/9-17/" data-id="cmfmry0bt0000q32i90c504fu" data-title="9/17" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug-python/" rel="tag">debug, python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-9-16" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/09/16/9-16/" class="article-date">
@@ -238,6 +282,7 @@
 </ul>
 <p>ip数据报干什么用</p>
 <p>在scout下安装了tcpdump<br>直接监听jimmy虚拟机到jimmy-amd-16的流量<br>主机点网页，就有刷刷刷的字符刷新<br>进一步，这些流量怎么分析？</p>
+<p>逆天！localhost:4000竟然没发本地预览hexo博客了</p>
 
       
     </div>
@@ -525,54 +570,6 @@
 
 
   
-    <article id="post-8-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/08/11/8-10/" class="article-date">
-  <time class="dt-published" datetime="2025-08-10T16:59:16.000Z" itemprop="datePublished">2025-08-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/08/11/8-10/">8/10</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="警钟长鸣——"><a href="#警钟长鸣——" class="headerlink" title="警钟长鸣——"></a>警钟长鸣——</h1><h1 id="复制空表格，仍然反复检查为何数据无法导入"><a href="#复制空表格，仍然反复检查为何数据无法导入" class="headerlink" title="复制空表格，仍然反复检查为何数据无法导入"></a>复制空表格，仍然反复检查为何数据无法导入</h1><h1 id="表扬进入年级前100最多的班级"><a href="#表扬进入年级前100最多的班级" class="headerlink" title="表扬进入年级前100最多的班级"></a>表扬进入年级前100最多的班级</h1><h2 id="1-生成数据"><a href="#1-生成数据" class="headerlink" title="1 生成数据"></a>1 生成数据</h2><p><font color="red">可研究：excel一条命令，生成1000行连续自然数，然后随机英文名</font><br>     这次chatgpt让我逃课</p>
-<h2 id="2-导入数据库"><a href="#2-导入数据库" class="headerlink" title="2 导入数据库"></a>2 导入数据库</h2><p>vscode集成度很高，点按钮自动导入<br>可研究：<strong>①为什么class有null产生</strong></p>
-<p>记住：<br>①db插件，<strong>铅笔</strong>状图标可直接修改设计表<br>②pandas库可转换excel为csv</p>
-<h2 id="3-写SQL语句"><a href="#3-写SQL语句" class="headerlink" title="3  写SQL语句"></a>3  写SQL语句</h2><h3 id="3-1计算学生总分"><a href="#3-1计算学生总分" class="headerlink" title="3.1计算学生总分"></a>3.1计算学生总分</h3><p>with 总成绩 as(<br>    select<br>        学号，<br>        班级，<br>        姓名，<br>        sum(case when 科目&#x3D;’语文’ then 成绩 else 0 end) *3遍 as total<br>    from 学生表<br>    left join<br>)<br><strong>知识点</strong><br>CTE：with…as() 称为CTE共同表表达式，用于<strong>临时表</strong>，可嵌套<br>左连接：left join以学生表为准，成绩如果多就让他多</p>
-<h3 id="3-2-计算所有学生排名"><a href="#3-2-计算所有学生排名" class="headerlink" title="3.2 计算所有学生排名"></a>3.2 计算所有学生排名</h3><p>排名(<br>select<br>    总成绩.学号,<br>    总成绩.班级,<br>    总成绩.姓名,<br>    row_number()over(order by总分)<br>from <strong>总成绩</strong>（不要引用错表格）</p>
-<p>)<strong>,</strong><br><strong>知识点</strong><br>排序窗口函数：row_number()over(order by 字段) 用于<strong>排名</strong></p>
-<h3 id="3-3-计算班级排名"><a href="#3-3-计算班级排名" class="headerlink" title="3.3 计算班级排名"></a>3.3 计算班级排名</h3><p>select<br>    <strong>count(排名)</strong><br>from<br>join<br>order by<br><font color="red">可优化：添加语文老师为班主任，只找到他一个人即代表该班的前100人数，而不是手工where A or B or C or D</font></p>
-<h4 id="小细节"><a href="#小细节" class="headerlink" title="小细节"></a>小细节</h4><p>select都要逗号，除了最后一个字段<br>select字段1,2,3,就是新建一张表格的列1,2,3<br><strong>update</strong> update set 字段&#x3D;新值 where xxx between 1 and 200<br>学会用IN (‘A’,’B’)，写多值条件；区分 AND 与 OR<br>group by必须包含所有<strong>非聚合列</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/11/8-10/" data-id="cme5yojhq0000472ihjdoend4" data-title="8/10" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -591,7 +588,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Internet/" rel="tag">Internet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db-python/" rel="tag">db, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Internet/" rel="tag">Internet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db-python/" rel="tag">db, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug-python/" rel="tag">debug, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
     </div>
   </div>
 
@@ -601,7 +598,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Internet/" style="font-size: 10px;">Internet</a> <a href="/tags/db/" style="font-size: 20px;">db</a> <a href="/tags/db-python/" style="font-size: 10px;">db, python</a> <a href="/tags/python/" style="font-size: 15px;">python</a>
+      <a href="/tags/Internet/" style="font-size: 10px;">Internet</a> <a href="/tags/db/" style="font-size: 20px;">db</a> <a href="/tags/db-python/" style="font-size: 10px;">db, python</a> <a href="/tags/debug-python/" style="font-size: 10px;">debug, python</a> <a href="/tags/python/" style="font-size: 15px;">python</a>
     </div>
   </div>
 
@@ -623,6 +620,10 @@
       <ul>
         
           <li>
+            <a href="/2025/09/17/9-17/">9/17</a>
+          </li>
+        
+          <li>
             <a href="/2025/09/16/9-16/">9/16</a>
           </li>
         
@@ -636,10 +637,6 @@
         
           <li>
             <a href="/2025/09/13/9-13/">9/13</a>
-          </li>
-        
-          <li>
-            <a href="/2025/09/10/9-10/">9/10</a>
           </li>
         
       </ul>
