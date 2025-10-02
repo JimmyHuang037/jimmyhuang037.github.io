@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>Tag: python | Hexo</title>
+  <title>10/2 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/python/index.html">
+  <meta name="description" content="打印日志eg student_curl_commands.log看到Test1，Test2，Test3的curl代码 student_service &#x3D; StudentService()是把StudentService类实例化，赋值给student_service变量 第一步是def __init__(self):     self.db_service &#x3D; DatabaseServic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="10&#x2F;2">
+<meta property="og:url" content="http://example.com/2025/10/02/10-2/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="打印日志eg student_curl_commands.log看到Test1，Test2，Test3的curl代码 student_service &#x3D; StudentService()是把StudentService类实例化，赋值给student_service变量 第一步是def __init__(self):     self.db_service &#x3D; DatabaseServic">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-10-02T15:39:52.000Z">
+<meta property="article:modified_time" content="2025-10-02T16:03:25.184Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -69,153 +74,68 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2025" class="archive-year">2025</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/10/02/10-2/" class="archive-article-date">
-  <time class="dt-published" datetime="2025-10-02T15:39:52.000Z" itemprop="datePublished">Oct 2</time>
+        <section id="main"><article id="post-10-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/10/02/10-2/" class="article-date">
+  <time class="dt-published" datetime="2025-10-02T15:39:52.000Z" itemprop="datePublished">2025-10-02</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/10/02/10-2/">10/2</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      10/2
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/24/9-24/" class="archive-article-date">
-  <time class="dt-published" datetime="2025-09-24T15:52:03.000Z" itemprop="datePublished">Sep 24</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/09/24/9-24/">9/24</a>
-    </h1>
-  
+        <p>打印日志<br>eg student_curl_commands.log看到Test1，Test2，Test3的curl代码</p>
+<p>student_service &#x3D; StudentService()<br>是把StudentService类实例化，赋值给student_service变量</p>
+<pre><code>第一步是def __init__(self):
+    self.db_service = DatabaseService()
+    初始化
+    **静态类** ，不需要实例化，直接调用
+    **实例类** 需要实例化，才能调用
+</code></pre>
+<p>scores &#x3D; score_service.get_student_scores(student_id)<br>是调用<strong>score_service</strong>对象的get_student_scores方法，传入student_id参数，返回student_id的成绩列表</p>
+<p>跳转到Class ScoreService 执行select语句，但是结果只有数字<em>examtypeid subjecttypeid</em><br>return result </p>
+<p>再连接db<br>创建connection，创建cursor，执行query，fetchall，关闭cursor，关闭connection</p>
+<p>走if not scores:<br>        return <strong>error_response</strong>线，没有error 即<br>            data&#x3D;[]<br>            massage”success” </p>
+<p>current_app.logger.info(f”Student {student_id} retrieved scores”)<br>    return success_response(scores)<br>查到成绩——返回正确信息</p>
+<p>写调试案例：<br>    def test_04_get_student_exam_results_not_found(self):<br>        “””测试用例4: 获取不存在学生ID的考试结果，应返回404错误”””<br>        self.run_api_test(<br>            4, “获取不存在学生ID的考试结果”,<br>            [‘curl’, ‘-s’, f’{self.base_url}&#x2F;api&#x2F;student&#x2F;exam_results&#x2F;S999’, ‘|’, ‘jq’],<br>            “student_4_get_exam_results_not_found.json”, self.test_setup,<br>            expect_error&#x3D;True<br>        )</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/19/9-18/" class="archive-article-date">
-  <time class="dt-published" datetime="2025-09-18T16:16:52.000Z" itemprop="datePublished">Sep 19</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/09/19/9-18/">9/18</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/16/9-16/" class="archive-article-date">
-  <time class="dt-published" datetime="2025-09-15T17:16:11.000Z" itemprop="datePublished">Sep 16</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/10/02/10-2/" data-id="cmg9luehf0000gp2i3znmam94" data-title="10/2" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/09/16/9-16/">9/16</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/14/9-14-2/" class="archive-article-date">
-  <time class="dt-published" datetime="2025-09-14T14:40:36.000Z" itemprop="datePublished">Sep 14</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/09/14/9-14-2/">9/14-2</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/14/9-14/" class="archive-article-date">
-  <time class="dt-published" datetime="2025-09-13T16:19:29.000Z" itemprop="datePublished">Sep 14</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/09/14/9-14/">9/14</a>
-    </h1>
-  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/09/10/9-10/" class="archive-article-date">
-  <time class="dt-published" datetime="2025-09-10T13:09:19.000Z" itemprop="datePublished">Sep 10</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/09/10/9-10/">9/10</a>
-    </h1>
   
+    <a href="/2025/09/24/9-24/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">9/24</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>
