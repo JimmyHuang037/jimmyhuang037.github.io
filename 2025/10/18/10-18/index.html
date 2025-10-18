@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>8/23 | Hexo</title>
+  <title>10/18 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="基础数据——export——…xlsx…xlsx——import——基础数据 db—backup—restore db给ai，解构语言差异区分表格table v.s. 报告view表格table是基础数据，关系表&amp;基础表 报告view是基础数据之上的分析，写select固定的view">
+  <meta name="description" content="logs&#x2F;admin_curl_commands.log查找所有curl命令增加新功能   以学生姓名找学生信息   思路：1写sql查询语句    select    from    join联合表    where 2service层  写get_student_by_name    try        调用查询语句        return&#x3D;        if re">
 <meta property="og:type" content="article">
-<meta property="og:title" content="8&#x2F;23">
-<meta property="og:url" content="http://example.com/2025/08/23/8-23/index.html">
+<meta property="og:title" content="10&#x2F;18">
+<meta property="og:url" content="http://example.com/2025/10/18/10-18/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="基础数据——export——…xlsx…xlsx——import——基础数据 db—backup—restore db给ai，解构语言差异区分表格table v.s. 报告view表格table是基础数据，关系表&amp;基础表 报告view是基础数据之上的分析，写select固定的view">
+<meta property="og:description" content="logs&#x2F;admin_curl_commands.log查找所有curl命令增加新功能   以学生姓名找学生信息   思路：1写sql查询语句    select    from    join联合表    where 2service层  写get_student_by_name    try        调用查询语句        return&#x3D;        if re">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-08-23T15:19:32.000Z">
-<meta property="article:modified_time" content="2025-08-23T15:29:25.143Z">
+<meta property="article:published_time" content="2025-10-18T14:55:17.000Z">
+<meta property="article:modified_time" content="2025-10-18T15:05:43.459Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="db">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -74,10 +74,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-8-23" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-10-18" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/08/23/8-23/" class="article-date">
-  <time class="dt-published" datetime="2025-08-23T15:19:32.000Z" itemprop="datePublished">2025-08-23</time>
+    <a href="/2025/10/18/10-18/" class="article-date">
+  <time class="dt-published" datetime="2025-10-18T14:55:17.000Z" itemprop="datePublished">2025-10-18</time>
 </a>
     
   </div>
@@ -88,7 +88,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      8/23
+      10/18
     </h1>
   
 
@@ -96,19 +96,19 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>基础数据——export——…xlsx<br>…xlsx——import——基础数据</p>
-<p>db—backup—restore</p>
-<h1 id="db给ai，解构语言差异"><a href="#db给ai，解构语言差异" class="headerlink" title="db给ai，解构语言差异"></a>db给ai，解构语言差异</h1><h1 id="区分表格table-v-s-报告view"><a href="#区分表格table-v-s-报告view" class="headerlink" title="区分表格table v.s. 报告view"></a>区分表格table v.s. 报告view</h1><h2 id="表格table"><a href="#表格table" class="headerlink" title="表格table"></a>表格table</h2><p>是基础数据，关系表&amp;基础表</p>
-<h2 id="报告view"><a href="#报告view" class="headerlink" title="报告view"></a>报告view</h2><p>是基础数据之上的分析，写select固定的view</p>
+        <p><strong>logs&#x2F;admin_curl_commands.log</strong>查找所有curl命令<br>增加新功能   以学生姓名找学生信息   思路：<br>1写sql查询语句<br>    select<br>    from<br>    join联合表<br>    where</p>
+<p>2service层  写get_student_by_name<br>    try<br>        调用查询语句<br>        return&#x3D;<br>        if result:<br>            return result[0]此处result是数组，若重名，则只要第一个<br>    except<br>        current_app.logger.error(错误信息)</p>
+<p>3blueprint层<br>    实例化<br>    调用get_student_by_name<br>    if not<br>        current_app错误信息<br>    current_app.logger.正确信息</p>
+<p>业务：<br>单独学生：<br>    one：展示一条成绩，独学科、考试类型<br>    ＆ 考试结果：六科排名和总分   </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/23/8-23/" data-id="cmeof16l20000xx2i4r8bbnhy" data-title="8/23" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/10/18/10-18/" data-id="cmgwetwib0000di2i1cg0an4n" data-title="10/18" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
 
     </footer>
   </div>
@@ -116,19 +116,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2025/09/10/9-10/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          9/10
-        
-      </div>
-    </a>
   
-  
-    <a href="/2025/08/14/8-14/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2025/10/02/10-2/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">8/14</div>
+      <div class="article-nav-title">10/2</div>
     </a>
   
 </nav>
