@@ -71,6 +71,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-9-14-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/09/14/9-14-2/" class="article-date">
+  <time class="dt-published" datetime="2025-09-14T14:40:36.000Z" itemprop="datePublished">2025-09-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/09/14/9-14-2/">9/14-2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>从删除多余文件test.curl开始<br>看了眼curl的结构，git版本历史——是9、1改成admin  teacher  student的endpoint<br>理清api端点思路，即覆盖率<br>缺少：</p>
+<ul>
+<li>健康测试（仅仅是api server能运行）</li>
+<li>学生考试结果</li>
+</ul>
+<p>发现 不是所有student py做了测试<br>chatgpt：在白盒mock test中，可以使用pytest的fixture，不上传真实信息，sess[]<br>灵马：真实认证session机制</p>
+<p>再从需求分析<br>我认为学生信息不用，只要查到成绩就行<br>灵马：学生信息作用：个性化体验，数据验证，审计日志</p>
+<p><strong>ai修复test</strong>：<br>实例化，把类创造一个实例&#x3D;&#x3D;对象<br>对象可以调用类的方法<br>在student里是<br>student_service &#x3D; StudentService()  # 实例化过程<br>profile &#x3D; student_service.get_student_profile(student_id)  # 调用实例方法</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/09/14/9-14-2/" data-id="cmfjtap9w0000652i5ni4epko" data-title="9/14-2" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-9-14" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/09/14/9-14/" class="article-date">
@@ -530,52 +578,11 @@
 
 
   
-    <article id="post-8-8" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/08/08/8-8/" class="article-date">
-  <time class="dt-published" datetime="2025-08-08T06:00:22.000Z" itemprop="datePublished">2025-08-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/08/08/8-8/">8/8</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>昨日理解关系表的概念之一<br><strong>主键</strong><br>是一个表的的唯一标识符<br><strong>外键</strong><br>一个表的主键在另一个表则称为外键<br>eg.students.id &amp; scores.id均为两个表的主键；<br>scores.student_id指向students.student_id为外键<br><strong>索引</strong><br>加快查找速度<br>辨析：没有索引，逐页翻字典；有索引，已创建索引目录，查找时直接定位目标，再摊开数据<br>eg.PRIMARY KEY (id) –再创建scores表的语句<br>采用select * from scores where student_id &#x3D;”S1001”创建索引目录，即S1001&#x3D;【1,11】，S1001&#x3D;【2】，S1003&#x3D;【3】，直接定位到第三行，id&#x3D;3查找完毕</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/08/8-8/" data-id="cme2gcbyn0000rx2i5lipervm" data-title="8/8" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -599,7 +606,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Internet/" style="font-size: 10px;">Internet</a> <a href="/tags/angular/" style="font-size: 13.33px;">angular</a> <a href="/tags/db/" style="font-size: 16.67px;">db</a> <a href="/tags/db-python/" style="font-size: 10px;">db, python</a> <a href="/tags/debug-python/" style="font-size: 13.33px;">debug, python</a> <a href="/tags/python/" style="font-size: 20px;">python</a>
+      <a href="/tags/Internet/" style="font-size: 10px;">Internet</a> <a href="/tags/angular/" style="font-size: 15px;">angular</a> <a href="/tags/db/" style="font-size: 17.5px;">db</a> <a href="/tags/db-python/" style="font-size: 10px;">db, python</a> <a href="/tags/debug-python/" style="font-size: 12.5px;">debug, python</a> <a href="/tags/python/" style="font-size: 20px;">python</a>
     </div>
   </div>
 
@@ -621,6 +628,10 @@
       <ul>
         
           <li>
+            <a href="/2025/11/11/11-11/">11/11</a>
+          </li>
+        
+          <li>
             <a href="/2025/11/04/11-4/">11/4</a>
           </li>
         
@@ -634,10 +645,6 @@
         
           <li>
             <a href="/2025/10/02/10-2/">10/2</a>
-          </li>
-        
-          <li>
-            <a href="/2025/09/24/9-24/">9/24</a>
           </li>
         
       </ul>
