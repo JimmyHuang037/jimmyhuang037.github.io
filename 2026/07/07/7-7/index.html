@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>11/11 | Hexo</title>
+  <title>7/7 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="constructor() ngOnchanges() ngOnInit() ngDocheck ngOnDestroy生命周期export …@ViewChild(MatPaginator) paginator!: MatPaginator;@ViewChild(MatSort) sort!: MatSort;是调用了两个控件的构造函数，一个是分页控件，另一个是排序控件。 constructor">
+  <meta name="description" content="全栈开发工作标准分为四个方面：需求、开发、测试、审查 1. 需求（Requirements） 需求要规范化成文档，一个功能一个文档 按功能路径组织，例如 student&#x2F;select scores 文档存放在 docs&#x2F;requirements&#x2F; 目录下  2. 开发（Development） 遵循数据库 → 后端 API → 前端 的默认顺序 保持与现有代码风格一致  3. 测试（Testing">
 <meta property="og:type" content="article">
-<meta property="og:title" content="11&#x2F;11">
-<meta property="og:url" content="http://example.com/2025/11/11/11-11/index.html">
+<meta property="og:title" content="7&#x2F;7">
+<meta property="og:url" content="http://example.com/2026/07/07/7-7/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="constructor() ngOnchanges() ngOnInit() ngDocheck ngOnDestroy生命周期export …@ViewChild(MatPaginator) paginator!: MatPaginator;@ViewChild(MatSort) sort!: MatSort;是调用了两个控件的构造函数，一个是分页控件，另一个是排序控件。 constructor">
+<meta property="og:description" content="全栈开发工作标准分为四个方面：需求、开发、测试、审查 1. 需求（Requirements） 需求要规范化成文档，一个功能一个文档 按功能路径组织，例如 student&#x2F;select scores 文档存放在 docs&#x2F;requirements&#x2F; 目录下  2. 开发（Development） 遵循数据库 → 后端 API → 前端 的默认顺序 保持与现有代码风格一致  3. 测试（Testing">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-11-11T15:17:29.000Z">
-<meta property="article:modified_time" content="2025-11-11T15:35:55.449Z">
+<meta property="article:published_time" content="2026-07-07T14:30:00.000Z">
+<meta property="article:modified_time" content="2026-07-07T03:43:12.559Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="angular">
+<meta property="article:tag" content="全栈开发">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -74,10 +74,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-11-11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-7-7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/11/11/11-11/" class="article-date">
-  <time class="dt-published" datetime="2025-11-11T15:17:29.000Z" itemprop="datePublished">2025-11-11</time>
+    <a href="/2026/07/07/7-7/" class="article-date">
+  <time class="dt-published" datetime="2026-07-07T14:30:00.000Z" itemprop="datePublished">2026-07-07</time>
 </a>
     
   </div>
@@ -88,7 +88,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      11/11
+      7/7
     </h1>
   
 
@@ -96,36 +96,33 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="constructor-ngOnchanges-ngOnInit-ngDocheck-ngOnDestroy生命周期"><a href="#constructor-ngOnchanges-ngOnInit-ngDocheck-ngOnDestroy生命周期" class="headerlink" title="constructor() ngOnchanges() ngOnInit() ngDocheck ngOnDestroy生命周期"></a>constructor() ngOnchanges() ngOnInit() ngDocheck ngOnDestroy生命周期</h1><h2 id="export-…"><a href="#export-…" class="headerlink" title="export …"></a>export …</h2><p>@ViewChild(MatPaginator) <strong>paginator</strong>!: MatPaginator;<br>@ViewChild(MatSort) <strong>sort</strong>!: MatSort;<br>是调用了两个控件的构造函数，一个是分页控件，另一个是排序控件。</p>
-<h2 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor("></a>constructor(</h2><pre><code>private snackBar: MatSnackBar
-</code></pre>
-<p>  ) {}<br>依赖（MatSnackBar）（由angular）注入（给组件scores）</p>
-<h2 id="ngAfterViewInit"><a href="#ngAfterViewInit" class="headerlink" title="ngAfterViewInit() {"></a>ngAfterViewInit() {</h2><pre><code>this.dataSource.paginator = this.paginator;
-this.dataSource.sort = this.sort;
-</code></pre>
-<p>  }<br>  将分页和排序器赋值给数据源DataSource</p>
-<h2 id="saveScore-scoreId-number-void"><a href="#saveScore-scoreId-number-void" class="headerlink" title="saveScore(scoreId: number): void {"></a>saveScore(scoreId: number): void {</h2><p><strong>if (this.teacherId &amp;&amp; this.editingScoreId)</strong>{<br>      this.scoreUpdated.emit({<br>        teacherId: this.teacherId,<br>        scoreId: this.editingScoreId,<br>        score: this.editingScore<br>      });<br>      &#x2F;&#x2F; 不再立即清除编辑状态，而是在父组件更新成功后通过@Input更新<br>    }<br>  }<br>}</p>
-<p>等价于python中if a and b双重守卫结构<br>    如果teacher_id存在，且editingScoreId存在，那么就触发scoreUpdated事件，将teacherId、editingScoreId、editingScore作为参数传递。</p>
-<h2 id="ngOnChanges-changes-SimpleChanges-void"><a href="#ngOnChanges-changes-SimpleChanges-void" class="headerlink" title="ngOnChanges(changes: SimpleChanges): void {"></a>ngOnChanges(changes: SimpleChanges): void {</h2><pre><code>if (changes[&#39;scores&#39;] &amp;&amp; changes[&#39;scores&#39;].currentValue) &#123;
-  this.dataSource.data = changes[&#39;scores&#39;].currentValue;
-&#125;
-</code></pre>
-<p>  }<br>同理类比class ScoresComponent:<br>    def <strong>init</strong>(self):<br>        self.data_source &#x3D; []</p>
-<pre><code>def on_changes(self, changes):
-    if &quot;scores&quot; in changes and changes[&quot;scores&quot;][&quot;currentValue&quot;]:
-        self.data_source = changes[&quot;scores&quot;][&quot;currentValue&quot;]
-</code></pre>
-<h3 id="模拟外部传入新数据"><a href="#模拟外部传入新数据" class="headerlink" title="模拟外部传入新数据"></a>模拟外部传入新数据</h3><p>component &#x3D; ScoresComponent()<br>component.on_changes({“scores”: {“currentValue”: [90, 85, 88]}})<br>print(component.data_source)  # [90, 85, 88]<br>changes[“scores”][“currentValue”]</p>
-<h2 id="changes-“scores”-“currentValue”-scores字典里，找到currentValue键对应的值"><a href="#changes-“scores”-“currentValue”-scores字典里，找到currentValue键对应的值" class="headerlink" title="changes[“scores”][“currentValue”]scores字典里，找到currentValue键对应的值"></a>changes[“scores”][“currentValue”]scores字典里，找到currentValue键对应的值</h2><p>疑惑：<br>改一次成绩，为什么跳转html很多次？<br>ondestroy什么时候触发？</p>
+        <h1 id="全栈开发工作标准"><a href="#全栈开发工作标准" class="headerlink" title="全栈开发工作标准"></a>全栈开发工作标准</h1><p>分为四个方面：<strong>需求、开发、测试、审查</strong></p>
+<h2 id="1-需求（Requirements）"><a href="#1-需求（Requirements）" class="headerlink" title="1. 需求（Requirements）"></a>1. 需求（Requirements）</h2><ul>
+<li>需求要规范化成文档，<strong>一个功能一个文档</strong></li>
+<li>按功能路径组织，例如 <code>student/select scores</code></li>
+<li>文档存放在 <code>docs/requirements/</code> 目录下</li>
+</ul>
+<h2 id="2-开发（Development）"><a href="#2-开发（Development）" class="headerlink" title="2. 开发（Development）"></a>2. 开发（Development）</h2><ul>
+<li>遵循数据库 → 后端 API → 前端 的默认顺序</li>
+<li>保持与现有代码风格一致</li>
+</ul>
+<h2 id="3-测试（Testing）"><a href="#3-测试（Testing）" class="headerlink" title="3. 测试（Testing）"></a>3. 测试（Testing）</h2><ul>
+<li>自动化测试用 <strong>Playwright E2E</strong></li>
+<li>需要肉眼观察界面时，用 <strong>noVNC</strong> 远程查看浏览器画面</li>
+</ul>
+<h2 id="4-审查（Review）"><a href="#4-审查（Review）" class="headerlink" title="4. 审查（Review）"></a>4. 审查（Review）</h2><ul>
+<li>代码变更后对照需求文档逐项审查</li>
+<li>确保每一项需求都已实现</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/11/11-11/" data-id="cmhuqh66z00000h2iaskhepg1" data-title="11/11" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/07/07/7-7/" data-id="cmra3uaaj0000012i5egx0wwm" data-title="7/7" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/" rel="tag">angular</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/" rel="tag">全栈开发</a></li></ul>
 
     </footer>
   </div>
@@ -133,19 +130,10 @@ this.dataSource.sort = this.sort;
     
 <nav id="article-nav">
   
-    <a href="/2025/11/24/11-24/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          11/24
-        
-      </div>
-    </a>
   
-  
-    <a href="/2025/11/04/11-4/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2025/11/24/11-24/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">11/4</div>
+      <div class="article-nav-title">11/24</div>
     </a>
   
 </nav>

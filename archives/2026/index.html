@@ -4,19 +4,14 @@
   <meta charset="utf-8">
   
   
-  <title>11/3 | Hexo</title>
+  <title>Archives: 2026 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="理解父子组件关系： 从父组件看一，import系列dashboard component tsimport ScoresComponent 代表dashb是Scores的父组件，interface ScoreUpdateEvent是父子组件通信的桥梁，下文ts使用 updateStudentScore()方法处理事件@Component    selector: ‘app-teacher-dash">
-<meta property="og:type" content="article">
-<meta property="og:title" content="11&#x2F;3">
-<meta property="og:url" content="http://example.com/2025/11/03/11-3/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/archives/2026/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="理解父子组件关系： 从父组件看一，import系列dashboard component tsimport ScoresComponent 代表dashb是Scores的父组件，interface ScoreUpdateEvent是父子组件通信的桥梁，下文ts使用 updateStudentScore()方法处理事件@Component    selector: ‘app-teacher-dash">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-11-03T15:16:15.000Z">
-<meta property="article:modified_time" content="2025-11-03T15:30:21.291Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="angular">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -74,71 +69,39 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-11-3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/03/11-3/" class="article-date">
-  <time class="dt-published" datetime="2025-11-03T15:16:15.000Z" itemprop="datePublished">2025-11-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      11/3
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2026" class="archive-year">2026</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2026/07/07/7-7/" class="archive-article-date">
+  <time class="dt-published" datetime="2026-07-07T14:30:00.000Z" itemprop="datePublished">Jul 7</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2026/07/07/7-7/">7/7</a>
     </h1>
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>理解父子组件关系：</p>
-<h1 id="从父组件看"><a href="#从父组件看" class="headerlink" title="从父组件看"></a>从父组件看</h1><h2 id="一，import系列"><a href="#一，import系列" class="headerlink" title="一，import系列"></a>一，import系列</h2><p>dashboard component ts<br>import ScoresComponent <strong>代表dashb是Scores的父组件，</strong><br>interface ScoreUpdateEvent是父子组件通信的桥梁，下文ts使用 updateStudentScore()方法处理事件<br>@Component<br>    selector: ‘app-teacher-dashboard’,给此控件命名<br>    imports: [ScoresComponent],导入Scores组件</p>
-<h2 id="二html系列"><a href="#二html系列" class="headerlink" title="二html系列"></a>二html系列</h2><p>&lt;app-scores<br>            [scores]&#x3D;”scores”<br>            [loading]&#x3D;”scoresLoading”<br>            [teacherId]&#x3D;”teacherId”<br>            (scoreUpdated)&#x3D;”updateStudentScore($event)”&gt;<br>          </app-scores><br>app-score是ScoresComponent的子组件，子组件给父传递scores loading teacherId</p>
-<h2 id="三ts系列"><a href="#三ts系列" class="headerlink" title="三ts系列"></a>三ts系列</h2><p> updateStudentScore(event: ScoreUpdateEvent): void 处理事件</p>
-<h1 id="从子组件看"><a href="#从子组件看" class="headerlink" title="从子组件看"></a>从子组件看</h1><h2 id="一import"><a href="#一import" class="headerlink" title="一import"></a>一import</h2><p>interface ScoreUpdateEvent 父子通信桥梁<br>selector: ‘app-scores’ 给此组件命名</p>
-<h2 id="三ts"><a href="#三ts" class="headerlink" title="三ts"></a>三ts</h2><p>@Input（）loading&amp;scores&amp;teacherId 父组件传给子组件，<br>@Output() scoreUpdated &#x3D; new EventEmitter<ScoreUpdateEvent>() 子组件给父组件传递事件</p>
-<h1 id="app-route-ts-URL路径映射到组件！"><a href="#app-route-ts-URL路径映射到组件！" class="headerlink" title="app route ts!URL路径映射到组件！"></a>app route ts!URL路径映射到组件！</h1><p>import { TeacherDashboardComponent } from ‘..&#x2F;teacher&#x2F;dashboard.component’;</p>
-<p>export const routes: Routes &#x3D; [<br>  &#x2F;&#x2F; …<br>  { path: ‘teacher&#x2F;dashboard’, component: TeacherDashboardComponent },<br>  &#x2F;&#x2F; …<br>];</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/03/11-3/" data-id="cmhjard3d00005g2iemvhhjbx" data-title="11/3" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/" rel="tag">angular</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2025/11/04/11-4/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          11/4
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2025/10/18/10-18/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">10/18</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
 
 </section>

@@ -71,6 +71,64 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-7-7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/07/7-7/" class="article-date">
+  <time class="dt-published" datetime="2026-07-07T14:30:00.000Z" itemprop="datePublished">2026-07-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/07/07/7-7/">7/7</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="全栈开发工作标准"><a href="#全栈开发工作标准" class="headerlink" title="全栈开发工作标准"></a>全栈开发工作标准</h1><p>分为四个方面：<strong>需求、开发、测试、审查</strong></p>
+<h2 id="1-需求（Requirements）"><a href="#1-需求（Requirements）" class="headerlink" title="1. 需求（Requirements）"></a>1. 需求（Requirements）</h2><ul>
+<li>需求要规范化成文档，<strong>一个功能一个文档</strong></li>
+<li>按功能路径组织，例如 <code>student/select scores</code></li>
+<li>文档存放在 <code>docs/requirements/</code> 目录下</li>
+</ul>
+<h2 id="2-开发（Development）"><a href="#2-开发（Development）" class="headerlink" title="2. 开发（Development）"></a>2. 开发（Development）</h2><ul>
+<li>遵循数据库 → 后端 API → 前端 的默认顺序</li>
+<li>保持与现有代码风格一致</li>
+</ul>
+<h2 id="3-测试（Testing）"><a href="#3-测试（Testing）" class="headerlink" title="3. 测试（Testing）"></a>3. 测试（Testing）</h2><ul>
+<li>自动化测试用 <strong>Playwright E2E</strong></li>
+<li>需要肉眼观察界面时，用 <strong>noVNC</strong> 远程查看浏览器画面</li>
+</ul>
+<h2 id="4-审查（Review）"><a href="#4-审查（Review）" class="headerlink" title="4. 审查（Review）"></a>4. 审查（Review）</h2><ul>
+<li>代码变更后对照需求文档逐项审查</li>
+<li>确保每一项需求都已实现</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/07/7-7/" data-id="cmra3uaaj0000012i5egx0wwm" data-title="7/7" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/" rel="tag">全栈开发</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-11-24" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/11/24/11-24/" class="article-date">
@@ -498,50 +556,6 @@ this.dataSource.sort = this.sort;
 
 
   
-    <article id="post-9-17" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/09/17/9-17/" class="article-date">
-  <time class="dt-published" datetime="2025-09-16T16:28:25.000Z" itemprop="datePublished">2025-09-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/09/17/9-17/">9/17</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="第一遍"><a href="#第一遍" class="headerlink" title="第一遍"></a>第一遍</h1><p>在母目录scout 下启动调试是python ——报错<br><strong>小心 正式运行端口是5000</strong><br>正式运行思路：先 app.py 启动服务，再 curl localhost:5000&#x2F;api&#x2F;health 访问<br>调试思路：左上角调试orF5，再访问 localhost:5000&#x2F;api&#x2F;health 即可</p>
-<h1 id="第二遍"><a href="#第二遍" class="headerlink" title="第二遍"></a>第二遍</h1><p>进入api文件夹，python flask调试是正确的状态<br>设置断点在def health_check（），运行api文件夹下的app.py，curl localhost:5000&#x2F;api&#x2F;health 访问仍然失败</p>
-<h1 id="第三遍"><a href="#第三遍" class="headerlink" title="第三遍"></a>第三遍</h1><p>在return jsonify处，打下断点，F5，访问localhost:5000&#x2F;api&#x2F;health 成功</p>
-<p>总结：<font color="red">api目录调试，def 函数内容打断点，F5，访问localhost:5000&#x2F;api&#x2F;health 成功</font></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/09/17/9-17/" data-id="cmfmry0bt0000q32i90c504fu" data-title="9/17" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug-python/" rel="tag">debug, python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -560,7 +574,7 @@ this.dataSource.sort = this.sort;
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Internet/" rel="tag">Internet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/" rel="tag">angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db-python/" rel="tag">db, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug-python/" rel="tag">debug, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Internet/" rel="tag">Internet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/" rel="tag">angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db-python/" rel="tag">db, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug-python/" rel="tag">debug, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/" rel="tag">全栈开发</a></li></ul>
     </div>
   </div>
 
@@ -570,7 +584,7 @@ this.dataSource.sort = this.sort;
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Internet/" style="font-size: 10px;">Internet</a> <a href="/tags/angular/" style="font-size: 15px;">angular</a> <a href="/tags/db/" style="font-size: 17.5px;">db</a> <a href="/tags/db-python/" style="font-size: 10px;">db, python</a> <a href="/tags/debug-python/" style="font-size: 12.5px;">debug, python</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/python/" style="font-size: 20px;">python</a>
+      <a href="/tags/Internet/" style="font-size: 10px;">Internet</a> <a href="/tags/angular/" style="font-size: 15px;">angular</a> <a href="/tags/db/" style="font-size: 17.5px;">db</a> <a href="/tags/db-python/" style="font-size: 10px;">db, python</a> <a href="/tags/debug-python/" style="font-size: 12.5px;">debug, python</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/" style="font-size: 10px;">全栈开发</a>
     </div>
   </div>
 
@@ -579,7 +593,7 @@ this.dataSource.sort = this.sort;
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">July 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li></ul>
     </div>
   </div>
 
@@ -590,6 +604,10 @@ this.dataSource.sort = this.sort;
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2026/07/07/7-7/">7/7</a>
+          </li>
         
           <li>
             <a href="/2025/11/24/11-24/">11/24</a>
@@ -607,10 +625,6 @@ this.dataSource.sort = this.sort;
             <a href="/2025/11/03/11-3/">11/3</a>
           </li>
         
-          <li>
-            <a href="/2025/10/18/10-18/">10/18</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -624,7 +638,7 @@ this.dataSource.sort = this.sort;
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2025 John Doe<br>
+      &copy; 2026 John Doe<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
