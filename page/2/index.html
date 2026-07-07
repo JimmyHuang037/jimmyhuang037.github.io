@@ -1,690 +1,288 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/2/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
-
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Space+Grotesk:wght@400;700;900&family=Caveat:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 <meta name="generator" content="Hexo 7.3.0"></head>
+<body class="-page">
+  <!-- Canvas 动效层 -->
+  <canvas id="glitch-canvas" class="bg-canvas"></canvas>
+  <canvas id="drip-canvas" class="bg-canvas"></canvas>
+  <canvas id="mandala-canvas" class="bg-canvas"></canvas>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+  <!-- 页面转场遮罩 -->
+  <div class="page-transition" id="page-transition"></div>
+
+  <!-- 导航 -->
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">JimmyDaily</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/archives">Archive</a>
+        <a href="/tags">Tags</a>
+        <a href="/about">About</a>
       </div>
+      <button id="dark-toggle" class="dark-toggle" aria-label="Toggle dark mode">✦</button>
     </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-9-17" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/09/17/9-17/" class="article-date">
-  <time class="dt-published" datetime="2025-09-16T16:28:25.000Z" itemprop="datePublished">2025-09-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/09/17/9-17/">9/17</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="第一遍"><a href="#第一遍" class="headerlink" title="第一遍"></a>第一遍</h1><p>在母目录scout 下启动调试是python ——报错<br><strong>小心 正式运行端口是5000</strong><br>正式运行思路：先 app.py 启动服务，再 curl localhost:5000&#x2F;api&#x2F;health 访问<br>调试思路：左上角调试orF5，再访问 localhost:5000&#x2F;api&#x2F;health 即可</p>
-<h1 id="第二遍"><a href="#第二遍" class="headerlink" title="第二遍"></a>第二遍</h1><p>进入api文件夹，python flask调试是正确的状态<br>设置断点在def health_check（），运行api文件夹下的app.py，curl localhost:5000&#x2F;api&#x2F;health 访问仍然失败</p>
-<h1 id="第三遍"><a href="#第三遍" class="headerlink" title="第三遍"></a>第三遍</h1><p>在return jsonify处，打下断点，F5，访问localhost:5000&#x2F;api&#x2F;health 成功</p>
-<p>总结：<font color="red">api目录调试，def 函数内容打断点，F5，访问localhost:5000&#x2F;api&#x2F;health 成功</font></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/09/17/9-17/" data-id="cmra4bdg60010px2ih0o9eoco" data-title="9/17" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug-python/" rel="tag">debug, python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-9-16" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/09/16/9-16/" class="article-date">
-  <time class="dt-published" datetime="2025-09-15T17:16:11.000Z" itemprop="datePublished">2025-09-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/09/16/9-16/">9/16</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>调试curl</p>
-<h1 id="第一遍"><a href="#第一遍" class="headerlink" title="第一遍"></a>第一遍</h1><p>launch.json<br>调试生产环境，报了service层管理学生  路径错误<br>求得正确方法：<br>先app.py 启动服务<br>再设置断点<br>然后curl<br><strong>但是看不到curl断在哪里，反而不发送curl可以断开</strong></p>
-<h1 id="第二遍"><a href="#第二遍" class="headerlink" title="第二遍"></a>第二遍</h1><p>export FLASK_ENV&#x3D;testing  在5010端口为测试环境<br>似乎是步骤不对？</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/09/16/9-16/" data-id="cmra4bdg5000ypx2ibuvt9sj5" data-title="9/16" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-9-14-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/09/14/9-14-2/" class="article-date">
-  <time class="dt-published" datetime="2025-09-14T14:40:36.000Z" itemprop="datePublished">2025-09-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/09/14/9-14-2/">9/14-2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>从删除多余文件test.curl开始<br>看了眼curl的结构，git版本历史——是9、1改成admin  teacher  student的endpoint<br>理清api端点思路，即覆盖率<br>缺少：</p>
-<ul>
-<li>健康测试（仅仅是api server能运行）</li>
-<li>学生考试结果</li>
-</ul>
-<p>发现 不是所有student py做了测试<br>chatgpt：在白盒mock test中，可以使用pytest的fixture，不上传真实信息，sess[]<br>灵马：真实认证session机制</p>
-<p>再从需求分析<br>我认为学生信息不用，只要查到成绩就行<br>灵马：学生信息作用：个性化体验，数据验证，审计日志</p>
-<p><strong>ai修复test</strong>：<br>实例化，把类创造一个实例&#x3D;&#x3D;对象<br>对象可以调用类的方法<br>在student里是<br>student_service &#x3D; StudentService()  # 实例化过程<br>profile &#x3D; student_service.get_student_profile(student_id)  # 调用实例方法</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/09/14/9-14-2/" data-id="cmra4bdg2000rpx2i6dijf7ur" data-title="9/14-2" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-9-14" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/09/14/9-14/" class="article-date">
-  <time class="dt-published" datetime="2025-09-13T16:19:29.000Z" itemprop="datePublished">2025-09-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/09/14/9-14/">9/14</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>单元测试  背会命令<br>分别跑admin teacher student都通了<br>但是test py一个报错<br>FAILED tests&#x2F;test_py&#x2F;test_curl.py::test_teacher_login_and_scores - requests.exceptions.ConnectionError: HTTPConnectio…<br>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 1 failed, 122 passed in 1.73s<br>为什么要启动flask应用，我是单元测试呀？</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/09/14/9-14/" data-id="cmra4bdg4000wpx2i761t8qbx" data-title="9/14" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-9-13" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/09/13/9-13/" class="article-date">
-  <time class="dt-published" datetime="2025-09-12T16:15:31.000Z" itemprop="datePublished">2025-09-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/09/13/9-13/">9/13</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>从8&#x2F;14就开始的问题终于搞定了<br>错因：<br>edge:dns_probe_finished_nxdomain即域名解析失败or拼写错误<br>问元宝，chatgpt很多繁琐的答案<br>贴bing，不对<br>浏览得：机械革命的网卡有问题，不信——评论：clash verge代理没关<br>vscode：灵码，trae能正常用</p>
-<p>正解【dns probe nxdomain】：<br>1设置 先关代理<br>2ping 网址 （查丢包，延迟）<br>3curl 网址 （查网页内容）<br>这两步骤 排查了本机到服务器的网络是否正常，即排除机器的问题和服务器的问题，所以就是dns相关<br>（与防火墙无关——本机能连通服务器，github ssh错误是根本没连上github.com）<br>4ipconfig &#x2F;flushdns<br>5【拍ai】报错信息和ping&amp;curl<br>——edge浏览器设置：安全的dns</p>
-<p>补充知识：<br>为什么edge要有自动https切换到更安全的链接？<br>因为：http所有个人信息不加密，https加密的。</p>
-<ul>
-<li>为什么dns问题需要ipconfig &#x2F;flushdns?<br>因为：<strong>dns缓存了域名和ip的对应关系</strong>，所以如果域名解析失败，需要刷新缓存。</li>
-</ul>
-<p>【网络安全基础】<br>acmp协议&#x3D;&#x3D;ping<br>arp协议  <font color="red">内网中ip转为mac物理地址  这里没理解</font></p>
-<ul>
-<li>tcp三次握手<br>请求——同意——确认<br><font color="red">不懂：syn，syn+ack<br>,ack含义，为什么同步序列号seq和确认序列号ack是核心？</font></li>
-<li>tcp四次挥手<br>关闭——确认——同意——确认<br>第二次和第三次不能合并：是为了发送没发完的信息<br><font color="red">不懂：fin，ack，fin,ack含义</font></li>
-</ul>
-<p>ip数据报干什么用</p>
-<p>在scout下安装了tcpdump<br>直接监听jimmy虚拟机到jimmy-amd-16的流量<br>主机点网页，就有刷刷刷的字符刷新<br>进一步，这些流量怎么分析？</p>
-<p>逆天！localhost:4000竟然没发本地预览hexo博客了</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/09/13/9-13/" data-id="cmra4bdg3000tpx2i9ts9akk8" data-title="9/13" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Internet/" rel="tag">Internet</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-9-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/09/10/9-10/" class="article-date">
-  <time class="dt-published" datetime="2025-09-10T13:09:19.000Z" itemprop="datePublished">2025-09-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/09/10/9-10/">9/10</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>晚六点开始<br>灵马跑test，白盒通，调黑盒curl<br>先教师<br>创建学生对db  update可以<br>api  curl   报错<br>路径:</p>
-<pre><code>1检查老师是否教这个班  的这个学生，学生、老师、科目、考试存在性 
-2endpoint顺序：先删再创建  有问题（但是创建呀，和顺序无关，又不是删除）
-3发现service层没有调用current app，，使得没有用test db，导致db操作失败
-4curl仍旧不通
-</code></pre>
-<p>于是换个ai<br>    用fitten code更加笨，readme完还是英文回答，不懂自动修改代码</p>
-<p>回归trae<br>    忘记agent，慢<br>    找到@builder开始回到1.4教师创建学生
-    </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/09/10/9-10/" data-id="cmra4bdg0000ppx2igkxqaowo" data-title="9/10" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-8-23" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/08/23/8-23/" class="article-date">
-  <time class="dt-published" datetime="2025-08-23T15:19:32.000Z" itemprop="datePublished">2025-08-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/08/23/8-23/">8/23</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>基础数据——export——…xlsx<br>…xlsx——import——基础数据</p>
-<p>db—backup—restore</p>
-<h1 id="db给ai，解构语言差异"><a href="#db给ai，解构语言差异" class="headerlink" title="db给ai，解构语言差异"></a>db给ai，解构语言差异</h1><h1 id="区分表格table-v-s-报告view"><a href="#区分表格table-v-s-报告view" class="headerlink" title="区分表格table v.s. 报告view"></a>区分表格table v.s. 报告view</h1><h2 id="表格table"><a href="#表格table" class="headerlink" title="表格table"></a>表格table</h2><p>是基础数据，关系表&amp;基础表</p>
-<h2 id="报告view"><a href="#报告view" class="headerlink" title="报告view"></a>报告view</h2><p>是基础数据之上的分析，写select固定的view</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/23/8-23/" data-id="cmra4bdfw000jpx2iavk5fasw" data-title="8/23" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-8-14" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/08/14/8-14/" class="article-date">
-  <time class="dt-published" datetime="2025-08-14T15:28:31.000Z" itemprop="datePublished">2025-08-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/08/14/8-14/">8/14</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="研究mfsapi的调试"><a href="#研究mfsapi的调试" class="headerlink" title="研究mfsapi的调试"></a>研究mfsapi的调试</h1><p>Error: Failed to find Flask application or factory in module ‘app’. Use ‘app:name’ to specify one.<br><strong>code .vscode&#x2F;launch.json</strong><br>  “env”: {<br>                “FLASK_APP”: “<em>run.py</em>:create_app”,<br>工厂模式create_app下,延迟创建app&#x3D;flask(<strong>name</strong>)，传入不同的config类更具灵活性<br>待研究：</p>
-<h2 id="config类？"><a href="#config类？" class="headerlink" title="config类？##"></a>config类？##</h2><p>&amp;<br><strong>if <strong>name</strong> &#x3D;&#x3D; ‘<strong>main</strong>‘:</strong></p>
-<h2 id="没遇到-flask-run导入模块？"><a href="#没遇到-flask-run导入模块？" class="headerlink" title="没遇到  flask run导入模块？##"></a>没遇到  flask run导入模块？##</h2><p>app.run(debug&#x3D;True)</p>
-<h2 id="调试可以运行，但是怎么curl？明天搜索yt吧"><a href="#调试可以运行，但是怎么curl？明天搜索yt吧" class="headerlink" title="调试可以运行，但是怎么curl？明天搜索yt吧"></a>调试可以运行，但是怎么curl？明天搜索yt吧</h2><h1 id="Python虚拟环境问题解决方案-SOP"><a href="#Python虚拟环境问题解决方案-SOP" class="headerlink" title="Python虚拟环境问题解决方案(SOP)"></a>Python虚拟环境问题解决方案(SOP)</h1><p><font color = 'red'>基础py环境，系统依赖，强制重建虚拟环境，安装项目依赖。</font></p>
-<h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>首次执行<code>python -m venv venv</code>未成功创建虚拟环境</p>
-<h2 id="可能原因分析"><a href="#可能原因分析" class="headerlink" title="可能原因分析"></a>可能原因分析</h2><ol>
-<li>Python环境未正确安装venv模块</li>
-<li>系统缺少必要的依赖包</li>
-<li>权限问题导致无法创建目录</li>
-</ol>
-<h2 id="标准解决流程"><a href="#标准解决流程" class="headerlink" title="标准解决流程"></a>标准解决流程</h2><ol>
-<li><p><strong>检查基础环境</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 确认Python版本</span></span><br><span class="line">python3 --version</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查venv模块可用性</span></span><br><span class="line">python3 -c <span class="string">&quot;import venv; print(&#x27;venv模块可用&#x27;)&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>安装必要系统依赖</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install python3-venv</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>创建虚拟环境</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 强制重建虚拟环境</span></span><br><span class="line"><span class="built_in">rm</span> -rf venv</span><br><span class="line">python3 -m venv venv</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>验证虚拟环境</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查激活脚本</span></span><br><span class="line"><span class="built_in">ls</span> venv/bin/activate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试激活</span></span><br><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>安装项目依赖</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install mysql-connector-python</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="首次失败原因总结"><a href="#首次失败原因总结" class="headerlink" title="首次失败原因总结"></a>首次失败原因总结</h2><ol>
-<li>系统可能缺少<code>python3-venv</code>包</li>
-<li>未正确安装Python虚拟环境依赖</li>
-<li>未使用管理员权限安装必要组件</li>
-</ol>
-<h2 id="预防措施"><a href="#预防措施" class="headerlink" title="预防措施"></a>预防措施</h2><ol>
-<li>在新系统上先执行：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install python3-venv python3-pip</span><br></pre></td></tr></table></figure></li>
-<li>创建虚拟环境时使用完整路径</li>
-<li>检查命令执行后的返回信息</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/14/8-14/" data-id="cmra4bdfv000hpx2i5xercbjn" data-title="8/14" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-8-12" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/08/13/8-12/" class="article-date">
-  <time class="dt-published" datetime="2025-08-13T02:09:36.000Z" itemprop="datePublished">2025-08-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/08/13/8-12/">8/12</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="一定要SOP！！！！！！！！否则你将被同一段相似代码折磨一辈子"><a href="#一定要SOP！！！！！！！！否则你将被同一段相似代码折磨一辈子" class="headerlink" title="一定要SOP！！！！！！！！否则你将被同一段相似代码折磨一辈子"></a>一定要SOP！！！！！！！！否则你将被同一段相似代码折磨一辈子</h1><h1 id="附带后果是似懂非懂的概念，浪费时间，浪费时间，浪费时间！！！"><a href="#附带后果是似懂非懂的概念，浪费时间，浪费时间，浪费时间！！！" class="headerlink" title="附带后果是似懂非懂的概念，浪费时间，浪费时间，浪费时间！！！"></a>附带后果是似懂非懂的概念，浪费时间，浪费时间，浪费时间！！！</h1><h1 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h1><p>import mysql.connector<br>conn &#x3D; mysql.connector.connect(host&#x3D;’localhost’, user,db,password,port)&#x2F;&#x2F;<strong>引号不能漏！！！</strong><br>cursor &#x3D; conn.cursor()&#x2F;&#x2F;创建游标<br>cursor.execute(‘select * from students’)&#x2F;&#x2F;执行查询<br>result &#x3D; cursor.fetchall()&#x2F;&#x2F;获取查询结果<br>print(result)<br>conn.close()&#x2F;&#x2F;关闭连接<br>cursor.close()&#x2F;&#x2F;关闭游标</p>
-<h1 id="mfsapi总体框架"><a href="#mfsapi总体框架" class="headerlink" title="mfsapi总体框架"></a>mfsapi总体框架</h1><p>浏览器发起http请求-&gt; flask接收请求 create_app()-&gt; 分发给蓝图路由-&gt; 蓝图路由调用db连接的函数-&gt; 执行sql查询-&gt; flask返回结果，转换为json-》浏览器显示结果</p>
-<h1 id="从0开始"><a href="#从0开始" class="headerlink" title="从0开始"></a>从0开始</h1><h2 id="1搭建虚拟机环境"><a href="#1搭建虚拟机环境" class="headerlink" title="1搭建虚拟机环境"></a>1搭建虚拟机环境</h2><p>理清思路：</p>
-<h3 id="1-1本地windows-1-2dns解析为主机ip-1-3检查防火墙tcp端口22是否放行-1-4服务器ubuntu-openssh-server启动-ssh会话建立"><a href="#1-1本地windows-1-2dns解析为主机ip-1-3检查防火墙tcp端口22是否放行-1-4服务器ubuntu-openssh-server启动-ssh会话建立" class="headerlink" title="1.1本地windows -&gt;1.2dns解析为主机ip -&gt;1.3检查防火墙tcp端口22是否放行-&gt;1.4服务器ubuntu openssh-server启动-&gt;ssh会话建立"></a>1.1本地windows -&gt;1.2dns解析为主机ip -&gt;1.3检查防火墙tcp端口22是否放行-&gt;1.4服务器ubuntu openssh-server启动-&gt;ssh会话建立</h3><p>实操：<br>ping 主机.mshome.net（mshome.net是hyper-v虚拟机的域名）<br>再ssh 用户名@你的主机名.mshome.net or ssh 用户名@172.</p>
-<p>检查：防火墙sudo ufw allow ssh<br>sudo ufw status和ssh服务sudo apt update<br>sudo apt install openssh-server<br>sudo systemctl <strong>enable</strong> ssh<br>sudo systemctl start ssh</p>
-<h2 id="2免密登录，保存登录信息"><a href="#2免密登录，保存登录信息" class="headerlink" title="2免密登录，保存登录信息"></a>2免密登录，保存登录信息</h2><p>本地生成密钥对——登录虚拟机——创建ssh目录——本地复制公钥到虚拟机——测试免密登录<br>ssh-keygen -t rsa -b 4096 -C “你的邮箱”<br>ssh <a href="mailto:&#x6a;&#105;&#109;&#x6d;&#x79;&#64;&#x31;&#x37;&#x32;&#46;&#50;&#52;&#46;&#x34;&#x39;&#46;&#49;&#x39;&#57;">&#x6a;&#105;&#109;&#x6d;&#x79;&#64;&#x31;&#x37;&#x32;&#46;&#50;&#52;&#46;&#x34;&#x39;&#46;&#49;&#x39;&#57;</a><br>mkdir -p ~&#x2F;.ssh<br>chmod 700 ~&#x2F;.ssh<br>type C:\Users\JimmyHuang.ssh\id_ed25519.pub | ssh <a href="mailto:&#106;&#105;&#109;&#109;&#x79;&#64;&#x31;&#x37;&#x32;&#x2e;&#x32;&#x34;&#46;&#x34;&#57;&#x2e;&#49;&#57;&#57;">&#106;&#105;&#109;&#109;&#x79;&#64;&#x31;&#x37;&#x32;&#x2e;&#x32;&#x34;&#46;&#x34;&#57;&#x2e;&#49;&#57;&#57;</a> “cat &gt;&gt; ~&#x2F;.ssh&#x2F;authorized_keys &amp;&amp; chmod 600 ~&#x2F;.ssh&#x2F;authorized_keys”<br>ls -l ~&#x2F;.ssh<br>cat ~&#x2F;.ssh&#x2F;authorized_keys<br>ssh -i C:\Users\JimmyHuang.ssh\id_ed25519 <a href="mailto:&#106;&#105;&#109;&#109;&#x79;&#x40;&#49;&#x37;&#x32;&#x2e;&#50;&#52;&#46;&#x34;&#x39;&#x2e;&#x31;&#57;&#x39;">&#106;&#105;&#109;&#109;&#x79;&#x40;&#49;&#x37;&#x32;&#x2e;&#50;&#52;&#46;&#x34;&#x39;&#x2e;&#x31;&#57;&#x39;</a></p>
-<h3 id="VS-Code-新终端默认进入虚拟机环境"><a href="#VS-Code-新终端默认进入虚拟机环境" class="headerlink" title="VS Code 新终端默认进入虚拟机环境"></a>VS Code 新终端默认进入虚拟机环境</h3><p>确保已装 Remote - SSH 插件。<br>编辑本地 C:\Users\JimmyHuang.ssh\config，添加：<br>Host vm-jimmy<br>    HostName jimmy.mshome.net<br>    User jimmy<br>    IdentityFile C:&#x2F;Users&#x2F;JimmyHuang&#x2F;.ssh&#x2F;id_ed25519</p>
-<h2 id="3启动mysql服务"><a href="#3启动mysql服务" class="headerlink" title="3启动mysql服务"></a>3启动mysql服务</h2><p>安装——启动——配置——初始化&amp;授权——建db建表插数据<br>1sudo apt update<br>sudo apt install mysql-server<br>2sudo systemctl start mysql<br>sudo mysql -u root -p<br>3.1 检查配置文件<br>sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>bind-address &#x3D; <strong>0.0.0.0</strong><br>sudo systemctl restart mysql<br>3.2防火墙<br>sudo ufw allow 3306(这里打开vm的fwd，不用打开宿主机的fw，因为用的是localhost访问mysql服务)<br>sudo ufw reload<br>4CREATE DATABASE scout;<br><font color='red'>只授予localhost权限即只能从vm访问db！！！CREATE USER ‘jimmy‘@’localhost’ IDENTIFIED BY ‘你的密码’;GRANT ALL PRIVILEGES ON scout.* TO ‘jimmy‘@’localhost’;</font><br><font color='orange'> 要允许任意ip访问！！！create user ‘jimmy‘@’%’ identified by ‘你的密码’;<br>grant all privileges on scout.* to ‘jimmy‘@’%’;<br></font><br>FLUSH PRIVILEGES;<br>5mysql -u root -p scout<br>create table scout(<br>    id int auto_increment primary key,<br>    actor varchar(255)<br>)<br>insert into scout(actor) values (‘jimmy’)；<strong>引号！！！</strong></p>
-<h2 id="4python环境"><a href="#4python环境" class="headerlink" title="4python环境"></a>4python环境</h2><p>#!&#x2F;bin&#x2F;bash</p>
-<h3 id="文件名：setup-env-sh"><a href="#文件名：setup-env-sh" class="headerlink" title="文件名：setup_env.sh"></a>文件名：setup_env.sh</h3><h3 id="1-创建并进入项目目录"><a href="#1-创建并进入项目目录" class="headerlink" title="1. 创建并进入项目目录"></a>1. 创建并进入项目目录</h3><p>mkdir -p ~&#x2F;myproject<br>cd ~&#x2F;myproject</p>
-<h3 id="2-创建虚拟环境"><a href="#2-创建虚拟环境" class="headerlink" title="2. 创建虚拟环境"></a>2. 创建虚拟环境</h3><p>python3 -m venv venv</p>
-<h3 id="3-激活虚拟环境"><a href="#3-激活虚拟环境" class="headerlink" title="3. 激活虚拟环境"></a>3. 激活虚拟环境</h3><p>source venv&#x2F;bin&#x2F;activate</p>
-<h3 id="4-升级-pip"><a href="#4-升级-pip" class="headerlink" title="4. 升级 pip"></a>4. 升级 pip</h3><p>pip install –upgrade pip</p>
-<h3 id="5-安装常用包"><a href="#5-安装常用包" class="headerlink" title="5. 安装常用包"></a>5. 安装常用包</h3><p>pip install flask mysql-connector-python requests</p>
-<p>echo “✅ 虚拟环境已配置完成！”</p>
-<h3 id="6启动python"><a href="#6启动python" class="headerlink" title="6启动python"></a>6启动python</h3><p>sudo apt update<br>sudo apt install python-is-python3</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>反思：那么多看过三四遍的步骤还要查半天，先归因于sop不足<br>简单版1hostname -I2ping vm的ip3ssh 用户名@vm的ip<br>sql：安装，启动，配置，初始化&amp;授权，建db建表插数据<br>又卡死的输入db的ip：理解错了【配置】用的是localhost访问mysql服务，</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/13/8-12/" data-id="cmra4bdfu000fpx2i2z9q2e6r" data-title="8/12" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db-python/" rel="tag">db, python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-8-11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/08/13/8-11/" class="article-date">
-  <time class="dt-published" datetime="2025-08-13T01:29:21.000Z" itemprop="datePublished">2025-08-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/08/13/8-11/">8/11</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="目标-windows端连接虚拟机db-sop见8-12"><a href="#目标-windows端连接虚拟机db-sop见8-12" class="headerlink" title="目标 windows端连接虚拟机db sop见8&#x2F;12"></a>目标 windows端连接虚拟机db sop见8&#x2F;12</h1><p>记住：<br>1 启动MYsql服务器<br>sudo systemctl status mysql &amp;&amp; sudo systemctl start mysql<br>2 检查配置文件<br>sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>bind-address &#x3D; <strong>0.0.0.0</strong><br>sudo systemctl restart mysql<br>3检查用户权限<br>mysql -u root -p<br>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘your_user‘@’%’ IDENTIFIED BY ‘your_password’ WITH GRANT OPTION;<br>FLUSH PRIVILEGES;<br>4防火墙<br>sudo ufw allow 3306<br>sudo ufw reload<br>5 命令行测试<br>mysql -h your_ip -u your_user -p</p>
-<h2 id="数据库名称不要忘记填写"><a href="#数据库名称不要忘记填写" class="headerlink" title="数据库名称不要忘记填写"></a>数据库名称不要忘记填写</h2><h2 id="csv-格式"><a href="#csv-格式" class="headerlink" title="csv 格式"></a>csv 格式</h2><p>id, actor, acrobatics<br>1,jimmy,skip<br>2,henry,clown</p>
-<h1 id="函数依赖＆第一、二、三范式"><a href="#函数依赖＆第一、二、三范式" class="headerlink" title="函数依赖＆第一、二、三范式"></a>函数依赖＆第一、二、三范式</h1><p>函数依赖：<br>    部分依赖：复合主键(A,B)，只要一个主键A就能决定另一个列C 就称C部分依赖A<br>    完全依赖：复合主键(A,B)，两个主键都必须存在才能决定另一个列C 就称C完全依赖AB<br>    传递依赖：A -&gt; B -&gt; C，A决定B，B决定C，则称C传递依赖AB<br>1NF:不能一个表头有多个数值<br>2NF：完全、传递依赖<br>3NF：完全依赖</p>
-<h1 id="python中cors跨域"><a href="#python中cors跨域" class="headerlink" title="python中cors跨域"></a>python中cors跨域</h1><p>cors跨域是什么：解决浏览器同源策略限制，当浏览器发起请求给服务器，服务器响应回来的数据浏览器不接受，因为浏览器认为这是一个跨域请求，所以浏览器会拒绝接受。</p>
-<p>针对非简单请求，浏览器会先发起一个预检请求<br>后端python如何配置：<br>import flask_cors from CORS<br>CORS(app)<br>就自动带上跨域的头信息Access-Control-Allow-Origin:*<br>辨析：py连db，用的是mysql-connector库，创建游标cursor，执行sql语句，返回结果，关闭连接。<br>curl的地位是重要发起请求工具<br>而前端:5000,回到后端：3000是跨域，由后端配置cors</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/13/8-11/" data-id="cmra4bdfs000dpx2iaowyawos" data-title="8/11" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
+  <!-- 主内容 -->
+  <main class="main-content">
+    <!-- 首页：拼贴墙 -->
+<section class="hero-section">
+  <h1 class="hero-title">
+    <span class="hero-word" style="--i:0">Jimmy's</span>
+    <span class="hero-word" style="--i:1">Daily</span>
+    <span class="hero-word" style="--i:2">Blog</span>
+  </h1>
+  <p class="hero-subtitle">Every universe has a story</p>
 </section>
-        
-          <aside id="sidebar">
+
+<section class="collage-wall">
   
     
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Internet/" rel="tag">Internet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/" rel="tag">angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db-python/" rel="tag">db, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug-python/" rel="tag">debug, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/" rel="tag">全栈开发</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Internet/" style="font-size: 10px;">Internet</a> <a href="/tags/angular/" style="font-size: 15px;">angular</a> <a href="/tags/db/" style="font-size: 17.5px;">db</a> <a href="/tags/db-python/" style="font-size: 10px;">db, python</a> <a href="/tags/debug-python/" style="font-size: 12.5px;">debug, python</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/" style="font-size: 10px;">全栈开发</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">July 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/07/07/7-7/">7/7</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/24/11-24/">11/24</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/11/11-11/">11/11</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/04/11-4/">11/4</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/03/11-3/">11/3</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+    <article class="collage-card style-mandala" data-style="mandala">
+      <a href="/2025/09/17/9-17/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Sep 17</div>
+        <h2 class="card-title">9/17</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">debug, python</span>
+            
+          
+        </div>
       </div>
-      <footer id="footer">
+      </a>
+    </article>
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2026 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
     
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
+    <article class="collage-card style-popart" data-style="popart">
+      <a href="/2025/09/16/9-16/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Sep 16</div>
+        <h2 class="card-title">9/16</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">python</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+    
+    <article class="collage-card style-popart" data-style="popart">
+      <a href="/2025/09/14/9-14-2/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Sep 14</div>
+        <h2 class="card-title">9/14-2</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">python</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+    
+    <article class="collage-card style-popart" data-style="popart">
+      <a href="/2025/09/14/9-14/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Sep 14</div>
+        <h2 class="card-title">9/14</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">python</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+    
+    <article class="collage-card style-futuristic" data-style="futuristic">
+      <a href="/2025/09/13/9-13/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Sep 13</div>
+        <h2 class="card-title">9/13</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">Internet</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+    
+    <article class="collage-card style-popart" data-style="popart">
+      <a href="/2025/09/10/9-10/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Sep 10</div>
+        <h2 class="card-title">9/10</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">python</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+    
+    <article class="collage-card style-popart" data-style="popart">
+      <a href="/2025/08/23/8-23/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Aug 23</div>
+        <h2 class="card-title">8/23</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">db</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+    
+    <article class="collage-card style-punk" data-style="punk">
+      <a href="/2025/08/14/8-14/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Aug 14</div>
+        <h2 class="card-title">8/14</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+    
+    <article class="collage-card style-watercolor" data-style="watercolor">
+      <a href="/2025/08/13/8-12/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Aug 13</div>
+        <h2 class="card-title">8/12</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">db, python</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+    
+    <article class="collage-card style-popart" data-style="popart">
+      <a href="/2025/08/13/8-11/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Aug 13</div>
+        <h2 class="card-title">8/11</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">db</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+</section>
 
+<!-- 分页 -->
 
+  <nav class="pagination">
+    
+      <a href="/" class="page-prev">← Prev</a>
+    
+    <span class="page-info">2 / 3</span>
+    
+      <a href="/page/3/" class="page-next">Next →</a>
+    
+  </nav>
 
+  </main>
 
-<script src="/js/script.js"></script>
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-quote" id="footer-quote"></p>
+      <p class="footer-copy">&copy; 2026 JimmyDaily. Built with Spider-Sense.</p>
+    </div>
+  </footer>
 
-
-
-
-
+  <!-- 音乐播放器 -->
+  <div class="music-player" id="music-player">
+    <audio id="bg-music" loop preload="none">
+      <source src="/music/Janet-ampoff.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-btn" aria-label="Toggle background music">♪</button>
+    <div class="music-info" id="music-info">
+      <span class="music-title">Janet</span>
+      <span class="music-status">paused</span>
+    </div>
   </div>
+
+  <!-- 回到顶部 -->
+  <button id="back-top" class="back-top-btn" aria-label="Back to top">↑</button>
+
+  <script src="/js/glitch.js"></script>
+  <script src="/js/drip.js"></script>
+  <script src="/js/mandala.js"></script>
+  <script src="/js/trail.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>

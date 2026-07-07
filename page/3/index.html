@@ -1,327 +1,150 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/3/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
-
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Space+Grotesk:wght@400;700;900&family=Caveat:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 <meta name="generator" content="Hexo 7.3.0"></head>
+<body class="-page">
+  <!-- Canvas 动效层 -->
+  <canvas id="glitch-canvas" class="bg-canvas"></canvas>
+  <canvas id="drip-canvas" class="bg-canvas"></canvas>
+  <canvas id="mandala-canvas" class="bg-canvas"></canvas>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+  <!-- 页面转场遮罩 -->
+  <div class="page-transition" id="page-transition"></div>
+
+  <!-- 导航 -->
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">JimmyDaily</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/archives">Archive</a>
+        <a href="/tags">Tags</a>
+        <a href="/about">About</a>
       </div>
+      <button id="dark-toggle" class="dark-toggle" aria-label="Toggle dark mode">✦</button>
     </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-8-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/08/11/8-10/" class="article-date">
-  <time class="dt-published" datetime="2025-08-10T16:59:16.000Z" itemprop="datePublished">2025-08-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/08/11/8-10/">8/10</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="警钟长鸣——"><a href="#警钟长鸣——" class="headerlink" title="警钟长鸣——"></a>警钟长鸣——</h1><h1 id="复制空表格，仍然反复检查为何数据无法导入"><a href="#复制空表格，仍然反复检查为何数据无法导入" class="headerlink" title="复制空表格，仍然反复检查为何数据无法导入"></a>复制空表格，仍然反复检查为何数据无法导入</h1><h1 id="表扬进入年级前100最多的班级"><a href="#表扬进入年级前100最多的班级" class="headerlink" title="表扬进入年级前100最多的班级"></a>表扬进入年级前100最多的班级</h1><h2 id="1-生成数据"><a href="#1-生成数据" class="headerlink" title="1 生成数据"></a>1 生成数据</h2><p><font color="red">可研究：excel一条命令，生成1000行连续自然数，然后随机英文名</font><br>     这次chatgpt让我逃课</p>
-<h2 id="2-导入数据库"><a href="#2-导入数据库" class="headerlink" title="2 导入数据库"></a>2 导入数据库</h2><p>vscode集成度很高，点按钮自动导入<br>可研究：<strong>①为什么class有null产生</strong></p>
-<p>记住：<br>①db插件，<strong>铅笔</strong>状图标可直接修改设计表<br>②pandas库可转换excel为csv</p>
-<h2 id="3-写SQL语句"><a href="#3-写SQL语句" class="headerlink" title="3  写SQL语句"></a>3  写SQL语句</h2><h3 id="3-1计算学生总分"><a href="#3-1计算学生总分" class="headerlink" title="3.1计算学生总分"></a>3.1计算学生总分</h3><p>with 总成绩 as(<br>    select<br>        学号，<br>        班级，<br>        姓名，<br>        sum(case when 科目&#x3D;’语文’ then 成绩 else 0 end) *3遍 as total<br>    from 学生表<br>    left join<br>)<br><strong>知识点</strong><br>CTE：with…as() 称为CTE共同表表达式，用于<strong>临时表</strong>，可嵌套<br>左连接：left join以学生表为准，成绩如果多就让他多</p>
-<h3 id="3-2-计算所有学生排名"><a href="#3-2-计算所有学生排名" class="headerlink" title="3.2 计算所有学生排名"></a>3.2 计算所有学生排名</h3><p>排名(<br>select<br>    总成绩.学号,<br>    总成绩.班级,<br>    总成绩.姓名,<br>    row_number()over(order by总分)<br>from <strong>总成绩</strong>（不要引用错表格）</p>
-<p>)<strong>,</strong><br><strong>知识点</strong><br>排序窗口函数：row_number()over(order by 字段) 用于<strong>排名</strong></p>
-<h3 id="3-3-计算班级排名"><a href="#3-3-计算班级排名" class="headerlink" title="3.3 计算班级排名"></a>3.3 计算班级排名</h3><p>select<br>    <strong>count(排名)</strong><br>from<br>join<br>order by<br><font color="red">可优化：添加语文老师为班主任，只找到他一个人即代表该班的前100人数，而不是手工where A or B or C or D</font></p>
-<h4 id="小细节"><a href="#小细节" class="headerlink" title="小细节"></a>小细节</h4><p>select都要逗号，除了最后一个字段<br>select字段1,2,3,就是新建一张表格的列1,2,3<br><strong>update</strong> update set 字段&#x3D;新值 where xxx between 1 and 200<br>学会用IN (‘A’,’B’)，写多值条件；区分 AND 与 OR<br>group by必须包含所有<strong>非聚合列</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/11/8-10/" data-id="cmra4bdfr000cpx2i61mr1900" data-title="8/10" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-8-8-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/08/08/8-8-2/" class="article-date">
-  <time class="dt-published" datetime="2025-08-08T15:58:48.000Z" itemprop="datePublished">2025-08-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/08/08/8-8-2/">8/8/2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>唯一键unique</strong><br>也是一个表的唯一标识符，但是唯一键可以有多个。<br>eg.学生表的学号和名字都可以作为唯一键。</p>
-<h1 id="超级无敌学生老师管理系统"><a href="#超级无敌学生老师管理系统" class="headerlink" title="超级无敌学生老师管理系统"></a>超级无敌学生老师管理系统</h1><p><strong>问题一</strong><br>同一学号、学科、类型都相同，出错了<br>解决：自连接&amp;多表删除<br>delete s1 from scores s1<br>join scores s2<br>on s1.student_id&#x3D;s2.student_id<br>And s1………..&#x3D;s2………..<br>And s1.id &lt; s2.id</p>
-<p><strong>问题2.1找一个老师的所有学生</strong><br>select<br><em>count()</em><br>from表一<br>join表二on 表一.主键&#x3D;表二.外键<br>join表三on 表一.主键&#x3D;表三.外键<br>where表一.主键&#x3D;”老师姓名”<br>group by 表一.主键</p>
-<p><strong>问题2.2算出一个老师所有学生的平均分</strong><br>select<br><em>avg()</em><br>from表一<br>join表二on 表一.主键&#x3D;表二.外键<br>join表三on 表一.主键&#x3D;表三.外键<br>where表一.主键&#x3D;”老师姓名”<br>group by 表一.主键</p>
-<p><strong>问题2.3找一个老师所有学生的最高分</strong><br>select<br>from表一<br>join表二on 表一.主键&#x3D;表二.外键<br>join表三on 表一.主键&#x3D;表三.外键<br>where表一.主键&#x3D;”老师姓名”<br>group by 表一.主键<br><em>order by 表三.成绩 desc</em><br><em>limit 1</em></p>
-<h2 id="知识点罗列"><a href="#知识点罗列" class="headerlink" title="知识点罗列"></a>知识点罗列</h2><p>自连接，多表删除，聚合函数（count，avg，max，min，sum），group by，order by，limit，join（一个表and是多重条件，不同表之间多个join）</p>
-<h3 id="待学习"><a href="#待学习" class="headerlink" title="待学习"></a>待学习</h3><p>左连接，右连接，内连接，全连接<br>查询各个班年级<strong>前100</strong>学生数量，并排序<br><strong>flask框架</strong>搞搞清楚，<br>怎么<strong>连接数据库</strong>关键词！！！<br>喂<strong>xml，pdf，json，html，excel，csv，txt</strong>怎么处理</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/08/8-8-2/" data-id="cmra4bdfy000lpx2i1oui8iti" data-title="8/8/2" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-8-8" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/08/08/8-8/" class="article-date">
-  <time class="dt-published" datetime="2025-08-08T06:00:22.000Z" itemprop="datePublished">2025-08-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/08/08/8-8/">8/8</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>昨日理解关系表的概念之一<br><strong>主键</strong><br>是一个表的的唯一标识符<br><strong>外键</strong><br>一个表的主键在另一个表则称为外键<br>eg.students.id &amp; scores.id均为两个表的主键；<br>scores.student_id指向students.student_id为外键<br><strong>索引</strong><br>加快查找速度<br>辨析：没有索引，逐页翻字典；有索引，已创建索引目录，查找时直接定位目标，再摊开数据<br>eg.PRIMARY KEY (id) –再创建scores表的语句<br>采用select * from scores where student_id &#x3D;”S1001”创建索引目录，即S1001&#x3D;【1,11】，S1001&#x3D;【2】，S1003&#x3D;【3】，直接定位到第三行，id&#x3D;3查找完毕</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/08/8-8/" data-id="cmra4bdfz000npx2i4wke77i4" data-title="8/8" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/db/" rel="tag">db</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
 
+  <!-- 主内容 -->
+  <main class="main-content">
+    <!-- 首页：拼贴墙 -->
+<section class="hero-section">
+  <h1 class="hero-title">
+    <span class="hero-word" style="--i:0">Jimmy's</span>
+    <span class="hero-word" style="--i:1">Daily</span>
+    <span class="hero-word" style="--i:2">Blog</span>
+  </h1>
+  <p class="hero-subtitle">Every universe has a story</p>
 </section>
-        
-          <aside id="sidebar">
+
+<section class="collage-wall">
   
     
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Internet/" rel="tag">Internet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/" rel="tag">angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db-python/" rel="tag">db, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug-python/" rel="tag">debug, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/" rel="tag">全栈开发</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Internet/" style="font-size: 10px;">Internet</a> <a href="/tags/angular/" style="font-size: 15px;">angular</a> <a href="/tags/db/" style="font-size: 17.5px;">db</a> <a href="/tags/db-python/" style="font-size: 10px;">db, python</a> <a href="/tags/debug-python/" style="font-size: 12.5px;">debug, python</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/" style="font-size: 10px;">全栈开发</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">July 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/07/07/7-7/">7/7</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/24/11-24/">11/24</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/11/11-11/">11/11</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/04/11-4/">11/4</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/03/11-3/">11/3</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+    <article class="collage-card style-popart" data-style="popart">
+      <a href="/2025/08/11/8-10/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Aug 11</div>
+        <h2 class="card-title">8/10</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">db</span>
+            
+          
+        </div>
       </div>
-      <footer id="footer">
+      </a>
+    </article>
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2026 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
     
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
+    <article class="collage-card style-popart" data-style="popart">
+      <a href="/2025/08/08/8-8-2/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Aug 08</div>
+        <h2 class="card-title">8/8/2</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">db</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+    
+    <article class="collage-card style-popart" data-style="popart">
+      <a href="/2025/08/08/8-8/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Aug 08</div>
+        <h2 class="card-title">8/8</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">db</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+</section>
 
+<!-- 分页 -->
 
+  <nav class="pagination">
+    
+      <a href="/page/2/" class="page-prev">← Prev</a>
+    
+    <span class="page-info">3 / 3</span>
+    
+  </nav>
 
+  </main>
 
-<script src="/js/script.js"></script>
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-quote" id="footer-quote"></p>
+      <p class="footer-copy">&copy; 2026 JimmyDaily. Built with Spider-Sense.</p>
+    </div>
+  </footer>
 
-
-
-
-
+  <!-- 音乐播放器 -->
+  <div class="music-player" id="music-player">
+    <audio id="bg-music" loop preload="none">
+      <source src="/music/Janet-ampoff.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-btn" aria-label="Toggle background music">♪</button>
+    <div class="music-info" id="music-info">
+      <span class="music-title">Janet</span>
+      <span class="music-status">paused</span>
+    </div>
   </div>
+
+  <!-- 回到顶部 -->
+  <button id="back-top" class="back-top-btn" aria-label="Back to top">↑</button>
+
+  <script src="/js/glitch.js"></script>
+  <script src="/js/drip.js"></script>
+  <script src="/js/mandala.js"></script>
+  <script src="/js/trail.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>

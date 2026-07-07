@@ -1,677 +1,290 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
-
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Space+Grotesk:wght@400;700;900&family=Caveat:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 <meta name="generator" content="Hexo 7.3.0"></head>
+<body class="-page">
+  <!-- Canvas 动效层 -->
+  <canvas id="glitch-canvas" class="bg-canvas"></canvas>
+  <canvas id="drip-canvas" class="bg-canvas"></canvas>
+  <canvas id="mandala-canvas" class="bg-canvas"></canvas>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+  <!-- 页面转场遮罩 -->
+  <div class="page-transition" id="page-transition"></div>
+
+  <!-- 导航 -->
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">JimmyDaily</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/archives">Archive</a>
+        <a href="/tags">Tags</a>
+        <a href="/about">About</a>
       </div>
+      <button id="dark-toggle" class="dark-toggle" aria-label="Toggle dark mode">✦</button>
     </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-7-7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/07/07/7-7/" class="article-date">
-  <time class="dt-published" datetime="2026-07-07T14:30:00.000Z" itemprop="datePublished">2026-07-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/07/7-7/">7/7</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="全栈开发工作标准"><a href="#全栈开发工作标准" class="headerlink" title="全栈开发工作标准"></a>全栈开发工作标准</h1><p>分为四个方面：<strong>需求、开发、测试、审查</strong></p>
-<h2 id="1-需求（Requirements）"><a href="#1-需求（Requirements）" class="headerlink" title="1. 需求（Requirements）"></a>1. 需求（Requirements）</h2><ul>
-<li>需求要规范化成文档，<strong>一个功能一个文档</strong></li>
-<li>按功能路径组织，例如 <code>student/select scores</code></li>
-<li>文档存放在 <code>docs/requirements/</code> 目录下</li>
-<li><strong>人问 AI 哪个地方需要完善或添加需求，AI 逐个问题问我得到批准，而不是我提出一个 AI 核对一个</strong></li>
-</ul>
-<h2 id="2-开发（Development）"><a href="#2-开发（Development）" class="headerlink" title="2. 开发（Development）"></a>2. 开发（Development）</h2><ul>
-<li>遵循数据库 → 后端 API → 前端 的默认顺序</li>
-<li>保持与现有代码风格一致</li>
-</ul>
-<h2 id="3-测试（Testing）"><a href="#3-测试（Testing）" class="headerlink" title="3. 测试（Testing）"></a>3. 测试（Testing）</h2><ul>
-<li>自动化测试用 <strong>Playwright E2E</strong></li>
-<li>需要肉眼观察界面时，用 <strong>noVNC</strong> 远程查看浏览器画面</li>
-</ul>
-<h2 id="4-审查（Review）"><a href="#4-审查（Review）" class="headerlink" title="4. 审查（Review）"></a>4. 审查（Review）</h2><ul>
-<li>代码变更后对照需求文档逐项审查</li>
-<li>确保每一项需求都已实现</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/07/7-7/" data-id="cmra4bdfp0009px2i73tt5ghi" data-title="7/7" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/" rel="tag">全栈开发</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-11-24" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/24/11-24/" class="article-date">
-  <time class="dt-published" datetime="2025-11-24T14:44:02.000Z" itemprop="datePublished">2025-11-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/24/11-24/">11/24</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>js:<br>变量 const let<br>数据类型：primitive object<br>对象：键值对<br>函数：<br>function myfunction(name,,job){<br>    document.getElementById(“demo”).innerHTML &#x3D; name;<br>}<br>作用域：函数内定义的是局部变量，函数外不能访问。写在function之前是全局变量<br>事件：是操控html元素eg onclick<br>模板字符串：const message&#x3D;<code>hello!$&#123;name&#125;.Nice to meet you,$&#123;mood&#125;!</code>;<br>特性：拼接，多行，执行表达式</p>
-<h1 id="dom-tree"><a href="#dom-tree" class="headerlink" title="dom tree"></a>dom tree</h1><p>element（head h1 h2 body——div——p<br>属性 eg onclick<br>text<br>onclick&#x3D;”myfunction(‘jimmy’,’teacher’)”<br><font color="red">双引号里面是单引号</font></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/24/11-24/" data-id="cmra4bdfl0004px2if69g191d" data-title="11/24" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-11-11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/11/11-11/" class="article-date">
-  <time class="dt-published" datetime="2025-11-11T15:17:29.000Z" itemprop="datePublished">2025-11-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/11/11-11/">11/11</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="constructor-ngOnchanges-ngOnInit-ngDocheck-ngOnDestroy生命周期"><a href="#constructor-ngOnchanges-ngOnInit-ngDocheck-ngOnDestroy生命周期" class="headerlink" title="constructor() ngOnchanges() ngOnInit() ngDocheck ngOnDestroy生命周期"></a>constructor() ngOnchanges() ngOnInit() ngDocheck ngOnDestroy生命周期</h1><h2 id="export-…"><a href="#export-…" class="headerlink" title="export …"></a>export …</h2><p>@ViewChild(MatPaginator) <strong>paginator</strong>!: MatPaginator;<br>@ViewChild(MatSort) <strong>sort</strong>!: MatSort;<br>是调用了两个控件的构造函数，一个是分页控件，另一个是排序控件。</p>
-<h2 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor("></a>constructor(</h2><pre><code>private snackBar: MatSnackBar
-</code></pre>
-<p>  ) {}<br>依赖（MatSnackBar）（由angular）注入（给组件scores）</p>
-<h2 id="ngAfterViewInit"><a href="#ngAfterViewInit" class="headerlink" title="ngAfterViewInit() {"></a>ngAfterViewInit() {</h2><pre><code>this.dataSource.paginator = this.paginator;
-this.dataSource.sort = this.sort;
-</code></pre>
-<p>  }<br>  将分页和排序器赋值给数据源DataSource</p>
-<h2 id="saveScore-scoreId-number-void"><a href="#saveScore-scoreId-number-void" class="headerlink" title="saveScore(scoreId: number): void {"></a>saveScore(scoreId: number): void {</h2><p><strong>if (this.teacherId &amp;&amp; this.editingScoreId)</strong>{<br>      this.scoreUpdated.emit({<br>        teacherId: this.teacherId,<br>        scoreId: this.editingScoreId,<br>        score: this.editingScore<br>      });<br>      &#x2F;&#x2F; 不再立即清除编辑状态，而是在父组件更新成功后通过@Input更新<br>    }<br>  }<br>}</p>
-<p>等价于python中if a and b双重守卫结构<br>    如果teacher_id存在，且editingScoreId存在，那么就触发scoreUpdated事件，将teacherId、editingScoreId、editingScore作为参数传递。</p>
-<h2 id="ngOnChanges-changes-SimpleChanges-void"><a href="#ngOnChanges-changes-SimpleChanges-void" class="headerlink" title="ngOnChanges(changes: SimpleChanges): void {"></a>ngOnChanges(changes: SimpleChanges): void {</h2><pre><code>if (changes[&#39;scores&#39;] &amp;&amp; changes[&#39;scores&#39;].currentValue) &#123;
-  this.dataSource.data = changes[&#39;scores&#39;].currentValue;
-&#125;
-</code></pre>
-<p>  }<br>同理类比class ScoresComponent:<br>    def <strong>init</strong>(self):<br>        self.data_source &#x3D; []</p>
-<pre><code>def on_changes(self, changes):
-    if &quot;scores&quot; in changes and changes[&quot;scores&quot;][&quot;currentValue&quot;]:
-        self.data_source = changes[&quot;scores&quot;][&quot;currentValue&quot;]
-</code></pre>
-<h3 id="模拟外部传入新数据"><a href="#模拟外部传入新数据" class="headerlink" title="模拟外部传入新数据"></a>模拟外部传入新数据</h3><p>component &#x3D; ScoresComponent()<br>component.on_changes({“scores”: {“currentValue”: [90, 85, 88]}})<br>print(component.data_source)  # [90, 85, 88]<br>changes[“scores”][“currentValue”]</p>
-<h2 id="changes-“scores”-“currentValue”-scores字典里，找到currentValue键对应的值"><a href="#changes-“scores”-“currentValue”-scores字典里，找到currentValue键对应的值" class="headerlink" title="changes[“scores”][“currentValue”]scores字典里，找到currentValue键对应的值"></a>changes[“scores”][“currentValue”]scores字典里，找到currentValue键对应的值</h2><p>疑惑：<br>改一次成绩，为什么跳转html很多次？<br>ondestroy什么时候触发？</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/11/11-11/" data-id="cmra4bdfk0003px2idtdmh2rd" data-title="11/11" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/" rel="tag">angular</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-11-4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/04/11-4/" class="article-date">
-  <time class="dt-published" datetime="2025-11-04T15:16:58.000Z" itemprop="datePublished">2025-11-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/04/11-4/">11/4</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="运行方式：页面跳转顺序逻辑"><a href="#运行方式：页面跳转顺序逻辑" class="headerlink" title="运行方式：页面跳转顺序逻辑"></a>运行方式：页面跳转顺序逻辑</h1><h2 id="app-route-ts"><a href="#app-route-ts" class="headerlink" title="app route ts"></a>app route ts</h2><p>import TeacherDashboardComponent&amp;Stu&amp;Admin所以能指定三者路径<br>export const route：【{path：‘’，conponent：LoginComponent}】明确指出URL指向组件</p>
-<h2 id="app-ts"><a href="#app-ts" class="headerlink" title="app ts"></a>app ts</h2><p><router-outlet></router-outlet>是等待渲染的路由插座，根据URL路径渲染对应的组件，比如——loginCp</p>
-<h3 id="login-cp-ts"><a href="#login-cp-ts" class="headerlink" title="login cp ts"></a>login cp ts</h3><p>import Router 在ts用router navigate到子组件<br>import { AuthService, UserInfo } from ‘..&#x2F;shared&#x2F;admin.service’;</p>
-<h4 id="userinfo理解"><a href="#userinfo理解" class="headerlink" title="userinfo理解"></a>userinfo理解</h4><p>db： SELECT user_id, user_name as username, role, password<br>                FROM users<br>                WHERE user_id &#x3D; %s AND password &#x3D; %s<br>py： 返回給前端session[‘user_id’] &#x3D; user[‘user_id’]<br>        session[‘username’] &#x3D; user[‘username’]<br>        session[‘role’] &#x3D; user[‘role’]返回給前端<br>ng：比如admin cp：&#x2F;&#x2F; <strong>定义用户信息接口</strong><br>export interface UserInfo {<br>  user_id: string;<br>  username: string;<br>  role: string;<br>}<br>login：login cp ts：<br>export class LoginComponent 所以能被app route找到<br>constructor （<br>private router： Router）給一下登錄的學生老師管理員錯誤跳轉<br>onLogin(): void {<br>    if (user.role &#x3D;&#x3D;&#x3D; ‘student’){<br>        this.router.navigate([‘&#x2F;student&#x2F;dashboard’]);<br>        queryParams:{ student_id: this.loginData.userId}<br>    }<br>    老師<br>    管理員<br>    不支持的用戶角色<br>}</p>
-<p>總結：<br>app route ts類比py的路由，決定URL指向哪個組件<br>src類比py的blueprint，<br>區別在於<br>ng小“嵌套”進大cp，py只有導入導出<br>ng import有ng自帶的控件，也有selector命名，組件內導入此控件<br>eg app ts router outlet對應組件<strong>渲染</strong>，也是py沒有的</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/04/11-4/" data-id="cmra4bdfo0008px2i3ayodbed" data-title="11/4" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/" rel="tag">angular</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-11-3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/03/11-3/" class="article-date">
-  <time class="dt-published" datetime="2025-11-03T15:16:15.000Z" itemprop="datePublished">2025-11-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/03/11-3/">11/3</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>理解父子组件关系：</p>
-<h1 id="从父组件看"><a href="#从父组件看" class="headerlink" title="从父组件看"></a>从父组件看</h1><h2 id="一，import系列"><a href="#一，import系列" class="headerlink" title="一，import系列"></a>一，import系列</h2><p>dashboard component ts<br>import ScoresComponent <strong>代表dashb是Scores的父组件，</strong><br>interface ScoreUpdateEvent是父子组件通信的桥梁，下文ts使用 updateStudentScore()方法处理事件<br>@Component<br>    selector: ‘app-teacher-dashboard’,给此控件命名<br>    imports: [ScoresComponent],导入Scores组件</p>
-<h2 id="二html系列"><a href="#二html系列" class="headerlink" title="二html系列"></a>二html系列</h2><p>&lt;app-scores<br>            [scores]&#x3D;”scores”<br>            [loading]&#x3D;”scoresLoading”<br>            [teacherId]&#x3D;”teacherId”<br>            (scoreUpdated)&#x3D;”updateStudentScore($event)”&gt;<br>          </app-scores><br>app-score是ScoresComponent的子组件，子组件给父传递scores loading teacherId</p>
-<h2 id="三ts系列"><a href="#三ts系列" class="headerlink" title="三ts系列"></a>三ts系列</h2><p> updateStudentScore(event: ScoreUpdateEvent): void 处理事件</p>
-<h1 id="从子组件看"><a href="#从子组件看" class="headerlink" title="从子组件看"></a>从子组件看</h1><h2 id="一import"><a href="#一import" class="headerlink" title="一import"></a>一import</h2><p>interface ScoreUpdateEvent 父子通信桥梁<br>selector: ‘app-scores’ 给此组件命名</p>
-<h2 id="三ts"><a href="#三ts" class="headerlink" title="三ts"></a>三ts</h2><p>@Input（）loading&amp;scores&amp;teacherId 父组件传给子组件，<br>@Output() scoreUpdated &#x3D; new EventEmitter<ScoreUpdateEvent>() 子组件给父组件传递事件</p>
-<h1 id="app-route-ts-URL路径映射到组件！"><a href="#app-route-ts-URL路径映射到组件！" class="headerlink" title="app route ts!URL路径映射到组件！"></a>app route ts!URL路径映射到组件！</h1><p>import { TeacherDashboardComponent } from ‘..&#x2F;teacher&#x2F;dashboard.component’;</p>
-<p>export const routes: Routes &#x3D; [<br>  &#x2F;&#x2F; …<br>  { path: ‘teacher&#x2F;dashboard’, component: TeacherDashboardComponent },<br>  &#x2F;&#x2F; …<br>];</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/03/11-3/" data-id="cmra4bdfm0005px2i5k59ho8w" data-title="11/3" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/" rel="tag">angular</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-10-18" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/10/18/10-18/" class="article-date">
-  <time class="dt-published" datetime="2025-10-18T14:55:17.000Z" itemprop="datePublished">2025-10-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/10/18/10-18/">10/18</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>logs&#x2F;admin_curl_commands.log</strong>查找所有curl命令<br>增加新功能   以学生姓名找学生信息   思路：<br>1写sql查询语句<br>    select<br>    from<br>    join联合表<br>    where</p>
-<p>2service层  写get_student_by_name<br>    try<br>        调用查询语句<br>        return&#x3D;<br>        if result:<br>            return result[0]此处result是数组，若重名，则只要第一个<br>    except<br>        current_app.logger.error(错误信息)</p>
-<p>3blueprint层<br>    实例化<br>    调用get_student_by_name<br>    if not<br>        current_app错误信息<br>    current_app.logger.正确信息</p>
-<p>业务：<br>单独学生：<br>    one：展示一条成绩，独学科、考试类型<br>    ＆ 考试结果：六科排名和总分   </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/18/10-18/" data-id="cmra4bdfa0000px2id1ti0di3" data-title="10/18" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-10-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/10/02/10-2/" class="article-date">
-  <time class="dt-published" datetime="2025-10-02T15:39:52.000Z" itemprop="datePublished">2025-10-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/10/02/10-2/">10/2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>打印日志<br>eg student_curl_commands.log看到Test1，Test2，Test3的curl代码</p>
-<p>student_service &#x3D; StudentService()<br>是把StudentService类实例化，赋值给student_service变量</p>
-<pre><code>第一步是def __init__(self):
-    self.db_service = DatabaseService()
-    初始化
-    **静态类** ，不需要实例化，直接调用
-    **实例类** 需要实例化，才能调用
-</code></pre>
-<p>scores &#x3D; score_service.get_student_scores(student_id)<br>是调用<strong>score_service</strong>对象的get_student_scores方法，传入student_id参数，返回student_id的成绩列表</p>
-<p>跳转到Class ScoreService 执行select语句，但是结果只有数字<em>examtypeid subjecttypeid</em><br>return result </p>
-<p>再连接db<br>创建connection，创建cursor，执行query，fetchall，关闭cursor，关闭connection</p>
-<p>走if not scores:<br>        return <strong>error_response</strong>线，没有error 即<br>            data&#x3D;[]<br>            massage”success” </p>
-<p>current_app.logger.info(f”Student {student_id} retrieved scores”)<br>    return success_response(scores)<br>查到成绩——返回正确信息</p>
-<p>写调试案例：<br>    def test_04_get_student_exam_results_not_found(self):<br>        “””测试用例4: 获取不存在学生ID的考试结果，应返回404错误”””<br>        self.run_api_test(<br>            4, “获取不存在学生ID的考试结果”,<br>            [‘curl’, ‘-s’, f’{self.base_url}&#x2F;api&#x2F;student&#x2F;exam_results&#x2F;S999’, ‘|’, ‘jq’],<br>            “student_4_get_exam_results_not_found.json”, self.test_setup,<br>            expect_error&#x3D;True<br>        )</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/02/10-2/" data-id="cmra4bdfg0001px2i3t751ehi" data-title="10/2" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-9-24" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/09/24/9-24/" class="article-date">
-  <time class="dt-published" datetime="2025-09-24T15:52:03.000Z" itemprop="datePublished">2025-09-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/09/24/9-24/">9/24</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>一个开发类，一个端口，连两个db<br>系统级框架：<br>app (factory config route,logging) blueprint service<br>mvc设计模式 ——分层</p>
-<p>类<br>封装继承多态，<br>继承：写sql，80%。mssql，mysql，oracle，20%可用</p>
-<p>属性  类比  db的列  值<br>方法  类比  db数据处理+-*&#x2F;,仍然是table</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/09/24/9-24/" data-id="cmra4bdg90018px2idi82fxpl" data-title="9/24" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-9-19" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/09/20/9-19/" class="article-date">
-  <time class="dt-published" datetime="2025-09-19T16:04:05.000Z" itemprop="datePublished">2025-09-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/09/20/9-19/">9/19</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h1><h2 id="第一步-找错"><a href="#第一步-找错" class="headerlink" title="第一步 找错"></a>第一步 找错</h2><p>test curl全部运行——51pass 1 error——test_01_get_grades 错误</p>
-<h2 id="第二步-定位"><a href="#第二步-定位" class="headerlink" title="第二步 定位"></a>第二步 定位</h2><h3 id="step1："><a href="#step1：" class="headerlink" title="step1："></a>step1：</h3><p>shift ctrl f：test_01_get_grades —— 定位到test_01_get_grades函数 打断点<br>再运行 不停（——应该看python debug console “2025-09-19 21:44:45,078 INFO app.factory Query <font color="red">result: None”</font>即<strong>数据没从后端传进db</strong> ，可能导入到开发db了）</p>
-<h3 id="step2："><a href="#step2：" class="headerlink" title="step2："></a>step2：</h3><p>“”POST &#x2F;api&#x2F;auth&#x2F;login HTTP&#x2F;1.1” 401 -”在此目录下找登录认证逻辑函数login（）——打断点、print（“test123”）——bash没反应——再f11单步</p>
-<h3 id="step3："><a href="#step3：" class="headerlink" title="step3："></a>step3：</h3><p>右边看变量<br>eg.        start_time &#x3D; time.time()<br>        data &#x3D; request.get_json()<br>        user_id &#x3D; data.get(‘user_id’)<br>        password &#x3D; data.get(‘password’)<br>右边》监视》添加表达式 data和user_id和password<br>在单步到db_service.close()处，f10逐过程</p>
-<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>找到是curl cmd后面一行，print f学生登录失败之前，打断点，同时result前写print（startlogin）&#x2F;后写(endlogin)，（result）——是变量</p>
-<h1 id="提炼总结"><a href="#提炼总结" class="headerlink" title="提炼总结"></a>提炼总结</h1><p>利用ctrl f全局，文件，终端，搜索中文、正则表达式<br>监视变量，出现None大概率有问题</p>
-<p>ps：student endpoint 测试api不全<br>开发5000，测试5010,<br>测试代码走不到 blueprint 设不了断点——修改——开发测试统一端口5000，db分类</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/09/20/9-19/" data-id="cmra4bdg70013px2i449l41au" data-title="9/19" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug-python/" rel="tag">debug, python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-9-18" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/09/19/9-18/" class="article-date">
-  <time class="dt-published" datetime="2025-09-18T16:16:52.000Z" itemprop="datePublished">2025-09-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/09/19/9-18/">9/18</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="没搞懂原因-："><a href="#没搞懂原因-：" class="headerlink" title="没搞懂原因 ："></a>没搞懂原因 ：</h1><p>f5，报错：有端口正在使用，sudo pkill -f python，为什么python testing点绿色小三角有卡顿转圈转不出</p>
-<h2 id="解决：重开新窗口，进api"><a href="#解决：重开新窗口，进api" class="headerlink" title="解决：重开新窗口，进api"></a>解决：重开新窗口，进api</h2><h1 id="调试："><a href="#调试：" class="headerlink" title="调试："></a>调试：</h1><p>f5，f10，f11都会用了<br><strong>但是变量不知道看什么，信息太多了</strong><br>仅能看明白：password，start_time,user_id</p>
-<h1 id="心态："><a href="#心态：" class="headerlink" title="心态："></a>心态：</h1><p>走每步  步骤，减少依赖ai带来的<font color="green">1 passed</font><br>比如：test01报 1 error in 64.40s (0:01:04) ，其实是调试时间太长了，“超时”，要知道import time放在哪行result &#x3D; subprocess.run(curl_cmd, capture_output&#x3D;True, text&#x3D;True, timeout&#x3D;60)属于<strong>test curl base</strong></p>
-<h2 id="问ai时间限制来自哪，再加上自己ctrl-F，两结合方便"><a href="#问ai时间限制来自哪，再加上自己ctrl-F，两结合方便" class="headerlink" title="问ai时间限制来自哪，再加上自己ctrl F，两结合方便"></a>问ai时间限制来自哪，再加上自己ctrl F，两结合方便</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/09/19/9-18/" data-id="cmra4bdg80015px2i09a7f6wh" data-title="9/18" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
+  <!-- 主内容 -->
+  <main class="main-content">
+    <!-- 首页：拼贴墙 -->
+<section class="hero-section">
+  <h1 class="hero-title">
+    <span class="hero-word" style="--i:0">Jimmy's</span>
+    <span class="hero-word" style="--i:1">Daily</span>
+    <span class="hero-word" style="--i:2">Blog</span>
+  </h1>
+  <p class="hero-subtitle">Every universe has a story</p>
 </section>
-        
-          <aside id="sidebar">
+
+<section class="collage-wall">
   
     
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Internet/" rel="tag">Internet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/" rel="tag">angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db/" rel="tag">db</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/db-python/" rel="tag">db, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug-python/" rel="tag">debug, python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/" rel="tag">全栈开发</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Internet/" style="font-size: 10px;">Internet</a> <a href="/tags/angular/" style="font-size: 15px;">angular</a> <a href="/tags/db/" style="font-size: 17.5px;">db</a> <a href="/tags/db-python/" style="font-size: 10px;">db, python</a> <a href="/tags/debug-python/" style="font-size: 12.5px;">debug, python</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/" style="font-size: 10px;">全栈开发</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">July 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/07/07/7-7/">7/7</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/24/11-24/">11/24</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/11/11-11/">11/11</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/04/11-4/">11/4</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/03/11-3/">11/3</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+    <article class="collage-card style-sketch" data-style="sketch">
+      <a href="/2026/07/07/7-7/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Jul 07</div>
+        <h2 class="card-title">7/7</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">全栈开发</span>
+            
+          
+        </div>
       </div>
-      <footer id="footer">
+      </a>
+    </article>
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2026 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
     
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
+    <article class="collage-card style-watercolor" data-style="watercolor">
+      <a href="/2025/11/24/11-24/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Nov 24</div>
+        <h2 class="card-title">11/24</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">js</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+    
+    <article class="collage-card style-watercolor" data-style="watercolor">
+      <a href="/2025/11/11/11-11/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Nov 11</div>
+        <h2 class="card-title">11/11</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">angular</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+    
+    <article class="collage-card style-watercolor" data-style="watercolor">
+      <a href="/2025/11/04/11-4/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Nov 04</div>
+        <h2 class="card-title">11/4</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">angular</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+    
+    <article class="collage-card style-watercolor" data-style="watercolor">
+      <a href="/2025/11/03/11-3/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Nov 03</div>
+        <h2 class="card-title">11/3</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">angular</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+    
+    <article class="collage-card style-popart" data-style="popart">
+      <a href="/2025/10/18/10-18/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Oct 18</div>
+        <h2 class="card-title">10/18</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">python</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+    
+    <article class="collage-card style-popart" data-style="popart">
+      <a href="/2025/10/02/10-2/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Oct 02</div>
+        <h2 class="card-title">10/2</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">python</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+    
+    <article class="collage-card style-popart" data-style="popart">
+      <a href="/2025/09/24/9-24/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Sep 24</div>
+        <h2 class="card-title">9/24</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">python</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+    
+    <article class="collage-card style-popart" data-style="popart">
+      <a href="/2025/09/20/9-19/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Sep 20</div>
+        <h2 class="card-title">9/19</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">debug, python</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+    
+    <article class="collage-card style-popart" data-style="popart">
+      <a href="/2025/09/19/9-18/" class="card-link">
+      <div class="card-inner">
+        <div class="card-date">Sep 19</div>
+        <h2 class="card-title">9/18</h2>
+        <div class="card-excerpt">
+          ...
+        </div>
+        <div class="card-tags">
+          
+            
+              <span class="tag-badge">python</span>
+            
+          
+        </div>
+      </div>
+      </a>
+    </article>
+  
+</section>
 
+<!-- 分页 -->
 
+  <nav class="pagination">
+    
+    <span class="page-info">1 / 3</span>
+    
+      <a href="/page/2/" class="page-next">Next →</a>
+    
+  </nav>
 
+  </main>
 
-<script src="/js/script.js"></script>
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-quote" id="footer-quote"></p>
+      <p class="footer-copy">&copy; 2026 JimmyDaily. Built with Spider-Sense.</p>
+    </div>
+  </footer>
 
-
-
-
-
+  <!-- 音乐播放器 -->
+  <div class="music-player" id="music-player">
+    <audio id="bg-music" loop preload="none">
+      <source src="/music/Janet-ampoff.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-btn" aria-label="Toggle background music">♪</button>
+    <div class="music-info" id="music-info">
+      <span class="music-title">Janet</span>
+      <span class="music-status">paused</span>
+    </div>
   </div>
+
+  <!-- 回到顶部 -->
+  <button id="back-top" class="back-top-btn" aria-label="Back to top">↑</button>
+
+  <script src="/js/glitch.js"></script>
+  <script src="/js/drip.js"></script>
+  <script src="/js/mandala.js"></script>
+  <script src="/js/trail.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hexo | About</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Space+Grotesk:wght@400;700;900&family=Caveat:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body class="page-page">
+  <!-- Canvas 动效层 -->
+  <canvas id="glitch-canvas" class="bg-canvas"></canvas>
+  <canvas id="drip-canvas" class="bg-canvas"></canvas>
+  <canvas id="mandala-canvas" class="bg-canvas"></canvas>
+
+  <!-- 页面转场遮罩 -->
+  <div class="page-transition" id="page-transition"></div>
+
+  <!-- 导航 -->
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">JimmyDaily</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/archives">Archive</a>
+        <a href="/tags">Tags</a>
+        <a href="/about">About</a>
+      </div>
+      <button id="dark-toggle" class="dark-toggle" aria-label="Toggle dark mode">✦</button>
+    </div>
+  </nav>
+
+  <!-- 主内容 -->
+  <main class="main-content">
+    <article class="post-article style-sketch">
+  <header class="post-header">
+    <h1 class="post-title">About</h1>
+  </header>
+  <div class="post-content">
+    <h1 id="🕷️-Jimmy’s-Daily-Blog"><a href="#🕷️-Jimmy’s-Daily-Blog" class="headerlink" title="🕷️ Jimmy’s Daily Blog"></a>🕷️ Jimmy’s Daily Blog</h1><p>Welcome to my corner of the Spider-Verse.</p>
+<p>A personal blog documenting my journey through full-stack development, coding experiments, and daily discoveries.</p>
+<p><strong>Stack:</strong> Hexo | Stylus | Canvas API | Spider-Sense 🕸️</p>
+<p><em>“Anyone can wear the mask.”</em></p>
+
+  </div>
+</article>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-quote" id="footer-quote"></p>
+      <p class="footer-copy">&copy; 2026 JimmyDaily. Built with Spider-Sense.</p>
+    </div>
+  </footer>
+
+  <!-- 音乐播放器 -->
+  <div class="music-player" id="music-player">
+    <audio id="bg-music" loop preload="none">
+      <source src="/music/Janet-ampoff.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-btn" aria-label="Toggle background music">♪</button>
+    <div class="music-info" id="music-info">
+      <span class="music-title">Janet</span>
+      <span class="music-status">paused</span>
+    </div>
+  </div>
+
+  <!-- 回到顶部 -->
+  <button id="back-top" class="back-top-btn" aria-label="Back to top">↑</button>
+
+  <script src="/js/glitch.js"></script>
+  <script src="/js/drip.js"></script>
+  <script src="/js/mandala.js"></script>
+  <script src="/js/trail.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

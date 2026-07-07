@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Lost in the Spider-Verse</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="error-page">
+  <!-- 故障 Canvas -->
+  <canvas id="glitch-canvas" class="bg-canvas"></canvas>
+
+  <main class="error-content">
+    <h1 class="error-code">404</h1>
+    <p class="error-text">This page got lost in the Spider-Verse.</p>
+    <p class="error-sub">Even Spider-Man gets lost sometimes.</p>
+    <a href="/" class="error-btn">← Go Home</a>
+  </main>
+
+  <script src="/js/glitch.js"></script>
+  <script>
+    // Activate glitch heavily on 404
+    document.body.classList.add('dark-mode')
+  </script>
+</body>
+</html>
