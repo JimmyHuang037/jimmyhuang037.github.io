@@ -162,33 +162,146 @@
   var audio = document.getElementById('bg-music')
   var musicBtn = document.getElementById('music-toggle')
   var musicStatus = document.querySelector('.music-status')
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+
+  function logMusic(msg, data) {
+    var prefix = '[Music]'
+    if (data !== undefined) {
+      console.log(prefix + ' ' + msg, data)
+    } else {
+      console.log(prefix + ' ' + msg)
+    }
+  }
 
   if (audio && musicBtn) {
+    logMusic('Player initialized', {
+      src: audio.currentSrc || audio.querySelector('source').src,
+      preload: audio.preload,
+      readyState: audio.readyState,
+      paused: audio.paused,
+      volume: audio.volume,
+      muted: audio.muted,
+      isMobile: isMobile,
+      userAgent: navigator.userAgent
+    })
+
+    // Mobile: use metadata preload so first tap can play immediately
+    if (isMobile && audio.preload === 'none') {
+      audio.preload = 'metadata'
+      logMusic('Mobile detected: changed preload to metadata')
+    }
+
+    // Desktop lazy load on hover
     musicBtn.addEventListener('mouseenter', function() {
-      if (audio.readyState === 0) audio.load()
+      if (audio.readyState === 0) {
+        logMusic('Lazy loading on mouseenter')
+        audio.load()
+      }
     }, { once: true })
 
-    musicBtn.addEventListener('click', function() {
-      if (audio.paused) {
-        audio.play().then(function() {
-          musicBtn.classList.add('playing')
-          musicBtn.textContent = '♫'
-          if (musicStatus) musicStatus.textContent = 'playing'
-        }).catch(function(e) {
-          console.warn('[Music] Play blocked:', e.message)
-        })
+    // Audio event listeners for debugging
+    audio.addEventListener('loadstart', function() { logMusic('Event: loadstart') })
+    audio.addEventListener('loadedmetadata', function() {
+      logMusic('Event: loadedmetadata', { duration: audio.duration })
+    })
+    audio.addEventListener('canplay', function() { logMusic('Event: canplay') })
+    audio.addEventListener('error', function() {
+      logMusic('Event: error', {
+        code: audio.error ? audio.error.code : 'unknown',
+        message: audio.error ? audio.error.message : 'no error object'
+      })
+    })
+    audio.addEventListener('stalled', function() { logMusic('Event: stalled') })
+    audio.addEventListener('waiting', function() { logMusic('Event: waiting') })
+
+    function updateUI(playing) {
+      if (playing) {
+        musicBtn.classList.add('playing')
+        musicBtn.textContent = '♫'
+        if (musicStatus) musicStatus.textContent = 'playing'
       } else {
-        audio.pause()
         musicBtn.classList.remove('playing')
         musicBtn.textContent = '♪'
         if (musicStatus) musicStatus.textContent = 'paused'
       }
-    })
+      logMusic('UI updated', { playing: playing })
+    }
+
+    function togglePlay(e) {
+      // Prevent double-fire when both touchend and click trigger
+      if (e.type === 'touchend') {
+        e.preventDefault()
+        musicBtn._touchHandled = true
+        setTimeout(function() { musicBtn._touchHandled = false }, 300)
+      }
+      if (e.type === 'click' && musicBtn._touchHandled) {
+        logMusic('Click ignored (already handled by touch)')
+        return
+      }
+
+      logMusic('Toggle requested', {
+        eventType: e.type,
+        currentlyPaused: audio.paused,
+        readyState: audio.readyState,
+        networkState: audio.networkState
+      })
+
+      if (audio.paused) {
+        // Ensure audio is loaded before playing on mobile
+        if (audio.readyState === 0) {
+          logMusic('Audio not loaded, calling load() before play()')
+          audio.load()
+        }
+
+        var playPromise = audio.play()
+        if (playPromise !== undefined) {
+          playPromise.then(function() {
+            logMusic('Play succeeded', { currentTime: audio.currentTime, volume: audio.volume })
+            updateUI(true)
+          }).catch(function(err) {
+            logMusic('Play failed', {
+              name: err.name,
+              message: err.message,
+              code: err.code
+            })
+            // Retry once after short delay (helps some Android browsers)
+            if (err.name === 'NotAllowedError' || err.name === 'AbortError') {
+              logMusic('Retrying play after 100ms...')
+              setTimeout(function() {
+                audio.play().then(function() {
+                  logMusic('Retry play succeeded')
+                  updateUI(true)
+                }).catch(function(retryErr) {
+                  logMusic('Retry play also failed', { name: retryErr.name, message: retryErr.message })
+                  alert('浏览器阻止了音频播放，请检查浏览器设置或尝试其他浏览器。\n\nBrowser blocked audio playback. Try a different browser or check settings.')
+                })
+              }, 100)
+            }
+          })
+        }
+      } else {
+        audio.pause()
+        logMusic('Paused', { currentTime: audio.currentTime })
+        updateUI(false)
+      }
+    }
+
+    // Use touchend on mobile for faster response, click on desktop
+    if (isMobile) {
+      musicBtn.addEventListener('touchend', togglePlay, { passive: false })
+      logMusic('Registered touchend listener for mobile')
+    }
+    musicBtn.addEventListener('click', togglePlay)
+    logMusic('Registered click listener')
 
     audio.addEventListener('ended', function() {
-      musicBtn.classList.remove('playing')
-      musicBtn.textContent = '♪'
-      if (musicStatus) musicStatus.textContent = 'paused'
+      logMusic('Event: ended (loop should restart)')
+      updateUI(false)
+    })
+  } else {
+    logMusic('WARNING: audio or musicBtn element not found', {
+      hasAudio: !!audio,
+      hasBtn: !!musicBtn
     })
   }
 

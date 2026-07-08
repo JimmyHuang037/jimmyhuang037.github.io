@@ -1040,10 +1040,17 @@ body.dark-mode .style-mandala {
     font-size: 1.3rem;
   }
   .music-player {
-    padding: 0.15rem 0.15rem 0.15rem 0.5rem;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.25rem;
   }
   .music-player .music-info {
     display: none;
+  }
+  .music-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
   }
 }
 .post-article.style-watercolor .post-content h1,
