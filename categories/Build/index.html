@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Space+Grotesk:wght@400;700;900&family=Caveat:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 <meta name="generator" content="Hexo 7.3.0"></head>
 
-<body class="-page">
+<body class="-page universe-build">
   <!-- Canvas 动效层 -->
   <canvas id="glitch-canvas" class="bg-canvas"></canvas>
   <canvas id="drip-canvas" class="bg-canvas"></canvas>
@@ -75,22 +75,100 @@
 
   <!-- 主内容 -->
   <main class="main-content">
-    <section class="archive-page style-futuristic">
-  <h1 class="archive-title">Archive</h1>
-  <div class="archive-timeline">
+    <!-- Universe 页：一个模板 + CSS 变量驱动五种视觉身份 -->
+
+
+
+  <!-- ===== Universe Hero ===== -->
+  <section class="universe-hero">
+    <div class="u-hero-inner">
+      <div class="u-kicker"><span class="u-icon">⚡</span> UNIVERSE 02</div>
+      <h1 class="u-name">Build</h1>
+      <p class="u-tagline">Code, AI, and the craft of building things that work.</p>
+      <p class="u-tagline-cn">编程 · AI · 全栈 · 技术创造</p>
+    </div>
+  </section>
+
+  <!-- ===== Skills（能力标签） ===== -->
+  <section class="universe-skills">
+    <h2 class="u-section-label">Skills</h2>
+    <div class="skill-tags">
+      
+        <span class="skill-tag">AI</span>
+      
+        <span class="skill-tag">Python</span>
+      
+        <span class="skill-tag">Angular</span>
+      
+        <span class="skill-tag">SQL</span>
+      
+        <span class="skill-tag">Agent</span>
+      
+        <span class="skill-tag">MCP</span>
+      
+        <span class="skill-tag">RAG</span>
+      
+    </div>
+  </section>
+
+  <!-- ===== Projects（作品集，仅当有 project: true 的文章时渲染） ===== -->
+  
+
+  <!-- ===== Articles（文章列表） ===== -->
+  <section class="universe-articles">
+    <h2 class="u-section-label">Articles <span class="u-count">2</span></h2>
     
-      <div class="archive-item">
-        <time class="archive-date">2025-08-08</time>
-        <a href="/2025/08/08/8-8-2/" class="archive-link">8/8/2</a>
+      <div class="collage-wall">
+        
+          <article class="collage-card style-futuristic" data-style="futuristic">
+            <a href="/2026/07/22/7-22/" class="card-link">
+              <div class="card-inner">
+                <div class="card-date">Jul 22</div>
+                <h3 class="card-title">7/22 MFS 数据库重构 + 学习建议引擎</h3>
+                <div class="card-excerpt">...</div>
+                <div class="card-tags">
+                  
+                    
+                      <span class="tag-badge">python</span>
+                    
+                      <span class="tag-badge">angular</span>
+                    
+                      <span class="tag-badge">flask</span>
+                    
+                      <span class="tag-badge">fullstack</span>
+                    
+                  
+                </div>
+              </div>
+            </a>
+          </article>
+        
+          <article class="collage-card style-futuristic" data-style="futuristic">
+            <a href="/2026/07/07/7-7/" class="card-link">
+              <div class="card-inner">
+                <div class="card-date">Jul 07</div>
+                <h3 class="card-title">7/7</h3>
+                <div class="card-excerpt">...</div>
+                <div class="card-tags">
+                  
+                    
+                      <span class="tag-badge">fullstack</span>
+                    
+                  
+                </div>
+              </div>
+            </a>
+          </article>
+        
       </div>
     
-      <div class="archive-item">
-        <time class="archive-date">2025-08-08</time>
-        <a href="/2025/08/08/8-8/" class="archive-link">8/8</a>
-      </div>
-    
-  </div>
-</section>
+  </section>
+
+  <!-- ===== 分页 ===== -->
+  
+
+
+
   </main>
 
   <!-- 页脚 -->
