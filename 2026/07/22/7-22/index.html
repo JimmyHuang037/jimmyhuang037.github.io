@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hexo | 7/22 MFS 数据库重构 + 学习建议引擎</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Space+Grotesk:wght@400;700;900&family=Caveat:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body class="post-page">
+  <!-- Canvas 动效层 -->
+  <canvas id="glitch-canvas" class="bg-canvas"></canvas>
+  <canvas id="drip-canvas" class="bg-canvas"></canvas>
+  <canvas id="mandala-canvas" class="bg-canvas"></canvas>
+
+  <!-- 页面转场遮罩 -->
+  <div class="page-transition" id="page-transition"></div>
+
+  <!-- 导航 -->
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">JimmyDaily</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/archives">Archive</a>
+        <a href="/tags">Tags</a>
+        <a href="/about">About</a>
+      </div>
+      <button id="dark-toggle" class="dark-toggle" aria-label="Toggle dark mode">✦</button>
+    </div>
+  </nav>
+
+  <!-- 主内容 -->
+  <main class="main-content">
+    <!-- 文章页 -->
+
+
+<article class="post-article style-popart" data-style="popart">
+  <header class="post-header">
+    <div class="post-meta-line">
+      <time class="post-date">2026-07-22</time>
+      <span class="post-reading">2 min read</span>
+    </div>
+    <h1 class="post-title">7/22 MFS 数据库重构 + 学习建议引擎</h1>
+    <div class="post-tags">
+      
+        
+          <span class="tag-badge">python</span>
+        
+          <span class="tag-badge">angular</span>
+        
+          <span class="tag-badge">flask</span>
+        
+          <span class="tag-badge">fullstack</span>
+        
+      
+    </div>
+  </header>
+
+  <div class="post-content">
+    <p>今天集中搞了 MFS 学生管理系统的两件大事：数据库重构和学习建议引擎。</p>
+<h2 id="一、数据库重构"><a href="#一、数据库重构" class="headerlink" title="一、数据库重构"></a>一、数据库重构</h2><p>把整个数据底层翻了一遍：</p>
+<ul>
+<li><strong>学号</strong>：纯数字 <code>0101</code> → S前缀 <code>S0101</code></li>
+<li><strong>分数体系</strong>：语数英满分150原始分，物化政满分100原始分 + API层赋分制（40-70），总分660</li>
+<li><strong>成绩波动模型</strong>：用「能力值 × 考试难度系数 + 噪声」替代原来的线性均匀分布，让数据更真实（比如月考难全班低分但排名不变）</li>
+<li><strong>各科中心值</strong>：语文100、数学英语120、物理化学80、政治60</li>
+<li><strong>老师</strong>：6人 → 18人（每科3人，每人教4班）</li>
+</ul>
+<p>赋分引擎写在 <code>score_service.py</code> 里，按年级百分位实时计算，不改数据库结构。前端成绩明细同时展示原始分和赋分值。</p>
+<h2 id="二、学习建议引擎"><a href="#二、学习建议引擎" class="headerlink" title="二、学习建议引擎"></a>二、学习建议引擎</h2><p>从零搭了一个十维度的个性化学习决策引擎，参考了猿辅导、学而思、科大讯飞AI学习机的思路。4步迭代完成：</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>提分ROI分数区间分析 + 主科权重提示</td>
+</tr>
+<tr>
+<td>2</td>
+<td>木桶短板分析（单科严重 vs 多科偏低）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>综合学习重心建议（汇总决策段落）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>排名区间 + 波动稳定性 + 优势科保护 + 最近发挥 + 排名变化幅度</td>
+</tr>
+</tbody></table>
+<p>核心解决的问题：学生不应该盲目跟风突击某一科，而是根据历史数据理性判断投入产出比。比如小h英语一直低位，短期突破无效，系统会建议均衡发力争取总排名提升。</p>
+<p>前端用 ECharts 做了各科分数趋势折线图、总排名趋势图、各科百分位雷达图，建议列表同科目自动归并，总建议加粗高亮。</p>
+<h2 id="三、技术栈"><a href="#三、技术栈" class="headerlink" title="三、技术栈"></a>三、技术栈</h2><p>后端 Flask + MySQL，前端 Angular 20 + Material + ECharts。今天写了大概1100行 Python（score_service.py），新建了2个 Angular 组件，改了十几个文件。</p>
+<h2 id="明日预告"><a href="#明日预告" class="headerlink" title="明日预告"></a>明日预告</h2><p>明天研究 Docker + Jenkins，搭建开发&#x2F;测试&#x2F;生产三套环境的 CI&#x2F;CD 流水线。目标是让 MFS 从手动部署走向自动化。</p>
+
+  </div>
+
+  <!-- 上下篇导航 -->
+  <nav class="post-nav">
+    
+    
+      <a href="/2026/07/07/7-7/" class="post-nav-link post-nav-next">
+        <span class="nav-label">Next →</span>
+        <span class="nav-title">7/7</span>
+      </a>
+    
+  </nav>
+</article>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-quote" id="footer-quote"></p>
+      <p class="footer-copy">&copy; 2026 JimmyDaily. Built with Spider-Sense.</p>
+    </div>
+  </footer>
+
+  <!-- 音乐播放器 -->
+  <div class="music-player" id="music-player">
+    <audio id="bg-music" loop preload="none">
+      <source src="/music/Janet-ampoff.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-btn" aria-label="Toggle background music">♪</button>
+    <div class="music-info" id="music-info">
+      <span class="music-title">Janet</span>
+      <span class="music-status">paused</span>
+    </div>
+  </div>
+
+  <!-- 回到顶部 -->
+  <button id="back-top" class="back-top-btn" aria-label="Back to top">↑</button>
+
+  <script src="/js/glitch.js"></script>
+  <script src="/js/drip.js"></script>
+  <script src="/js/mandala.js"></script>
+  <script src="/js/trail.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
