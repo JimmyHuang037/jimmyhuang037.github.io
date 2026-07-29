@@ -78,7 +78,7 @@
     <!-- 文章页 -->
 
 
-<article class="post-article style-popart" data-style="popart">
+<article class="post-article style-ink" data-style="ink">
   <header class="post-header">
     <div class="post-meta-line">
       <time class="post-date">2026-07-29</time>
@@ -102,16 +102,15 @@
 
   <div class="post-content">
     <p>今天从零起了一台新的 Hyper-V Ubuntu Server VM，并把 MFS 项目的 6 个 Docker 容器全部跑起来。</p>
-<h2 id="新建-VM"><a href="#新建-VM" class="headerlink" title="新建 VM"></a>新建 VM</h2><p>在 Windows Hyper-V 上创建了第二台 VM：</p>
+<h2 id="新建-VM"><a href="#新建-VM" class="headerlink" title="新建 VM"></a>新建 VM</h2><p>本来想让 Qwen Code 直接通过管理员 PowerShell 建 VM，但 Qwen 对 Windows Terminal 的适配很差——终端疯狂闪烁、跳动，根本没法用。于是放弃 CLI，直接在 Hyper-V 管理器里手动新建，剩下的配置全部在 VM 里面搞定。</p>
+<p>最终 VM 配置：</p>
 <ul>
 <li><strong>OS</strong>: Ubuntu 25.04 Server（Gen2 VM）</li>
 <li><strong>用户</strong>: jimmyuser1</li>
 <li><strong>网络</strong>: Default Switch，DHCP 拿到 <code>172.24.97.180</code></li>
 <li><strong>磁盘</strong>: 20G VHD，LVM 默认只分配了 10G</li>
 </ul>
-<p>PowerShell 建 VM 的关键一步是关掉 Secure Boot，不然 Linux ISO 起不来：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-VMFirmware</span> <span class="literal">-VMName</span> <span class="string">&quot;ubsrv&quot;</span> <span class="literal">-EnableSecureBoot</span> Off</span><br></pre></td></tr></table></figure>
-
+<p>Hyper-V 建 Gen2 VM 记得关 Secure Boot，不然 Linux ISO 起不来。</p>
 <h2 id="SSH-免密互通"><a href="#SSH-免密互通" class="headerlink" title="SSH 免密互通"></a>SSH 免密互通</h2><p>从主 VM（ubuntuserver）推 ed25519 公钥到新 VM，配了 <code>~/.ssh/config</code> 别名：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host ubsrv</span><br><span class="line">    HostName 172.24.97.180</span><br><span class="line">    User jimmyuser1</span><br><span class="line">    IdentityFile ~/.ssh/id_ed25519</span><br></pre></td></tr></table></figure>
 
