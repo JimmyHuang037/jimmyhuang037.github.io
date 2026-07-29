@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hexo | 7/29 New Hyper-V VM + Docker Containers</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Space+Grotesk:wght@400;700;900&family=Caveat:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="post-page">
+  <!-- Canvas 动效层 -->
+  <canvas id="glitch-canvas" class="bg-canvas"></canvas>
+  <canvas id="drip-canvas" class="bg-canvas"></canvas>
+  <canvas id="mandala-canvas" class="bg-canvas"></canvas>
+
+  <!-- 页面转场遮罩 -->
+  <div class="page-transition" id="page-transition"></div>
+
+  <!-- 导航 -->
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">JimmyDaily</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <div class="nav-item">
+          <span class="nav-trigger" tabindex="0">Universes ▾</span>
+          <div class="nav-dropdown">
+            
+              
+                
+                <a href="/categories/Beyond/" class="nav-universe-link u-link-beyond">
+                  <span class="nav-u-icon">🦋</span>
+                  <span class="nav-u-name">Beyond</span>
+                  <span class="nav-u-sub">成长 · 反思 · 写作 · 自我突破</span>
+                </a>
+              
+                
+                <a href="/categories/Build/" class="nav-universe-link u-link-build">
+                  <span class="nav-u-icon">⚡</span>
+                  <span class="nav-u-name">Build</span>
+                  <span class="nav-u-sub">编程 · AI · 全栈 · 技术创造</span>
+                </a>
+              
+                
+                <a href="/categories/Rhythm/" class="nav-universe-link u-link-rhythm">
+                  <span class="nav-u-icon">🥁</span>
+                  <span class="nav-u-name">Rhythm</span>
+                  <span class="nav-u-sub">打击乐 · 马林巴 · 表演 · 领导力</span>
+                </a>
+              
+                
+                <a href="/categories/Explore/" class="nav-universe-link u-link-explore">
+                  <span class="nav-u-icon">🗺</span>
+                  <span class="nav-u-name">Explore</span>
+                  <span class="nav-u-sub">旅行 · 摄影 · 日本 · 文化</span>
+                </a>
+              
+                
+                <a href="/categories/Think/" class="nav-universe-link u-link-think">
+                  <span class="nav-u-icon">🖋</span>
+                  <span class="nav-u-name">Think</span>
+                  <span class="nav-u-sub">经济 · 金融 · 阅读 · 思考</span>
+                </a>
+              
+            
+          </div>
+        </div>
+        <a href="/archives">Archive</a>
+        <a href="/about">About</a>
+      </div>
+      <button id="dark-toggle" class="dark-toggle" aria-label="Toggle dark mode">✦</button>
+    </div>
+  </nav>
+
+  <!-- 主内容 -->
+  <main class="main-content">
+    <!-- 文章页 -->
+
+
+<article class="post-article style-popart" data-style="popart">
+  <header class="post-header">
+    <div class="post-meta-line">
+      <time class="post-date">2026-07-29</time>
+      <span class="post-reading">6 min read</span>
+    </div>
+    <h1 class="post-title">7/29 New Hyper-V VM + Docker Containers</h1>
+    <div class="post-tags">
+      
+        
+          <span class="tag-badge">hyper-v</span>
+        
+          <span class="tag-badge">docker</span>
+        
+          <span class="tag-badge">linux</span>
+        
+          <span class="tag-badge">infrastructure</span>
+        
+      
+    </div>
+  </header>
+
+  <div class="post-content">
+    <p>今天从零起了一台新的 Hyper-V Ubuntu Server VM，并把 MFS 项目的 6 个 Docker 容器全部跑起来。</p>
+<h2 id="新建-VM"><a href="#新建-VM" class="headerlink" title="新建 VM"></a>新建 VM</h2><p>在 Windows Hyper-V 上创建了第二台 VM：</p>
+<ul>
+<li><strong>OS</strong>: Ubuntu 25.04 Server（Gen2 VM）</li>
+<li><strong>用户</strong>: jimmyuser1</li>
+<li><strong>网络</strong>: Default Switch，DHCP 拿到 <code>172.24.97.180</code></li>
+<li><strong>磁盘</strong>: 20G VHD，LVM 默认只分配了 10G</li>
+</ul>
+<p>PowerShell 建 VM 的关键一步是关掉 Secure Boot，不然 Linux ISO 起不来：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-VMFirmware</span> <span class="literal">-VMName</span> <span class="string">&quot;ubsrv&quot;</span> <span class="literal">-EnableSecureBoot</span> Off</span><br></pre></td></tr></table></figure>
+
+<h2 id="SSH-免密互通"><a href="#SSH-免密互通" class="headerlink" title="SSH 免密互通"></a>SSH 免密互通</h2><p>从主 VM（ubuntuserver）推 ed25519 公钥到新 VM，配了 <code>~/.ssh/config</code> 别名：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host ubsrv</span><br><span class="line">    HostName 172.24.97.180</span><br><span class="line">    User jimmyuser1</span><br><span class="line">    IdentityFile ~/.ssh/id_ed25519</span><br></pre></td></tr></table></figure>
+
+<p>之后直接 <code>ssh ubsrv</code> 就行。</p>
+<h2 id="磁盘扩展"><a href="#磁盘扩展" class="headerlink" title="磁盘扩展"></a>磁盘扩展</h2><p>Ubuntu Server 的 LVM 默认只给 10G，VG 里还剩 8G 没用。两条命令扩满：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv</span><br><span class="line"><span class="built_in">sudo</span> resize2fs /dev/ubuntu-vg/ubuntu-lv</span><br></pre></td></tr></table></figure>
+
+<p>扩到 18G，可用 13G。</p>
+<h2 id="Docker-安装-镜像加速"><a href="#Docker-安装-镜像加速" class="headerlink" title="Docker 安装 + 镜像加速"></a>Docker 安装 + 镜像加速</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install -y docker.io docker-compose-v2</span><br><span class="line"><span class="built_in">sudo</span> usermod -aG docker jimmyuser1</span><br></pre></td></tr></table></figure>
+
+<p>Docker Hub 在国内直连超时，配了镜像加速（和主 VM 一样的源）：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;https://docker.1panel.live&quot;</span><span class="punctuation">,</span> <span class="string">&quot;https://hub.rat.dev&quot;</span><span class="punctuation">]</span><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="推项目-启动容器"><a href="#推项目-启动容器" class="headerlink" title="推项目 + 启动容器"></a>推项目 + 启动容器</h2><p>rsync 排除 <code>node_modules</code>、<code>env</code>、<code>.git</code> 后只有 37M，几秒传完：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -az --exclude=<span class="string">&#x27;node_modules&#x27;</span> --exclude=<span class="string">&#x27;env&#x27;</span> --exclude=<span class="string">&#x27;.git&#x27;</span> \</span><br><span class="line">  ~/repo/mfs/ jimmyuser1@172.24.97.180:~/mfs/</span><br></pre></td></tr></table></figure>
+
+<p>然后分别启动 dev 和 test 两套 compose：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> docker compose -f docker-compose.dev.yml up -d --build</span><br><span class="line"><span class="built_in">sudo</span> docker compose -f docker-compose.test.yml up -d --build</span><br></pre></td></tr></table></figure>
+
+<p>最终 6 个容器全部运行：</p>
+<table>
+<thead>
+<tr>
+<th>容器</th>
+<th>端口</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mfs-dev-mysql</td>
+<td>3306</td>
+<td>healthy</td>
+</tr>
+<tr>
+<td>mfs-dev-api</td>
+<td>5000</td>
+<td>Up</td>
+</tr>
+<tr>
+<td>mfs-dev-web</td>
+<td>4200</td>
+<td>Up</td>
+</tr>
+<tr>
+<td>mfs-test-mysql</td>
+<td>3307</td>
+<td>healthy</td>
+</tr>
+<tr>
+<td>mfs-test-api</td>
+<td>5001</td>
+<td>Up</td>
+</tr>
+<tr>
+<td>mfs-test-web</td>
+<td>4201</td>
+<td>Up</td>
+</tr>
+</tbody></table>
+<h2 id="现在的架构"><a href="#现在的架构" class="headerlink" title="现在的架构"></a>现在的架构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Windows Host (Hyper-V)</span><br><span class="line">├── ubuntuserver (172.24.103.83) — 主开发 VM, Qwen Code 跑在这里</span><br><span class="line">│   └── Docker: mfs-dev (3 containers)</span><br><span class="line">└── ubsrv (172.24.97.180) — 新 VM</span><br><span class="line">    └── Docker: mfs-dev (3) + mfs-test (3)</span><br></pre></td></tr></table></figure>
+
+<p>两台 VM 通过 Default Switch 互通，<code>ssh ubsrv</code> 一键直达。</p>
+
+  </div>
+
+  <!-- 上下篇导航 -->
+  <nav class="post-nav">
+    
+    
+      <a href="/2026/07/22/7-22-surpass/" class="post-nav-link post-nav-next">
+        <span class="nav-label">Next →</span>
+        <span class="nav-title">7/22 超越 — 插班生备考全记录</span>
+      </a>
+    
+  </nav>
+</article>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-quote" id="footer-quote"></p>
+      <p class="footer-copy">&copy; 2026 JimmyDaily. Built with Spider-Sense.</p>
+    </div>
+  </footer>
+
+  <!-- 音乐播放器 -->
+  <div class="music-player" id="music-player">
+    <audio id="bg-music" loop preload="none">
+      <source src="/music/Janet-ampoff.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-btn" aria-label="Toggle background music">♪</button>
+    <div class="music-info" id="music-info">
+      <span class="music-title">Janet</span>
+      <span class="music-status">paused</span>
+    </div>
+  </div>
+
+  <!-- 回到顶部 -->
+  <button id="back-top" class="back-top-btn" aria-label="Back to top">↑</button>
+
+  <script src="/js/glitch.js"></script>
+  <script src="/js/drip.js"></script>
+  <script src="/js/mandala.js"></script>
+  <script src="/js/trail.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
