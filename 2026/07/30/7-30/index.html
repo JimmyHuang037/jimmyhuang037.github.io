@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hexo | 7/30 Database Backup System &amp; Production Deployment</title>
+  <title>Hexo | 7/30 Database Backup &amp; Production Deployment</title>
   <link rel="stylesheet" href="/css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Space+Grotesk:wght@400;700;900&family=Caveat:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 <meta name="generator" content="Hexo 7.3.0"></head>
@@ -78,13 +78,13 @@
     <!-- 文章页 -->
 
 
-<article class="post-article style-mandala" data-style="mandala">
+<article class="post-article style-popart" data-style="popart">
   <header class="post-header">
     <div class="post-meta-line">
       <time class="post-date">2026-07-30</time>
-      <span class="post-reading">2 min read</span>
+      <span class="post-reading">5 min read</span>
     </div>
-    <h1 class="post-title">7/30 Database Backup System &amp; Production Deployment</h1>
+    <h1 class="post-title">7/30 Database Backup &amp; Production Deployment</h1>
     <div class="post-tags">
       
         
@@ -108,47 +108,89 @@
 <li>备份文件 gzip 压缩，存放在 <code>db/backups/</code></li>
 <li>自动清理超过 7 天的旧备份</li>
 <li>crontab 凌晨 3:00 自动执行，无需人工干预</li>
-<li>恢复操作有交互确认，防止误覆盖</li>
 </ul>
 <p>实测两套环境各 92K，备份秒级完成。</p>
-<h2 id="生产环境部署到-jimmyuser2"><a href="#生产环境部署到-jimmyuser2" class="headerlink" title="生产环境部署到 jimmyuser2"></a>生产环境部署到 jimmyuser2</h2><p>VM 角色重新划分：</p>
-<table>
+<h2 id="生产环境部署"><a href="#生产环境部署" class="headerlink" title="生产环境部署"></a>生产环境部署</h2><p>把 MFS 推上了生产，跑在 jimmyuser2 VM（Ubuntu 25.04, 2G RAM），通过 cpolar 暴露公网。</p>
+<h3 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cpolar (公网穿透, HTTPS)</span><br><span class="line">  └── Nginx (:80) ← mfs-prod-web</span><br><span class="line">        └── /api → Gunicorn (:5000) ← mfs-prod-api</span><br><span class="line">                          └── MySQL 8.0 (:3306) ← mfs-prod-mysql</span><br></pre></td></tr></table></figure>
+
+<p>3 个 Docker 容器，<code>docker-compose.prod.yml</code> 编排。生产机上<strong>没有源码</strong>，只有镜像 + compose + .env + 初始化 SQL。</p>
+<h3 id="Build-→-Ship-→-Run"><a href="#Build-→-Ship-→-Run" class="headerlink" title="Build → Ship → Run"></a>Build → Ship → Run</h3><p>不在生产机 git clone 整个仓库（里面有 dev&#x2F;test&#x2F;prod 三套配置 + 源码 + e2e 测试），采用镜像交付：</p>
+<ol>
+<li><strong>Build</strong>：jimmyuser1（开发机）<code>docker compose build --no-cache api web</code></li>
+<li><strong>Ship</strong>：<code>docker save | ssh prod &#39;docker load&#39;</code> 管道直传，不落盘</li>
+<li><strong>Run</strong>：<code>docker compose up -d</code></li>
+</ol>
+<p>生产机文件结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~/mfs-prod/</span><br><span class="line">├── docker-compose.yml   # image: 引用，无 build</span><br><span class="line">├── .env                 # MYSQL_ROOT_PASSWORD</span><br><span class="line">└── db/</span><br><span class="line">    ├── students_db.sql</span><br><span class="line">    └── seed_data.sql</span><br></pre></td></tr></table></figure>
+
+<h3 id="一键部署命令"><a href="#一键部署命令" class="headerlink" title="一键部署命令"></a>一键部署命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh ubsrv <span class="string">&quot;cd ~/mfs &amp;&amp; \</span></span><br><span class="line"><span class="string">  docker compose -f docker-compose.prod.yml build --no-cache api web &amp;&amp; \</span></span><br><span class="line"><span class="string">  docker save mfs-prod-api mfs-prod-web | ssh prod &#x27;docker load&#x27; &amp;&amp; \</span></span><br><span class="line"><span class="string">  ssh prod &#x27;cd ~/mfs-prod &amp;&amp; docker compose up -d&#x27;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>jimmyuser1 → jimmyuser2 已配好 SSH 免密（别名 <code>prod</code>）。</p>
+<h2 id="cpolar-公网穿透"><a href="#cpolar-公网穿透" class="headerlink" title="cpolar 公网穿透"></a>cpolar 公网穿透</h2><p>VM 在 Hyper-V 内网（172.30.x.x），没有公网 IP，用 cpolar 做隧道：</p>
+<ul>
+<li>cpolar 3.3.12，systemd 持久化，开机自启</li>
+<li>免费版：URL 每次重启随机分配，带宽 1Mbps，个人用够</li>
+<li>执行方式：<code>cpolar http 80 -dashboard=on</code>（不是 yml 配置隧道，免费版不支持）</li>
+</ul>
+<h2 id="VM-分工定型"><a href="#VM-分工定型" class="headerlink" title="VM 分工定型"></a>VM 分工定型</h2><table>
 <thead>
 <tr>
 <th>VM</th>
-<th>角色</th>
+<th>用途</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>ubuntuserver (jimmy)</td>
-<td>写博客 + Qwen Code</td>
+<td>写博客、跑 Qwen Code</td>
 </tr>
 <tr>
 <td>ubsrv (jimmyuser1)</td>
-<td>开发 + 测试</td>
+<td>开发环境，改代码、跑测试、构建镜像</td>
 </tr>
 <tr>
 <td>jimmyuser2</td>
-<td><strong>生产环境</strong></td>
+<td>生产环境，Docker 3 容器 + cpolar</td>
 </tr>
 </tbody></table>
-<p>prod 三件套（MySQL 8.0 + Flask API + Angular&#x2F;Nginx）已在 jimmyuser2 以 Docker 容器运行。</p>
-<h2 id="cpolar-公网穿透"><a href="#cpolar-公网穿透" class="headerlink" title="cpolar 公网穿透"></a>cpolar 公网穿透</h2><p>最终方案：cpolar 二进制 + systemd 服务（放弃了 Docker 容器方式，因为 jimmyuser2 拉不到 Docker Hub 镜像）。</p>
-<ul>
-<li>cpolar 3.3.12，从本机下载 scp 过去绕过网络限制</li>
-<li>systemd 管理，<code>Restart=always</code> 开机自启</li>
-<li>隧道 <code>mfs-web</code> → 端口 80，暴露 prod 前端到公网</li>
-</ul>
-<h2 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h2><ul>
-<li>Docker Hub 在 jimmyuser2 上完全不通（GFW），alpine 镜像都拉不到</li>
-<li>cpolar.com 在 jimmyuser2 上也超时，只能本机下载再 scp</li>
-<li>sudo + heredoc 通过 SSH 执行时管道会冲突，改用 printf &gt; tmpfile 再 cp 的方式解决</li>
-<li>cpolar 本地 API（9200&#x2F;4042）在 systemd 模式下不开放，公网地址需要去 dashboard.cpolar.com 查看</li>
-</ul>
-<h2 id="Next-Steps"><a href="#Next-Steps" class="headerlink" title="Next Steps"></a>Next Steps</h2><ul>
-<li>确认 cpolar 公网 URL 可正常访问 prod 前端</li>
-<li>后续考虑买域名 + Oracle Cloud 免费 VPS 替代 cpolar（带宽和稳定性更好）</li>
-</ul>
+<h2 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h2><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>原因</th>
+<th>解决</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Docker 官方源装不上</td>
+<td>download.docker.com 被墙</td>
+<td>Ubuntu 自带 <code>docker.io</code> 包</td>
+</tr>
+<tr>
+<td>新功能没上生产</td>
+<td>Docker build 缓存，<code>COPY . .</code> 层未更新</td>
+<td><code>--no-cache</code> 强制全量构建</td>
+</tr>
+<tr>
+<td>jimmyuser1 连不上 jimmyuser2</td>
+<td>DHCP 重启后 IP 变了</td>
+<td>SSH config 别名 + 更新 IP</td>
+</tr>
+<tr>
+<td>cpolar 隧道不启动</td>
+<td>systemd 跑 <code>start-all</code> 但免费版不支持 yml 隧道配置</td>
+<td>改 ExecStart 为 <code>cpolar http 80</code></td>
+</tr>
+<tr>
+<td>sudo + heredoc SSH 执行失败</td>
+<td>管道和 heredoc 冲突</td>
+<td>printf &gt; tmpfile 再 sudo cp</td>
+</tr>
+<tr>
+<td>cpolar.com 下载超时</td>
+<td>GFW</td>
+<td>本机下载 scp 过去</td>
+</tr>
+</tbody></table>
 
   </div>
 
