@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hexo | 9/19</title>
+  <title>Hexo</title>
   <link rel="stylesheet" href="/css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Space+Grotesk:wght@400;700;900&family=Caveat:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 <meta name="generator" content="Hexo 7.3.0"></head>
 
-<body class="post-page">
+<body class="-page">
   <!-- Canvas 动效层 -->
   <canvas id="glitch-canvas" class="bg-canvas"></canvas>
   <canvas id="drip-canvas" class="bg-canvas"></canvas>
@@ -75,52 +75,17 @@
 
   <!-- 主内容 -->
   <main class="main-content">
-    <!-- 文章页 -->
-
-
-<article class="post-article style-comic" data-style="comic">
-  <header class="post-header">
-    <div class="post-meta-line">
-      <time class="post-date">2025-09-20</time>
-      <span class="post-reading">2 min read</span>
-    </div>
-    <h1 class="post-title">9/19</h1>
-    <div class="post-tags">
-      
-        
-          <span class="tag-badge">debug, python</span>
-        
-      
-    </div>
-  </header>
-
-  <div class="post-content">
-    <h1 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h1><h2 id="第一步-找错"><a href="#第一步-找错" class="headerlink" title="第一步 找错"></a>第一步 找错</h2><p>test curl全部运行——51pass 1 error——test_01_get_grades 错误</p>
-<h2 id="第二步-定位"><a href="#第二步-定位" class="headerlink" title="第二步 定位"></a>第二步 定位</h2><h3 id="step1："><a href="#step1：" class="headerlink" title="step1："></a>step1：</h3><p>shift ctrl f：test_01_get_grades —— 定位到test_01_get_grades函数 打断点<br>再运行 不停（——应该看python debug console “2025-09-19 21:44:45,078 INFO app.factory Query <font color="red">result: None”</font>即<strong>数据没从后端传进db</strong> ，可能导入到开发db了）</p>
-<h3 id="step2："><a href="#step2：" class="headerlink" title="step2："></a>step2：</h3><p>“”POST &#x2F;api&#x2F;auth&#x2F;login HTTP&#x2F;1.1” 401 -”在此目录下找登录认证逻辑函数login（）——打断点、print（“test123”）——bash没反应——再f11单步</p>
-<h3 id="step3："><a href="#step3：" class="headerlink" title="step3："></a>step3：</h3><p>右边看变量<br>eg.        start_time &#x3D; time.time()<br>        data &#x3D; request.get_json()<br>        user_id &#x3D; data.get(‘user_id’)<br>        password &#x3D; data.get(‘password’)<br>右边》监视》添加表达式 data和user_id和password<br>在单步到db_service.close()处，f10逐过程</p>
-<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>找到是curl cmd后面一行，print f学生登录失败之前，打断点，同时result前写print（startlogin）&#x2F;后写(endlogin)，（result）——是变量</p>
-<h1 id="提炼总结"><a href="#提炼总结" class="headerlink" title="提炼总结"></a>提炼总结</h1><p>利用ctrl f全局，文件，终端，搜索中文、正则表达式<br>监视变量，出现None大概率有问题</p>
-<p>ps：student endpoint 测试api不全<br>开发5000，测试5010,<br>测试代码走不到 blueprint 设不了断点——修改——开发测试统一端口5000，db分类</p>
-
+    <section class="tag-page style-punk">
+  <h1 class="tag-page-title">Tag: bugfix</h1>
+  <div class="tag-post-list">
+    
+      <div class="tag-post-item">
+        <time class="tag-post-date">2026-07-30</time>
+        <a href="/2026/07/30/7-30/" class="tag-post-link">7/30 Database Backup &amp; Production Deployment &amp; Teacher Stats Fix</a>
+      </div>
+    
   </div>
-
-  <!-- 上下篇导航 -->
-  <nav class="post-nav">
-    
-      <a href="/2025/09/24/9-24/" class="post-nav-link post-nav-prev">
-        <span class="nav-label">← Previous</span>
-        <span class="nav-title">9/24</span>
-      </a>
-    
-    
-      <a href="/2025/09/19/9-18/" class="post-nav-link post-nav-next">
-        <span class="nav-label">Next →</span>
-        <span class="nav-title">9/18</span>
-      </a>
-    
-  </nav>
-</article>
+</section>
   </main>
 
   <!-- 页脚 -->

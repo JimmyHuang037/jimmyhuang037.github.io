@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hexo | 7/30 Database Backup &amp; Production Deployment</title>
+  <title>Hexo | 7/30 Database Backup &amp; Production Deployment &amp; Teacher Stats Fix</title>
   <link rel="stylesheet" href="/css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Space+Grotesk:wght@400;700;900&family=Caveat:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 <meta name="generator" content="Hexo 7.3.0"></head>
@@ -78,15 +78,17 @@
     <!-- 文章页 -->
 
 
-<article class="post-article style-popart" data-style="popart">
+<article class="post-article style-watercolor" data-style="watercolor">
   <header class="post-header">
     <div class="post-meta-line">
       <time class="post-date">2026-07-30</time>
-      <span class="post-reading">5 min read</span>
+      <span class="post-reading">7 min read</span>
     </div>
-    <h1 class="post-title">7/30 Database Backup &amp; Production Deployment</h1>
+    <h1 class="post-title">7/30 Database Backup &amp; Production Deployment &amp; Teacher Stats Fix</h1>
     <div class="post-tags">
       
+        
+          <span class="tag-badge">angular</span>
         
           <span class="tag-badge">docker</span>
         
@@ -95,6 +97,10 @@
           <span class="tag-badge">devops</span>
         
           <span class="tag-badge">fullstack</span>
+        
+          <span class="tag-badge">flask</span>
+        
+          <span class="tag-badge">bugfix</span>
         
       
     </div>
@@ -191,6 +197,18 @@
 <td>本机下载 scp 过去</td>
 </tr>
 </tbody></table>
+<h2 id="老师端统计-Tab-数据修复"><a href="#老师端统计-Tab-数据修复" class="headerlink" title="老师端统计 Tab 数据修复"></a>老师端统计 Tab 数据修复</h2><p>老师端”班级统计”和”同科对比”两个 Tab 只有框架没有数据，定位并修复。</p>
+<p><strong>根因</strong>：前端 <code>getLatestDate()</code> 传当天日期（2026-07-30），但 DB 里 <code>exam_date</code> 是数据生成时的日期（2026-02 ~ 05）。<code>WHERE exam_date = &#39;2026-07-30&#39;</code> 匹配不到任何记录。</p>
+<p><strong>修复</strong>：</p>
+<ul>
+<li>后端新增 <code>resolve_exam_date()</code>，<code>exam_date</code> 改为可选，不传时自动 <code>SELECT MAX(exam_date) WHERE type = ?</code></li>
+<li>前端去掉 <code>getLatestDate()</code>，只传 <code>type</code></li>
+</ul>
+<p>4 个统计接口验证通过：班级排名、分数段、各科前三、同科对比。</p>
+<h2 id="全量代码推送-GitHub"><a href="#全量代码推送-GitHub" class="headerlink" title="全量代码推送 GitHub"></a>全量代码推送 GitHub</h2><p>把 ubsrv 上积累的所有改动同步回 git 仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">197 files changed, +22,310 / -702</span><br><span class="line">a231c9d..628e11d  main -&gt; main</span><br></pre></td></tr></table></figure>
+
+<p>Docker 三环境、赋分制、老师端四 Tab、API 蓝图重组等一次性全部推上去了。</p>
 
   </div>
 
