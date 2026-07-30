@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hexo</title>
+  <title>Hexo | 7/30 Database Backup System &amp; Production Deployment</title>
   <link rel="stylesheet" href="/css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Space+Grotesk:wght@400;700;900&family=Caveat:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 <meta name="generator" content="Hexo 7.3.0"></head>
 
-<body class="-page">
+<body class="post-page">
   <!-- Canvas 动效层 -->
   <canvas id="glitch-canvas" class="bg-canvas"></canvas>
   <canvas id="drip-canvas" class="bg-canvas"></canvas>
@@ -75,62 +75,94 @@
 
   <!-- 主内容 -->
   <main class="main-content">
-    <section class="archive-page style-futuristic">
-  <h1 class="archive-title">Archive</h1>
-  <div class="archive-timeline">
-    
-      <div class="archive-item">
-        <time class="archive-date">2026-07-30</time>
-        <a href="/2026/07/30/7-30/" class="archive-link">7/30 Database Backup System &amp; Production Deployment</a>
-      </div>
-    
-      <div class="archive-item">
-        <time class="archive-date">2026-07-29</time>
-        <a href="/2026/07/29/7-29/" class="archive-link">7/29 New Hyper-V VM + Docker Containers</a>
-      </div>
-    
-      <div class="archive-item">
-        <time class="archive-date">2026-07-22</time>
-        <a href="/2026/07/22/7-22-surpass/" class="archive-link">7/22 超越 — 插班生备考全记录</a>
-      </div>
-    
-      <div class="archive-item">
-        <time class="archive-date">2026-07-22</time>
-        <a href="/2026/07/22/7-22/" class="archive-link">7/22 MFS 数据库重构 + 学习建议引擎</a>
-      </div>
-    
-      <div class="archive-item">
-        <time class="archive-date">2026-07-07</time>
-        <a href="/2026/07/07/7-7/" class="archive-link">7/7</a>
-      </div>
-    
-      <div class="archive-item">
-        <time class="archive-date">2025-11-24</time>
-        <a href="/2025/11/24/11-24/" class="archive-link">11/24</a>
-      </div>
-    
-      <div class="archive-item">
-        <time class="archive-date">2025-11-11</time>
-        <a href="/2025/11/11/11-11/" class="archive-link">11/11</a>
-      </div>
-    
-      <div class="archive-item">
-        <time class="archive-date">2025-11-04</time>
-        <a href="/2025/11/04/11-4/" class="archive-link">11/4</a>
-      </div>
-    
-      <div class="archive-item">
-        <time class="archive-date">2025-11-03</time>
-        <a href="/2025/11/03/11-3/" class="archive-link">11/3</a>
-      </div>
-    
-      <div class="archive-item">
-        <time class="archive-date">2025-10-18</time>
-        <a href="/2025/10/18/10-18/" class="archive-link">10/18</a>
-      </div>
-    
+    <!-- 文章页 -->
+
+
+<article class="post-article style-mandala" data-style="mandala">
+  <header class="post-header">
+    <div class="post-meta-line">
+      <time class="post-date">2026-07-30</time>
+      <span class="post-reading">2 min read</span>
+    </div>
+    <h1 class="post-title">7/30 Database Backup System &amp; Production Deployment</h1>
+    <div class="post-tags">
+      
+        
+          <span class="tag-badge">docker</span>
+        
+          <span class="tag-badge">database</span>
+        
+          <span class="tag-badge">devops</span>
+        
+          <span class="tag-badge">fullstack</span>
+        
+      
+    </div>
+  </header>
+
+  <div class="post-content">
+    <h2 id="数据库自动备份系统"><a href="#数据库自动备份系统" class="headerlink" title="数据库自动备份系统"></a>数据库自动备份系统</h2><p>给 MFS 项目加了一套完整的数据库备份&#x2F;恢复方案：</p>
+<ul>
+<li><code>scripts/db-backup.sh</code> — 通过 SSH 远程备份 ubsrv 上的 MySQL（dev + test 两套）</li>
+<li>支持 backup &#x2F; restore &#x2F; list &#x2F; cron 四个子命令</li>
+<li>备份文件 gzip 压缩，存放在 <code>db/backups/</code></li>
+<li>自动清理超过 7 天的旧备份</li>
+<li>crontab 凌晨 3:00 自动执行，无需人工干预</li>
+<li>恢复操作有交互确认，防止误覆盖</li>
+</ul>
+<p>实测两套环境各 92K，备份秒级完成。</p>
+<h2 id="生产环境部署到-jimmyuser2"><a href="#生产环境部署到-jimmyuser2" class="headerlink" title="生产环境部署到 jimmyuser2"></a>生产环境部署到 jimmyuser2</h2><p>VM 角色重新划分：</p>
+<table>
+<thead>
+<tr>
+<th>VM</th>
+<th>角色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ubuntuserver (jimmy)</td>
+<td>写博客 + Qwen Code</td>
+</tr>
+<tr>
+<td>ubsrv (jimmyuser1)</td>
+<td>开发 + 测试</td>
+</tr>
+<tr>
+<td>jimmyuser2</td>
+<td><strong>生产环境</strong></td>
+</tr>
+</tbody></table>
+<p>prod 三件套（MySQL 8.0 + Flask API + Angular&#x2F;Nginx）已在 jimmyuser2 以 Docker 容器运行。</p>
+<h2 id="cpolar-公网穿透"><a href="#cpolar-公网穿透" class="headerlink" title="cpolar 公网穿透"></a>cpolar 公网穿透</h2><p>最终方案：cpolar 二进制 + systemd 服务（放弃了 Docker 容器方式，因为 jimmyuser2 拉不到 Docker Hub 镜像）。</p>
+<ul>
+<li>cpolar 3.3.12，从本机下载 scp 过去绕过网络限制</li>
+<li>systemd 管理，<code>Restart=always</code> 开机自启</li>
+<li>隧道 <code>mfs-web</code> → 端口 80，暴露 prod 前端到公网</li>
+</ul>
+<h2 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h2><ul>
+<li>Docker Hub 在 jimmyuser2 上完全不通（GFW），alpine 镜像都拉不到</li>
+<li>cpolar.com 在 jimmyuser2 上也超时，只能本机下载再 scp</li>
+<li>sudo + heredoc 通过 SSH 执行时管道会冲突，改用 printf &gt; tmpfile 再 cp 的方式解决</li>
+<li>cpolar 本地 API（9200&#x2F;4042）在 systemd 模式下不开放，公网地址需要去 dashboard.cpolar.com 查看</li>
+</ul>
+<h2 id="Next-Steps"><a href="#Next-Steps" class="headerlink" title="Next Steps"></a>Next Steps</h2><ul>
+<li>确认 cpolar 公网 URL 可正常访问 prod 前端</li>
+<li>后续考虑买域名 + Oracle Cloud 免费 VPS 替代 cpolar（带宽和稳定性更好）</li>
+</ul>
+
   </div>
-</section>
+
+  <!-- 上下篇导航 -->
+  <nav class="post-nav">
+    
+    
+      <a href="/2026/07/29/7-29/" class="post-nav-link post-nav-next">
+        <span class="nav-label">Next →</span>
+        <span class="nav-title">7/29 New Hyper-V VM + Docker Containers</span>
+      </a>
+    
+  </nav>
+</article>
   </main>
 
   <!-- 页脚 -->
